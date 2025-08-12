@@ -1,0 +1,54 @@
+{
+  "signatures": [
+    {
+      "name": "backdoor.curl.002",
+      "cleanup_pattern": "~\\{\\{\\s*var this\\.getTem[\\w%]+ter\\(\\)\\.add[\\w%]+Callback\\((system|shell_exec)\\)\\.[Ff]ilter\\([^\\)]*\\bcurl\\$\\{IFS%\\?\\?\\}-[^\\)]+\\.php[^\\)]+\\)\\}\\}~",
+      "triggers": [
+        "AfterFilterCallbac"
+      ],
+      "full_chain": [
+        "AfterFilterCallbac",
+        "curl${IFS%??}-"
+      ]
+    },
+    {
+      "name": "injected.balada.009",
+      "cleanup_pattern": "~eval\\(atob\\('dmFyIGQ9ZG9jdW1lbnQ7dmFyIHM9ZC5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTtzLnNyYz0naHR0cHM6[\\w\\+\\/]+'\\)\\)~",
+      "triggers": [
+        "atob",
+        "eval",
+        "eval(atob("
+      ],
+      "full_chain": [
+        "atob",
+        "eval",
+        "eval(atob(",
+        "eval(atob("
+      ]
+    },
+    {
+      "name": "injected.spam-seo_porn.012",
+      "cleanup_pattern": "spam_link_text",
+      "triggers": [
+        "porn"
+      ],
+      "full_chain": [
+        "porn",
+        "japan porn"
+      ]
+    },
+    {
+      "name": "malware.cryptominer.013.03",
+      "cleanup_pattern": "~EverythingIsLife\\(\\W+\\w{95}\\W+,\\s*[\\w'\\\\]+,[\\s\\d]+\\);~",
+      "triggers": [
+        "<script",
+        "EverythingIsLife("
+      ],
+      "full_chain": [
+        "<script",
+        "EverythingIsLife(",
+        "~EverythingIsLife\\(\\W+\\w{95}\\W~"
+      ]
+    }
+  ]
+}

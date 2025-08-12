@@ -1,0 +1,1204 @@
+=============================
+DB Cleanup Constant Variables
+=============================
+
+define('CLEAR_COLUMN', '~^.*$~s');
+
+'script_src'		=> '~<(script|iframe)\\s[^<>]*?src\\s*=\\s*["\']?[^<>]*?<TRIGGER>[^<>]+?>[^<>]*?<\\\?\\/(script|iframe)>~i'
+'spam_link'		=> '~<a\\s[^<>]*?href\\s*=\\s*["\']?[^<>]*?<TRIGGER>[^<>]+?>[^<>]*?</a>~i'
+'spam_link_text'	=> '~<[aA] [^>]+>[^>]*<TRIGGER>[^>]*<.[aA]>~i'
+======================================================================
+
+==============
+Signature List
+==============
+
+Signature Name: backdoor.curl.002
+Cleanup Pattern: ~\{\{\s*var this\.getTem[\w%]+ter\(\)\.add[\w%]+Callback\((system|shell_exec)\)\.[Ff]ilter\([^\)]*\bcurl\$\{IFS%\?\?\}-[^\)]+\.php[^\)]+\)\}\}~
+Triggers: ['AfterFilterCallbac']
+Full Chain: ['AfterFilterCallbac', 'curl${IFS%??}-']
+
+Signature Name: backdoor.eval.001
+Cleanup Pattern: ~\[<a title="\]" rel="nofollow"><\/a>\[\S+ <!-- style=\W*\S+\s+onmouseover=.eval\(atob\(\W+dmFyIHggPSBkb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgiYSI[^\);\s]+\)\)['"]\s*&gt;[^<]+<a><\/a>\]~
+Triggers: ['eval(']
+Full Chain: ['eval(', 'onmouseover="eval(atob(']
+
+Signature Name: backdoor.eval.009
+Cleanup Pattern: ~eval\(base64_decode\(.JEJP[^;]+\);~
+Triggers: ['eval(', 'base64_decode', 'eval(base64_decode']
+Full Chain: ['eval(', 'base64_decode', 'eval(base64_decode', 'ZWQoJEJPT1RfTkFNRSkpe31kZWZpbmUoJEJPT1RfTkFNRSwnMScpO3NldF90aW']
+
+Signature Name: backdoor.eval_base64.022
+Cleanup Pattern: ~eval\(atob\(.ZnVu[^\)]+[\);]+~
+Triggers: ['eval(']
+Full Chain: ['eval(', 'eval(atob('ZnVuY3Rpb24gc3RhcnQoKSB7CiAgIC']
+
+Signature Name: backdoor.eval_base64.024
+Cleanup Pattern: ~CgppZighZGVmaW5lZCgnRE9MTFlfV0FZ[^\s]*~
+Triggers: ['ZX']
+Full Chain: ['ZX', 'CgppZighZGVmaW5lZCgnRE9MTFlfV0FZ']
+
+Signature Name: backdoor.evalphp.004
+Cleanup Pattern: ~\[evalphp\]\s*system\s*\(.echo [^\),\|"']+\|\s*base64\s+-d\s*\|\s*tee \w+\.php["']\);\s*\[\/evalphp\]~
+Triggers: ['base64', '[evalphp]']
+Full Chain: ['base64', '[evalphp]', '[evalphp]system ('echo ']
+
+Signature Name: backdoor.magento_template.001
+Cleanup Pattern: ~(error\{\{|sys\{\{|\{\{var[\s]*)?(if[\s]*)?this\.getTemp[^\}\/]+FilterCall[^\(,\.\{]+\(base64_decode.\.add(%00)?\w*AfterFilterCall[^\(,\.\{]+k\(system..Filter.Y2[\w\/\+=-]+(\)\}\}[\w]+\{\{.if\}\}|\)\}\})?~
+Triggers: ['AfterFilterCallbac', 'k(base64_decode)']
+Full Chain: ['AfterFilterCallbac', 'k(base64_decode)', 'k(system).Filter(Y2Qgc']
+
+Signature Name: backdoor.magento_template.002
+Cleanup Pattern: ~if this.getT[^\}\/]+FilterCallback.base64_decode.\.add(%00)?\w*AfterFilterCallback.(system|unserialize)..Filter\(\w[^\)\}]+\)~
+Triggers: ['AfterFilterCallbac', 'k(base64_decode)']
+Full Chain: ['AfterFilterCallbac', 'k(base64_decode)', '~if this.getT[^\}\/]+FilterCallback.base64_decode.\.add(%00)?\w*AfterFilterCallback.(system|unserialize)..Filter~']
+
+Signature Name: backdoor.obfuscated.003
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['tmp']
+Full Chain: ['tmp', '3c3f706870202470706f7374653d247468656d65735f637373']
+
+Signature Name: hacktool.cc-stealer.080
+Cleanup Pattern: ~(<script[^>]*>)?(&lt;script&gt;)?\(function\(i,s,o,g,r,a,m\W+i\[\W+[gG][^<>\{]+indexOf.i\.atob\(\w\)[^<}]+atob\(\w\)[^<{&]+\(window,\s*document,\W*['"]\w[^<\);\{]+,\W*['"]g\w\W+\);?(?(2)&lt;\/script&gt;)(?(1)<\/script>)~
+Triggers: ['function', 'atob', '(function(i,s,o,g,r,a,m)']
+Full Chain: ['function', 'atob', '(function(i,s,o,g,r,a,m)', '.getElementsByTagName(g)[0];if(i.location']
+
+Signature Name: hacktool.cc-stealer.165
+Cleanup Pattern: ~var \w\w+\s*=\s*["'][^"'\n]{200,}["'];\s*var \w\w+\s*=\d\d[;,]([^<]+<[^\/])*[^<]+\+=String\.fromCharCode\(\(\(parseInt\(\w+[^<>]+Function[^<{\s]*\(\w+\).call\(\);(\},\w+\);)?~
+Triggers: ['fromCharCode']
+Full Chain: ['fromCharCode', '+=String.fromCharCode(((parseInt(']
+
+Signature Name: hacktool.cc-stealer.178.07
+Cleanup Pattern: ~(<script[^>]*>\s*)?if\(location\.\w+\.includes\(atob\(.Y2hlY2tvdXQ\W+fetch\(atob\([^<]+appendChild\(\w\);\}\)\);\}(document.getE[^<\.]+\.remove\(\))?(?(1)\s*<\/script>)~
+Triggers: ['document', '.appendChild(', 'document.createElement', 'atob', 'Y2hlY2tvdXQ']
+Full Chain: ['document', '.appendChild(', 'document.createElement', 'atob', 'Y2hlY2tvdXQ', '~if\(location\.\w+\.includes\(atob\(.Y2hlY2tvdXQ~']
+
+Signature Name: hacktool.cc-stealer.200
+Cleanup Pattern: ~<script[^>]*>\s*(document.addEventListener\(.DOMContentLoaded., function\(\)\{\s*)?\(\((\w,){4,}\w\)\s*=>\s*\{if\(\w\.location\.href\.indexOf\(atob\(\w\)\)[^<]+\(window,document,[^\)\<]+aHR0c[^\)<]+['"]\)\W*<\/script>~
+Triggers: ['<script', 'createElement', '.createElement(', 'atob', 'aHR0c']
+Full Chain: ['<script', 'createElement', '.createElement(', 'atob', 'aHR0c', ') => {if(g.location.href.indexOf(atob']
+
+Signature Name: hacktool.cc-stealer.216.04
+Cleanup Pattern: ~(<script[^>]*>)?const \w\w+\s*=\s*\[(\d+,)+\d+\];[^\(\<]+new WebSocket\(String\.fromCharCode\(\.\.\.\w+\.map\([^<\)]+\^[^<\}]+, event => \{new Function\(event\.data\)\(\)\}\);(?(1)<\/script>)~
+Triggers: ['<script', 'fromCharCode', 'String.fromCharCode', 'String.fromCharCode(...']
+Full Chain: ['<script', 'fromCharCode', 'String.fromCharCode', 'String.fromCharCode(...', 'new WebSocket(String.fromCharCode(...']
+
+Signature Name: hacktool.cc-stealer.222
+Cleanup Pattern: ~<script[^>]*>\(function\(_0x\w+,_0x\w+\)\{var _0x\w+=_0x\w+\(\);function _0x([^<]+<.([^s]|s[^c]))+[^<]+','cvc',([^<]+<.([^s]|s[^c]))+[^<]+<\/script>~
+Triggers: ['<script', 'function', 'function(_0x', '22paym', ''__ffs']
+Full Chain: ['<script', 'function', 'function(_0x', '22paym', ''__ffs', '>(function(_0x28625b,_0x27733f){']
+
+Signature Name: hacktool.cc-stealer.237
+Cleanup Pattern: ~(<script[^>]*>\s*)?var \w\d+ = ["']\w+["'];var \w\d+=\d+;[^<>&]+(<|&lt;)\w\d[^<>&]+(>|&gt;)\w\d[^<>&]+fromCharCode\W+parseInt[^<>]+\^\w\d[^<\s]+Function\W*\(\w\d+\)\s*\[["']c["'al\+]+\]\(\);\s*(?(1)<\/script>)~
+Triggers: ['fromCharCode', 'Function', '].substring(']
+Full Chain: ['fromCharCode', 'Function', '].substring(', '~Function\W*\(\w\d\d\d+\)\s*\[["']c["'al\+]+\]\(\);~']
+
+Signature Name: hacktool.cc-stealer.241
+Cleanup Pattern: ~(<script[^>]*>)?\s*(let isChecked\s*=\s*localStorage.getItem\(.already_checked.\);|\(async\s*\(\)\s*=>\s*\{)[^<\}]+let url\d+\s*=\s*.https:\/\/[^\/;]+\/api\/accept-car.;[^<]+let urlInclude[^<]+\+=\s*`\s*(<style>|\|\$\{document|<div>)[^`]+`;?\s*(frame|addrData|\/\/ if)([^<]+<[^\/])*[^<]+[1,2]000\);?(\s*console.log\([^\)]+\))?\W*(?(1)<\/script>)~
+Triggers: ['document', 'window', 'window.location', '/api/accept-car']
+Full Chain: ['document', 'window', 'window.location', '/api/accept-car', 'urlInclude']
+
+Signature Name: injected.balada.001
+Cleanup Pattern: ~(<script[^>]*>)?(var \w+\s*=\s*String;[^\(\{<]*)?(eval\(([\d\?\/\*]+)?\w+\.fromCharCode\([\d\s,]+\)+;?|\w+\.fromCharCode\([\d,]+\);[\s\d\/\*\\]*eval\([\w\/\*\\]+\);?)(\/\*\w+\*\/)?(?(1)<\/script>)~
+Triggers: ['eval(', 'fromCharCode', '46,115,114,99,', '46,112,97,114,101,110,116,78,111,100,101,46,105,110,115,101,114,116,66,101,102,111,114,101,40']
+Full Chain: ['eval(', 'fromCharCode', '46,115,114,99,', '46,112,97,114,101,110,116,78,111,100,101,46,105,110,115,101,114,116,66,101,102,111,114,101,40', '~46,99,114,101,97,116,101,69,108,101,109,101,110,116,40,(39,115,99,114,105,112,116,39,41,59|83,116,114,105,110,103,46,)~']
+
+Signature Name: injected.balada.002
+Cleanup Pattern: ~eval\(String.fromCharCode\(118, 97, 114, 32,[\d, ]{230,}46, 106, 115, 34, 59, 32, 100, 111, 99, 117, 109, 101, 110, 116, 46, 104, 101, 97, 100, 46, 97, 112, 112[\d, ]{20,120}\)\)~
+Triggers: ['eval(', 'fromCharCode', '"eval(String.fromCharCode(118, 97, 114, 32, ']
+Full Chain: ['eval(', 'fromCharCode', '"eval(String.fromCharCode(118, 97, 114, 32, ', '46, 106, 115, 34, 59, 32, 100, 111, 99, 117, 109, 101, 110, 116, 46, 104, 101, 97, 100, 46, 97, 112, 112, 101, 110, 100, 67, 104, 105, 108, 100, 40']
+
+Signature Name: injected.balada.008
+Cleanup Pattern: ~var \w{3,20}\/\*\w+\*\/=\/\*\w+\*\/eval;\/\*\w+\*\/var \w+\/\*\w+\*\/=\/\*\w+\*\/atob;[^\}\(]+\w\(\w+\((&quot;|")\w(&quot;|")\+[\/\+\*\w&;"]+\)\);~
+Triggers: ['atob', 'eval', '*/eval;/*']
+Full Chain: ['atob', 'eval', '*/eval;/*', '~\*\/eval;\/\*\w+\*\/var \w+\/\*\w+\*\/=\/\*\w+\*\/atob;\w~']
+
+Signature Name: injected.balada.009
+Cleanup Pattern: ~eval\(atob\('dmFyIGQ9ZG9jdW1lbnQ7dmFyIHM9ZC5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTtzLnNyYz0naHR0cHM6[\w\+\/]+'\)\)~
+Triggers: ['atob', 'eval', 'eval(atob(']
+Full Chain: ['atob', 'eval', 'eval(atob(', 'eval(atob('dmFyIGQ9ZG9jdW1lbnQ7dmFyIHM9ZC5jcmVhdGVFbGVtZW50KCJzY3JpcHQiKTtzLnNyYz0naHR0cHM6']
+
+Signature Name: injected.balada.010
+Cleanup Pattern: ~<script[^>]*>eval\(atob\(String.fromCharCode\(90,71,57[\d,]+\)\)\);<\W*\/script>~
+Triggers: ['<script', 'eval(', 'eval(atob(', '>eval(atob(String.fromCharCode(']
+Full Chain: ['<script', 'eval(', 'eval(atob(', '>eval(atob(String.fromCharCode(', '>eval(atob(String.fromCharCode(90,71,57,106,100,87,49,108,98,110,81,117,89,51,86,121,99,109,86,117,100,']
+
+Signature Name: injected.balada.011
+Cleanup Pattern: ~(if\(!function_exists\("_set_fetas_tag"\) && !function_exists\("_set_betas_tag"\)\)\{)?try\{(function [^\{]+\{)?if\(isset\(\$_GET\[[^\}]+md5\(\w+\W+if\(isset\(\$_POST\[[^\}]+include\([^\}]+\}[^'"]+isset\(\$_POST\[[^\{\}]+\{function [^\{\}]+\{echo .<script>var _0x[^<]+\)\]\(0x68,0x74,0x74,0x70,0x73,0x3a,0x2f,[^<]+<\/script>.;\}(add_action|Array)\(.wp_head.,[^\}\)]+\);\}\}catch[^\{'\"]+\{\}+~
+Triggers: ['<script', 'function', 'function(_0x', '$_POST[', 'include(']
+Full Chain: ['<script', 'function', 'function(_0x', '$_POST[', 'include(', ')](0x68,0x74,0x74,0x70,0x73,0x3a,0x2f,0x2f,']
+
+Signature Name: injected.balada.011.02
+Cleanup Pattern: ~if\(!function_exists\(._set_\w+_tag.\)[^\}]+isset\(\$_GET\[.here.\][^<}]+die\(md5\(8\)[^<>]+cho .<script>(var|function) ([^<]+<[^\/])*[^<]*<\/script>.;\}add_action\(.wp_[^<\}]+\}\}catch.Exception \$e\)\{\}+~
+Triggers: ['<script', 'function', 'function(_0x', '$_POST[', 'include(']
+Full Chain: ['<script', 'function', 'function(_0x', '$_POST[', 'include(', 'if(!function_exists("_set_']
+
+Signature Name: injected.balada.011.03
+Cleanup Pattern: ~if\(!function_exists\(._\w[^\}]+isset\(\$_GET\[.he\W*re.\][^<}]+die\(md5\(8\)[^<:>]+include\([^<>:]+PHNjcmlwd[^<>:}]+\}add_action\(.wp_[^<\}]+\}\}catch.Exception \$e\)\{\}+~
+Triggers: ['YX', 'PHNjcmlwd', '$_POST']
+Full Chain: ['YX', 'PHNjcmlwd', '$_POST', 'die(md5(8))']
+
+Signature Name: injected.balada.012
+Cleanup Pattern: ~if\(!function_exists\([^\)]+\)\)\{function \w+\(\)\s*\{[^\}]+\("d3AtanNvbg=="\);[^@]+@\$\w+\(\$\w+\(.aHR0[^\}]+\W+catch\(Exception \$\w\)[\{\}\s]+add_action\(.wp_body_open., [^\)]+\);}~
+Triggers: ['PC9z', 'add_action('wp_body_open']
+Full Chain: ['PC9z', 'add_action('wp_body_open', '("d3AtanNvbg==")']
+
+Signature Name: injected.balada.013
+Cleanup Pattern: ~<script[^>]*>var e=eval;var v=String;var a =.fr\W+o\W+mCh\W+arC\W+ode\W+var l=v.a.\([\d,\s]+\);e\(l\);<\/script>~
+Triggers: ['<script', '=String;']
+Full Chain: ['<script', '=String;', 'var e=eval;var v=String;var a ='fr'+'o'+'mCh'+'arC'+'ode';var l=v[a](']
+
+Signature Name: injected.balada_URL.001
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'startperfectsolutions.com']
+
+Signature Name: injected.base64_option.001
+Cleanup Pattern: ~^YTo([\w\/\+]+)iPHNjcmlwdCBzcmM9ImRhdGE6dGV4dC9qYXZhc2NyaXB0O2Jhc2U2NCxibVYzSUVsdFlXZGxL[\w\/\+]+(Im5vanMiO2k6MTt9fQ==|Doibm9qcyI7aToxO319|Jub2pzIjtpOjE7fX0=|2NrcyI7aTowO319fX0=|ZmZXJlbnRUZXh0QmxvY2tzIjtpOjA7fX19fQ==|dFRleHRCbG9ja3MiO2k6MDt9fX19)$~
+Triggers: ['YX', 'PHNjcmlwd']
+Full Chain: ['YX', 'PHNjcmlwd', 'iPHNjcmlwdCBzcmM9ImRhdGE6dGV4dC9qYXZhc2NyaXB0O2Jhc2U2NCxibVYzSUVsdFlXZGxL']
+
+Signature Name: injected.counts_tds.001
+Cleanup Pattern: ~\$\w+ = .base64_decode.;\s*\$\w+ = .file_put_contents.;\s+\$\w+ = .\w{32}.;([^;]+;[^s])+[^;]+DELETE from \$wpdb->options where option_name = .wpcode_snippets.";  \$wpdb->query[^\}"]+"INSERT INTO \$wpdb->posts \(ID, post_author,[^}]+\(%d, .wpcode_snippets., %s, .yes.\)", \$\w+, \$\w+\)\);\s*\}\s*~
+Triggers: ['base64', 'base64_decode', 'add_action', 'wpcode']
+Full Chain: ['base64', 'base64_decode', 'add_action', 'wpcode', '~if \( !wp_next_scheduled\( '\w{32}' \) \)~']
+
+Signature Name: injected.cryptodrainer.001
+Cleanup Pattern: ~<script[^>]*>function generateRandomString.t.\{[^>]+,btoa\(e\)\),fetch\([^<]+.target\.value\)\}\}\)\);<\/script>\s*<script[^>]*>[^\(\);v=]*var buttons\s*=\s*document.querySelectorAll\(.button.\);([^<]+<[^\/])*[^<]+add\(.connectButton.\);\s*\}\);<\/script>\s*(<script[^>]* src=.https:..[^\/]+\/(\w+\/turboturbo|chx)\.js[^>]+><\/script>)?(<script[^>]*>var e1[^<]+parentNode\.removeChild\(e\d\);\}<\/script>)?~
+Triggers: ['<script', 'function', '(function(']
+Full Chain: ['<script', 'function', '(function(', 'new URLSearchParams;n.append("uid",uid),n.append("i_name",t)']
+
+Signature Name: injected.cryptodrainer.002
+Cleanup Pattern: ~<script id[^>]+>(eval\(|[^<=;]+=\s*)"(\\u00\w\w){100}[\d\\a-fu]+"(\);|;\s*var [^<]+return String.fromCharCode\(parseInt[^<]+;\s*eval\(\w*\);)\W*<\/script>~
+Triggers: ['<script', 'eval(']
+Full Chain: ['<script', 'eval(', '\u0066\u0065\u0074\u0063\u0068\u0028\u0022\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0068\u006f\u0073\u0074\u0070\u0064\u0066\u002e\u0063\u006f\u002f\u0070\u0069\u006e\u0063\u0068\u0065\u002e\u0070\u0068\u0070']
+
+Signature Name: injected.csrf.001
+Cleanup Pattern: ~function httpGet\(theUrl\)\s*\{\s*return [^"<]+function httpPost\(theUrl, csrftoken, password\)[^"<]+createUserAndSendLog[^"<>\n]+~
+Triggers: ['function', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789']
+Full Chain: ['function', 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789', 'function httpPost(theUrl, csrftoken, password)']
+
+Signature Name: injected.csrf_URL.001.02
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', '//wp-cdn.top']
+
+Signature Name: injected.dns_redirect.005
+Cleanup Pattern: ~(\$\w+=base64_decode\([^\)]+?\);)?(if\(current_user_can\(base64_decode\(.YW\S* base64_decode\([^<>]+\)\]\);return \$\w+;\}\);\})?(function _gcookie\(\$\w+\)\{[^\}]+})?if\(!function_exists\(base64_decode\(.X3JlZA[^<]+?=>\$\S+time\(\)-\$[^>]+PHP_URL_HOST\),FILTER_VALIDATE_DOMAIN\S+_is_mobile\(\)\?[^<\s>]+=@?dns_get_record\(\$\w+,DNS_TXT\)[^<>]+add_action\(base64_decode\([^\)]+\),base64_decode\([^\)]+\)\);\}~
+Triggers: ['base64', 'base64_decode', 'add_action', 'DNS_TXT']
+Full Chain: ['base64', 'base64_decode', 'add_action', 'DNS_TXT', '.(_is_mobile()?base64_decode(']
+
+Signature Name: injected.dns_redirect.005.02
+Cleanup Pattern: ~(\$\w+\s*=\s*.\w{32}.;\s*)?(if\s*\(current_user_can\(.adm[^"]+all_plugins[^"<\}]+return \$\w+;\s*\}\);\s*\}\s*)?(function _gcook\w*\(\$\w+\)\s*\{[^\}]+})?if\s*\(!function_exists\(._re?d.\)[^<]+(?:for \(\$i = 0; \$i <[^<]+)?time\(\)\s*-\s*\$\w+\W+\w[^>]+PHP_URL_HOST\),\s*FILTER_VALIDATE_DOMAIN[^"<]+0-0-0-0[^<>\}]+DNS_TXT\)[^<>]+add_action\(.init.,\s*._re?d.\);\s*\}~
+Triggers: ['base64', 'base64_decode', 'add_action', 'DNS_TXT']
+Full Chain: ['base64', 'base64_decode', 'add_action', 'DNS_TXT', 'function _gcook']
+
+Signature Name: injected.dns_redirect.006
+Cleanup Pattern: ~function \w+\([^}]+footers\/ihaf.php[^<]+<style>[^@]+@file_get_contents\([^)]+\)[^%]+%s\/\w+.js\?q=%s&r=%s[^%]+\[.txt.\];[^\{:_]+(add_action\(.init., [^\)]+\);\s*)+\}~
+Triggers: ['base64', 'base64_decode', 'add_action']
+Full Chain: ['base64', 'base64_decode', 'add_action', '[0]["txt"])']
+
+Signature Name: injected.hacklinks.001
+Cleanup Pattern: ~(?<=\[vc_raw_js\])JTNDc2NyaXB0JTIwc3JjJTNEaHR0cHMlM0ElMkYlMkZoYWNrbGluay5tYXJrZXQlMkZwYW5l[a-zA-Z\d\+\/=]+~
+Triggers: ['[vc_raw_js]', '[vc_raw_js]JTNDc2NyaXB0']
+Full Chain: ['[vc_raw_js]', '[vc_raw_js]JTNDc2NyaXB0', 'JTNDc2NyaXB0JTIwc3JjJTNEaHR0cHMlM0ElMkYlMkZoYWNrbGluay5tYXJrZXQlMkZwYW5l']
+
+Signature Name: injected.hidden_a-href.001.02
+Cleanup Pattern: ~<a style="text-decoration: none; color: #333;" [^><]*href="https?:\/\/[^"]+">[^<]+<\/a>~
+Triggers: ['none']
+Full Chain: ['none', '<a style="text-decoration: none; color: #333;"']
+
+Signature Name: injected.hidden_a-href.002
+Cleanup Pattern: ~<a style=.?"text-decoration:[\s]*none.?" href=.?"\/[^>]+>\.<.a>~
+Triggers: ['none']
+Full Chain: ['none', '>.</a>']
+
+Signature Name: injected.hidden_a-href.004
+Cleanup Pattern: ~<style type=\W+text.css\W+> dofollow \{ display: none; \}\s*<.style>\s*<dofollow>[^\}]+<\/dofollow>~
+Triggers: ['none']
+Full Chain: ['none', '> dofollow { display: none; }']
+
+Signature Name: injected.hidden-div.002
+Cleanup Pattern: ~<div style="display:\s*none;?">.*?(?:how to win back your ex|to-get-ex-back.org/|farmacia24|viagra|tadafil|essay|levitra|credit score|mortgage|casino|propecia).*?<\/div>~is
+Triggers: ['<div style="display:', '~div style="display:\s*none;?">~']
+Full Chain: ['<div style="display:', '~div style="display:\s*none;?">~', '~how to win back your ex|to-get-ex-back.org/|farmacia24|viagra|tadafil|essay|levitra|credit score|mortgage|casino|propecia~i']
+
+Signature Name: injected.hidden-div.035
+Cleanup Pattern: ~(<script[^>]*>\s*)?function get_style(\d+)?\s*\(\)\s*\{\s*return "none";\s*\}\s*function end(\d+)?_\s*\(\)\s*\{\s*document\.getElementById\(.(\w+).\)\.style\.display\s*=\s*get_style[^\}]+\}\s*(?(1)<\/script>)([^<]+<(\w+) id="\4">.+?<\/\6>)?~
+Triggers: ['none', 'return "none";', '{ return "none"; } function end']
+Full Chain: ['none', 'return "none";', '{ return "none"; } function end', ').style.display = get_style']
+
+Signature Name: injected.hidden-div.035.02
+Cleanup Pattern: ~<script[^>]+>[\s]*end([\d]+)?_\(\);[\s]*<.script>~
+Triggers: ['none', 'return "none";', '{ return "none"; } function end', '_();']
+Full Chain: ['none', 'return "none";', '{ return "none"; } function end', '_();', 'end']
+
+Signature Name: injected.hidden-div.036.03
+Cleanup Pattern: ~<div style="overflow:hidden;height:1px;">\s*<a href=[^>]+kissbrides[^>]+>[^<>]+<\/a>\s*<\/div>~
+Triggers: [' href', 'hidden', '<div style="overflow:', '<div style="overflow:hidden;height:1px;">']
+Full Chain: [' href', 'hidden', '<div style="overflow:', '<div style="overflow:hidden;height:1px;">', 'kissbrides']
+
+Signature Name: injected.hidden-div.037
+Cleanup Pattern: ~<[\w]+ (id|class)[^>]+>[^<]+<a href[^>]+>[^<]+<.a>[^<]+<.[\w]+>[^<]*<script>[\s]*eval[^<]+<.script>~
+Triggers: ['<script', 'eval(', '))</script>']
+Full Chain: ['<script', 'eval(', '))</script>', '~>[^<]*<script>eval\(~']
+
+Signature Name: injected.hidden-div.040
+Cleanup Pattern: ~(?:<p>)?<script[^>]*>function \w+\(\w+\)\s*\{\s*var \w+\s*=\s*.#(\w+)\{[^\n]+px[^\}]*\}.;[\s]*var [\w]+[\s]*=[^\}]+\}[\s]*[\w]+\(jQuery\(.head.\)\);<.script>(?:\s*<.p>\s*<div id=.\1.>\s*<div>[\s\S]+?<\/div>\s*<\/div>)?~
+Triggers: ['function', 'left:-', '>'+']
+Full Chain: ['function', 'left:-', '>'+', '(jQuery('head'));</script>']
+
+Signature Name: injected.hidden-div.040.02
+Cleanup Pattern: ~(<div>)?<script>function \w+\(\)[^<]+margin:0px [1|2]0px[^<]+styleSheet\)\W*\w+\.styleSheet\.cssText[^<]+\(\);<.script>(<.div>)?(\s*<div id="\w{5,15}"><div>.+?<\/div><\/div>)?~
+Triggers: ['document', 'getElementsByTagName', 'document.getElementsByTagName', 'appendChild(document.createTextNode', '.styleSheet.cssText']
+Full Chain: ['document', 'getElementsByTagName', 'document.getElementsByTagName', 'appendChild(document.createTextNode', '.styleSheet.cssText', 'margin:0px ']
+
+Signature Name: injected.hidden-div.047
+Cleanup Pattern: ~<div (class=.dc.|style="position: absolute; left: -\d\d\d\d+px;") (class=.dc.|style="position: absolute; left: -\d\d\d\d+px;")>(?:(?!<div>).)*?<\/div>~
+Triggers: [' href', 'position', ' style="position: absolute; left: -']
+Full Chain: [' href', 'position', ' style="position: absolute; left: -', '~<div (class=.dc.|style="position: absolute; left: -\d\d\d\d+px;") (class=.dc.|style="position: absolute; left: -\d\d\d\d+px;")>~']
+
+Signature Name: injected.hidden-div.047.02
+Cleanup Pattern: ~<div style="position: absolute;\s*left: -\d\d\d\d+px;">([^<]+<(a|\/a))+[^<]+<\/div>~
+Triggers: [' href', 'position', ' style="position: absolute;left: -']
+Full Chain: [' href', 'position', ' style="position: absolute;left: -', '~<div style="position: absolute;left: -\d\d\d\d+px;">~']
+
+Signature Name: injected.hidden-div.047.04
+Cleanup Pattern: ~(<div class="\w{32}" ?style="position:\s*absolute; (?:left|top):\s*-[0-9]{4,}px[^<>]*?>(?!<input)(?>[^<]*(?:(?!<\/div>)(?!<div)<|(?1)|))*<\/div>)~
+Triggers: [' href', 'position', ' style="position: absolute; left: -']
+Full Chain: [' href', 'position', ' style="position: absolute; left: -', '~<div class="\w{32}" style="position: absolute; left: -\d\d\d\d\d+px;">~']
+
+Signature Name: injected.hidden-div.049
+Cleanup Pattern: ~<div style="position: absolute; opacity: 0; visibility: hidden;">\s*((<h2>[^<]+<\/h2>)?<p>[^<]*<a [^>]+>[^<]+<\/a>[^<]*<\/p>)+\s*<\/div>~
+Triggers: [' href', 'position']
+Full Chain: [' href', 'position', '<div style="position: absolute; opacity: 0; visibility: hidden;">']
+
+Signature Name: injected.hidden-div.050
+Cleanup Pattern: ~<div class="[\w-]+">(\s*<a href=[^>]+>[^<]+<\/a>)+\s*(<\/div>)\s*<style[^>]*>\.[\w-]+{text-align: center; display: table-column;}<\/style>~
+Triggers: [' href', '{text-align: center; display: table-column;}</style>']
+Full Chain: [' href', '{text-align: center; display: table-column;}</style>', '<div class=']
+
+Signature Name: injected.hidden-div.051
+Cleanup Pattern: ~<div style=\W+width: 0pt; overflow: auto; position: absolute; height: 0pt;\W+?>\s*<p>[^<]*<a href=[^<]+<\/a>[^<]+<\/p>\s*<\/div>~
+Triggers: [' href', 'position']
+Full Chain: [' href', 'position', 'width: 0pt; overflow: auto; position: absolute; height: 0pt;']
+
+Signature Name: injected.hidden-div.052
+Cleanup Pattern: ~<div style="position: absolute; z-index: 9999999; height: auto; line-height: 1pt; display: inline-block; font-size: 1pt;">(<a href="https:\/\/[^<]+<\/a>,\s*)+<a href="https:\/\/[^<]+<\/a><\/div>~
+Triggers: ['position', '<div style="position:']
+Full Chain: ['position', '<div style="position:', '<div style="position: absolute; z-index: 9999999; height: auto; line-height: 1pt; display: inline-block; font-size: 1pt;"><a href="']
+
+Signature Name: injected.hidden-div.053
+Cleanup Pattern: ~<div style=\W+font-size:1pt; line-height:2pt; height:auto; position: absolute; z-index:99999999;\W+>(\s*<a style=\W+color:[^>]+>[^<]+<\/a>)+\s*<\/div>~
+Triggers: [' href', 'position']
+Full Chain: [' href', 'position', 'font-size:1pt; line-height:2pt; height:auto; position: absolute; z-index:99999999;']
+
+Signature Name: injected.hidden-div.054
+Cleanup Pattern: ~<div style="\w\w\w+: \d{5,7}px; position: fixed; border: \dpx \w{5,6} #\w\w\w\w\w\w;">\s*<h1>\w([^\/]+\/[^dl])+\w[^\/]+<\/li>([^\/]+\/[^d])+\w[^\/]+<\/div>~
+Triggers: [' href', 'position', 'px; position: fixed; border: ']
+Full Chain: [' href', 'position', 'px; position: fixed; border: ', '~<div style="\w\w\w+: \d{5,7}px; position: fixed; border: \dpx \w{5,6} #\w\w\w\w\w\w;">~']
+
+Signature Name: injected.hidden-span.005
+Cleanup Pattern: ~<span style="display:block; font-size:0;height:0;">[^<].+?<a .+?<\/span>~
+Triggers: [' href', '<span ']
+Full Chain: [' href', '<span ', '<span style="display:block; font-size:0;height:0;">']
+
+Signature Name: injected.hidden-span.005.02
+Cleanup Pattern: ~<span style="display: block; font-size: 0; height: 0;">[^<].+?<a .+?<\/span>~
+Triggers: [' href', '<span ']
+Full Chain: [' href', '<span ', '<span style="display: block; font-size: 0; height: 0;">']
+
+Signature Name: injected.js_appendChild.004
+Cleanup Pattern: ~eval\(String\.fromCharCode\(32,40,102[^\)]+[\);]+~
+Triggers: ['eval(', 'fromCharCode']
+Full Chain: ['eval(', 'fromCharCode', 'eval(String.fromCharCode(32,40,102,117,110,99,116,105,111,110,']
+
+Signature Name: injected.js_appendChild.006
+Cleanup Pattern: ~\(function\(\)[\s]*\{[\s]*var[^\}]+document\.getElementsByTagName\([^\)]*head[^\)]*\)\[0\]\.appendChild[^\}]+\}[\s]*\)[\s]*\(\);?~
+Triggers: ['function', 'appendChild', '(function()', 'appendChild(elem)']
+Full Chain: ['function', 'appendChild', '(function()', 'appendChild(elem)', '~document\.getElementsByTagName\([^\)]*head[^\)]*\)\[0\]\.appendChild~']
+
+Signature Name: injected.js_create_document.026
+Cleanup Pattern: ~>tpircs\/<\s*;\s*\)\s*(\w+)\s*\(\s*etirw\.tnemucod\s*;\s*\)[^>]+\1\s*=\s*\w+\s*rav\s*;\s*\)\s*][^>]+>[^<]+tpircs<~
+Triggers: ['tpircs<']
+Full Chain: ['tpircs<', ')z(etirw.tnemucod']
+
+Signature Name: injected.js_create_element.010
+Cleanup Pattern: ~\(function\(\)[\s]*\{[\s]*var[^\}]+String\.fromCharCode\([^\}]+appendChild\([^\}]+\}[\s]*[\(\);]+~
+Triggers: ['document', '.appendChild(', '(function()']
+Full Chain: ['document', '.appendChild(', '(function()', '~\(function\(\)[\s]*\{[\s]*var[^\}]+String\.fromCharCode\([^\}]+appendChild\([^\}]+\}[\s]*[\(\);]+~']
+
+Signature Name: injected.js_css_xss.002
+Cleanup Pattern: ~<\/style>\K<script src=['"]https:\/\/\w+\.[\w-]+\.\w{2,10}['"]><\/script>(?=<style>)~
+Triggers: ['<script', '</style><script']
+Full Chain: ['<script', '</style><script', '~[;{]s:3:"css";s:\d\d+:"[^"<]*?<\/style><script src=['"]https:\/\/\w+\.[\w-]+\.\w{2,10}['"]><\/script><style>~']
+
+Signature Name: injected.js_malware.008
+Cleanup Pattern: ~function getCookie\(e\)\{[^:]+:[^:]+:void[\s]*[\d]+\}[\s]*var src[^\}]+\)\}~
+Triggers: ['document', 'document.write']
+Full Chain: ['document', 'document.write', 'function getCookie(e){var U=document.cookie.match(new RegExp(']
+
+Signature Name: injected.js_malware.010
+Cleanup Pattern: ~<script[^>]*>[^<]+String.fromCharCode\(([\s]*[\d]+[\s]*,){19}[^<]+<.script>~
+Triggers: ['<script', 'fromCharCode', 'String.fromCharCode']
+Full Chain: ['<script', 'fromCharCode', 'String.fromCharCode', '~<script[^>]*>[^<]+String.fromCharCode\(([\s]*[\d]+[\s]*,){19}[^<]+<.script>~']
+
+Signature Name: injected.js_redirect.015
+Cleanup Pattern: ~<scrip[^>]+>\s*\$[^=]+=\s*function\(\w+\)\s*{\s*if\s*\(\s*typeof\s*\(\$[^\[]+\[\w+\]\)\s*==\s*['"]\w+['"]\s*\)\s*return\s*\$[^\[]+\[\w+\]\.split\(['"]['"]\)\.reverse\(\)[^\[]+\[\w+\]\s*;\s*}\s*;\s*\$[^=]+=\s*\[[^\]]+\]\s*;\s*var[^{]+{\s*var\s*delay\s*=\s*\d+\s*;\s*setTimeout\(\$[^\(]+\(\d+\)\s*,\s*delay\)\s*;\s*}<.script>~
+Triggers: ['<script', 'function']
+Full Chain: ['<script', 'function', '=ferh.noitacol.tnemucod"];var']
+
+Signature Name: injected.js_redirect.017
+Cleanup Pattern: ~<scrip[^>]*>\s*function\s*\w+\(\w\)\s*{\s*var\s*U\s*=\s*document\.cookie\.match\(\s*new\s*RegExp\s*\([^\+]+\+\w+\.replace\([^<]+return\s*U\?decodeURIComponent\(U\[\d\]\)[^}]+}\s*var\s*src\s*=\s*.data:text\/javascript;\s*base64\s*,\s*[^,]+,\s*now\s*=\s*Math\.floor\(Date.now\(\)\/1e3[^,]+,\s*cookie\s*=\s*get[Cc]ookie\([^\)]+\)\s*;\s*if\(now\>\s*=\s*\(time\s*=\s*cookie\)\s*\|+[^;]+;\s*document\.cookie\s*=\s*[^;]+;\s*path=\s*\/\s*;[^,]+,\s*document\.write\(.<script\s*src=..\+src\+..>\s*<.\/script>\s*.\s*\)\}\s*<\/script>~
+Triggers: ['<script', 'document.', 'document.write']
+Full Chain: ['<script', 'document.', 'document.write', 'document.cookie="redirect="+time+"; path=/; expires="+date.toGMTString(),document.write('<script src="'+src+'"><\/script>')}']
+
+Signature Name: injected.js_redirect.035
+Cleanup Pattern: ~\$\w+\s*=\s*function\(.\)\s*\{\s*if\s*\(typeof\s*\(\$\w+\.list\[.\]\)\s*==\s*.string.\)\s*return \$\w+\.list\[.\]\.split\(..\)\.reverse\(\)\.join\(..\);\s*return[^\}]+\];?\};\s*\$\w+\.list[^\}]+delay\);?\s*\}~
+Triggers: ['function', 'ferh.noitacol.tnemucod']
+Full Chain: ['function', 'ferh.noitacol.tnemucod', '.list[n].split("").reverse().join("");return $']
+
+Signature Name: injected.js_redirect.051
+Cleanup Pattern: ~(<script[^>]*>)?function _0x\w+\(_0x\w+,_0x\w+\)\{const _0x[^<]+-hurs['"],['"][^<]+\(newLocation\),window\[[^<]+?\);}\(\)\);(?(1)<\/script>)~
+Triggers: ['function', 'addEventListener', 'android']
+Full Chain: ['function', 'addEventListener', 'android', '(newLocation),window[']
+
+Signature Name: injected.js_redirect.054
+Cleanup Pattern: ~(<script[^>]*>)?(document.addEventListener\("DOMContentLoaded", function \(\) \{)?\s*var url\s*=\s*.https:\/\/(bitbucket\.org\/|raw\.githubusercontent\.com\/)[^\.\s]+\.txt.;\s*fetch\(url\)\s*\.then\(response[^<]+src\s*=\s*data\.trim\([^<]+\}\);(?(1)<\/script>)~
+Triggers: ['document', 'document.getElementsByTagName('head')[0].appendChild(script);', 'fetch(url)']
+Full Chain: ['document', 'document.getElementsByTagName('head')[0].appendChild(script);', 'fetch(url)', '~(bitbucket\.org\/|raw\.githubusercontent\.com\/)[^\.\s]+\.txt.;\s*fetch~']
+
+Signature Name: injected.js_sign1.001
+Cleanup Pattern: ~<script[^>]+ sign1=[^>]+>\s+!function\(e,t\)\{[^<]+=atob\(document.currentScript.attributes.getNamedItem\("sign1"\).value\)[^<]+document\);\s*</script>~
+Triggers: ['<script', 'createElement', '.createElement(', 'atob']
+Full Chain: ['<script', 'createElement', '.createElement(', 'atob', 'atob(document.currentScript.attributes.getNamedItem("sign1").value)']
+
+Signature Name: injected.js_sign1.002
+Cleanup Pattern: ~(<script[^>]*>)?\s*\(?function\W_0x[^<>&]+]\(Date\[[^<>&]+!document\[_0x\w+\(\d\w+\)]\)return;(let|const) _0x\w+[^<>&]+atob\W_0x[^<>&]+\}\(document\)\);[^<>&]+(?(1)<\/script>)~
+Triggers: ['function', 'atob', '](Date[', '}(document)']
+Full Chain: ['function', 'atob', '](Date[', '}(document)', '~atob\W_0x~']
+
+Signature Name: injected.js_sign1.002.03
+Cleanup Pattern: ~<script[^>]*>\s*eval\(function\(p,a,c,k[^<]+<a[^<]+3600\|[\w\|]+\|600\|[\w\|]+\|atob\|[\w\|]+\W+split\W+0,[\{\}\)]+\s*<\/script>~
+Triggers: ['eval(', 'fromCharCode', 'eval(function(p,a,c,k,e,r)']
+Full Chain: ['eval(', 'fromCharCode', 'eval(function(p,a,c,k,e,r)', '3600|if|600||toString|16|referrer|return|let|atob|']
+
+Signature Name: injected.js_sign1.002.04
+Cleanup Pattern: ~<script[^>]*>\s*\!function\s*\([^<>]+Math\W+floor\W*\(Date[^<>]+%[^<>]+toString\W+\d\w+\),\s*!document\W+referrer\W+return;\s*(let|const) \w+\s*=\s*atob\([^<>]+\}\(document\);[^<>]+<\/script>~
+Triggers: ['function', 'atob', '](Date[', '}(document)']
+Full Chain: ['function', 'atob', '](Date[', '}(document)', '['toString'](0x10), !document['referrer'])']
+
+Signature Name: injected.js_sign1.003
+Cleanup Pattern: ~<script[^>]*>\s*function b\(c,d\)\{var[^<]+atob\(['"]\w+['"]\+[^<]+=\Whttps:\/\/\W\+h\+\W\/\W\+g\+j\(0x[^<]+em\.js\?revision=[^<]+ a\(\);\}\s*<\/script>~
+Triggers: ['function', 'atob', '](Date[', '}(document)']
+Full Chain: ['function', 'atob', '](Date[', '}(document)', 'revision']
+
+Signature Name: injected.js_sign1.004
+Cleanup Pattern: ~<script[^>]*>\s*!function \(_\w+\) \{\s*[^<\}]+\.toString\(16\);[^<\}]+\.map\(function\(_\w+\)\{\s*return \w+ \^ \d+;[^<\.]+\.fromCharCode\(\.\.\._\w[^<\}]+\.src = _\w{3,7}( \+ \w{4,7}){5};\s*\w+.getElementsByTagName..head...0..appendChild._\w+\)\s*\}\(document\);\s*<\/script>~
+Triggers: ['<script', 'fromCharCode', 'String.fromCharCode', 'String.fromCharCode(...', '.map(function(_']
+Full Chain: ['<script', 'fromCharCode', 'String.fromCharCode', 'String.fromCharCode(...', '.map(function(_', '.referrer']
+
+Signature Name: injected.js_sign1.005
+Cleanup Pattern: ~(&lt;script[^>]*&gt;\s*)?!function \(_\w+\) \{\s*[^<\}]+\.toString\(16\);[^<\}]+\.map\(function\(_\w+\)\{\s*return \w+ \^ \d+;[^<\.]+\.fromCharCode\(\.\.\._\w[^<\}]+\.src = \w{5,7}( \+ \w{5,7}){5};\s*\w+.getElementsByTagName\([^\)]+head[^\)]+\)\[0..appendChild._\w+\)\s*\}\(document\);(?(1)\s*&lt;\/script&gt;)~
+Triggers: ['fromCharCode', 'String.fromCharCode(...']
+Full Chain: ['fromCharCode', 'String.fromCharCode(...', '.map(function(_']
+
+Signature Name: injected.js_unwanted_ads.020
+Cleanup Pattern: ~(<div id="\w{35}"><\/div>\s*)?<script [^>]+src="https:..counter\d+\.(stat|optistats)\.ovh\/private\/counter.js[^>]+><.script>(\s*<br><a href="https:\/\/www.freecounterstat.com">[^<]*<\/a>)?~
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', '.ovh/private/counter.js']
+
+Signature Name: injected.js_unwanted_ads.024
+Cleanup Pattern: ~script>var pm_(tag|pid|sw)\s*=\s*[^;<]+;\s*var pm_(pid|sw|tag)\s*=[^;<]+;?<\/script><script[^<>]* src=['"]\/\/[^<\/]+\/js\/pub\.min\.js['"][^<>]*><\/script>~
+Triggers: ['<script', 'src', '/js/pub.min.js']
+Full Chain: ['<script', 'src', '/js/pub.min.js', 'var pm_pid']
+
+Signature Name: injected.js_unwanted_ads.029
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'pop.dojo.cc']
+
+Signature Name: injected.lnkr.002
+Cleanup Pattern: ~(<script [^<>]*src=["'][^"']*?\/\/[\w\-\.]+\/[^"']*(?:lnkr5\.min\.js|lnkr30_nt\.min\.js|optout\/set\/\w+\?jsonp=__|[0-9a-f]{18}\.js|\/whitelist\/\d{4}\/|js\/int.js\?key=[0-9a-f]{40}&amp;uid=|\?key=[0-9a-f]{40}&amp;uid=\d{4}x|validate-site\.js\?uid=\d{5}x|a\/display.php\?r=|&amp;ext=Not%20set|code\?id=\d{3}&amp;subid=)[^"']*["'][^<>]*>\s*<\/script>\s*)+~
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'addons/lnkr5.min.js']
+
+Signature Name: injected.malicious_URL.145
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'localstorage.tk']
+
+Signature Name: injected.malicious_URL.165
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'privacylocationforloc.com']
+
+Signature Name: injected.malicious_URL.182
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'dontstopthismusics.com']
+
+Signature Name: injected.malicious_URL.227
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'wpthemeasset.com']
+
+Signature Name: injected.malicious_URL.230
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'zeroday2024.com']
+
+Signature Name: injected.mass_injection.001
+Cleanup Pattern: ~var [\w]+[\s]*=[\s]*String\.fromCharCode\([\d]+[^\}]+document\.currentScript\);[\s]*\}[\s]*else[\s]*\{[\s]*[\w]+\.getElementsByTagName\(String\.fromCharCode[^\}]+childNodes\[[\d]+\]\);[\s]*\}~
+Triggers: ['document', 'getElementsByTagName', 'document.getElementsByTagName', '.parentNode.insertBefore', 'document.getElementsByTagName(String.fromCharCode(']
+Full Chain: ['document', 'getElementsByTagName', 'document.getElementsByTagName', '.parentNode.insertBefore', 'document.getElementsByTagName(String.fromCharCode(', 'createElement(String.fromCharCode']
+
+Signature Name: injected.pbuilder_event.001
+Cleanup Pattern: ~var s=\d+;\s*var d = document;\s*var e = d\[[\W039]+create[\W039]+Element[\W039]+\]\([\W039]+scr[^"]+[\W039]Child[\W039]+\]\(e\);~
+Triggers: ['document', ':"sgpb-']
+Full Chain: ['document', ':"sgpb-', 'var e = d[']
+
+Signature Name: injected.pbuilder_event.002
+Cleanup Pattern: ~https?:\/\/[^w]\w+.\w+\.cc\/\?\w++~
+Triggers: ['http', ':"sgpb-', 's:8:"operator";s:12:"redirect-url";']
+Full Chain: ['http', ':"sgpb-', 's:8:"operator";s:12:"redirect-url";', '~(s:5:"param";s:14:"contact-form-7";|s:8:"operator";s:12:"redirect-url";|s:5:"value";s:\d\d:"https?:[^\"]+\.cc\/\?[^\"]+";){3}~']
+
+Signature Name: injected.php_base64.001
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['ZX']
+Full Chain: ['ZX', 'aWYoc3RybGVuKCRyKSA8IDEwKSB7CgkJcmV0dXJuIGZhbHNlOwoJfQoJCgkkZCA9IHN0cnRvbG93ZXIoJF9TRVJWRVJbJ0hUVFBfSE9TVCddKTsKCSRwb3MgPSBzdHJwb3MoJH']
+
+Signature Name: injected.socgholish.002
+Cleanup Pattern: ~((<|&lt;)script[^>&]*(>|&gt;)\s*)?(\Wn)?;?\(function\(\w,\w,\w,\w,\w,\w\)\{[^<\}]+getElementsByTagName\(\w\)\[0\];\w\.async=1;\w\.src=\w;[^<\}]+\}\)\(window,document,\W+script\W+https:\W+\/\w+\.\w{2,8}\W*\/(\w{8}|\w{20,}-\w{7,}|\w{35,45})\W?["']\);?(\Wn)?(?(1)\s*(<|&lt;)\W*\/script(>|&gt;))~
+Triggers: ['document', 'getElementsByTagName', ')(window,document,']
+Full Chain: ['document', 'getElementsByTagName', ')(window,document,', '~\}\)\(window,document,\W+script\W+https:\W+\/\w+\.\w{2,8}\W*\/(\w{8}|\w{20,}-\w{7,}|\w{35,45})\W?["']\)~']
+
+Signature Name: injected.socgholish.002.02
+Cleanup Pattern: ~((<|&lt;)script[^>&]*(>|&gt;)\s*)?(\Wn)?;?\(function\(\w,\w,\w,\w,\w,\w\)\{\s*var decodedUrl\s*=\s*atob\(.aHR0c[^<\}]+getElementsByTagName\(\w\)\[0\];\s*\w\.async=1;\w\.src=decodedUrl;[^<\}]+\}\)\(window,document,\W+script\W+\);?(\Wn)?(?(1)\s*(<|&lt;)\W*\/script(>|&gt;))~
+Triggers: ['<script', 'createElement', '.createElement(', 'atob', 'aHR0c']
+Full Chain: ['<script', 'createElement', '.createElement(', 'atob', 'aHR0c', 'var decodedUrl = atob('aHR0cH']
+
+Signature Name: injected.spam_links.002
+Cleanup Pattern: ~<div style="overflow:\s*visible;\s*height:\s*80px;">[^<]{0,150}<a href="http[^>]+">[^<]{5,80}<\/a>[^<]{0,120}.<\/div>~
+Triggers: [' href', '<div style="overflow:']
+Full Chain: [' href', '<div style="overflow:', '~<div style="overflow:\s*visible;\s*height:\s*80px;">~']
+
+Signature Name: injected.spam-seo.014
+Cleanup Pattern: ~<script[^>]*>\s*(<br />\s*)?eval\(function\(p,a,c,[^\|>]+\|\|[^\|]+,('|&#039;)11[56]\|11[561]\|1\d\d\|\d[^\}>]+\{\}\)\)\s*(<br />\s*)?<.script>~
+Triggers: ['<script', 'fromCharCode', 'eval(function(p,a,c,k', '|fromCharCode|', '|write|']
+Full Chain: ['<script', 'fromCharCode', 'eval(function(p,a,c,k', '|fromCharCode|', '|write|', '116|11']
+
+Signature Name: injected.spam-seo.019
+Cleanup Pattern: ~<a style[^>]+>[\w]+[\d]+[\w]+<.a>~
+Triggers: [' href', '<a style="color: #ffffff;" href="http']
+Full Chain: [' href', '<a style="color: #ffffff;" href="http', '~<a style[^>]+>[\w]+[\d]+[\w]+<.a>~']
+
+Signature Name: injected.spam-seo.024
+Cleanup Pattern: ~<script[^>]*>(\w+=[^;]+";){5,}document\.getElementById\((\w+\+){4,5}\w+\)\.style\.display=\w+\+\w+<.script>~
+Triggers: ['<script', 'document.', 'document.getElementById(', ').style.display', '";document.getElementById(']
+Full Chain: ['<script', 'document.', 'document.getElementById(', ').style.display', '";document.getElementById(', '~document.getElementById\((\w+\+){4,5}\w+\)\.style\.display~']
+
+Signature Name: injected.spam-seo.adidas.001
+Cleanup Pattern: spam_link
+Triggers: [' href', 'didas']
+Full Chain: [' href', 'didas', '-adidas-yeezy-']
+
+Signature Name: injected.spam-seo.adidas.002
+Cleanup Pattern: spam_link
+Triggers: [' href', 'didas']
+Full Chain: [' href', 'didas', '-adidas-ultra']
+
+Signature Name: injected.spam-seo.adidas.003
+Cleanup Pattern: spam_link
+Triggers: [' href', 'didas']
+Full Chain: [' href', 'didas', '-yeezy-boost']
+
+Signature Name: injected.spam-seo_amoxil.001
+Cleanup Pattern: spam_link
+Triggers: ['amoxil']
+Full Chain: ['amoxil', 'amoxil']
+
+Signature Name: injected.spam-seo_antibiotics.006
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'bupropion']
+
+Signature Name: injected.spam-seo_antibiotics.007
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'Atenolol Medicine']
+
+Signature Name: injected.spam-seo_antibiotics.008
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'finasteride']
+
+Signature Name: injected.spam-seo_antibiotics.009
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'lisinopril']
+
+Signature Name: injected.spam-seo_antibiotics.010
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'propecia 5 mg']
+
+Signature Name: injected.spam-seo_antibiotics.011
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'tetracycline']
+
+Signature Name: injected.spam-seo_casino.001
+Cleanup Pattern: spam_link
+Triggers: ['casino']
+Full Chain: ['casino', 'online casino']
+
+Signature Name: injected.spam-seo_casino.005
+Cleanup Pattern: spam_link
+Triggers: ['casino']
+Full Chain: ['casino', 'online-casino-']
+
+Signature Name: injected.spam-seo_casino.006
+Cleanup Pattern: spam_link
+Triggers: ['casino']
+Full Chain: ['casino', 'top-casino-real']
+
+--
+Signature Name: injected.spam-seo.casino.006
+Cleanup Pattern: ~\[url=http:..casinogames[^\]]+\]casino\s*games[^\[]+\[.url\]~
+Triggers: ['']
+Full Chain: ['[url=http://casinogames']
+
+Signature Name: injected.spam-seo_casino.008
+Cleanup Pattern: ~(?:<div style=.overflow:\s*hidden;\s*height:\s*1px;.>[^<]{0,30}<a href=[^\<]+(casino|\bbet\b|\bbetting|\bslot|\bplay|xbet|1x)[^\<]*?<\/a>[^<]{0,500}<.div>\s*)+~
+Triggers: [' href', 'hidden', '<div style="overflow:']
+Full Chain: [' href', 'hidden', '<div style="overflow:', '~<div style=.overflow:\s*hidden;\s*height:\s*1px;.>[^<]{0,30}<a href=[^\<]+(casino|\bbet\b|\bbetting|\bslot|\bplay|xbet|1x)[^\<]*?<\/a>[^<]{0,500}<.div>~']
+
+Signature Name: injected.spam-seo_casino.009.08
+Cleanup Pattern: ~(<a style=.display:none;?. href=.https?:\/\/[^>]+>[^<]+<\/a>\s*)+~
+Triggers: ['none', '<a style="display:none', '88</a>']
+Full Chain: ['none', '<a style="display:none', '88</a>', '~(slot|daftar|bet8)~i']
+
+Signature Name: injected.spam-seo_casino.011
+Cleanup Pattern: ~(<div style=."position:\s*absolute; left:\s*-\d{4,}px[^<>]*?>....[^<]+([Cc]asino|\bbet\b|\bbetting|\bslot|\bplay|xbet).+?<\\/div>(\n)?)+~
+Triggers: ['position', '<div style=\"position: absolute; left: -']
+Full Chain: ['position', '<div style=\"position: absolute; left: -', '<div style=\"position: absolute; left: -']
+
+Signature Name: injected.spam-seo_casino.014
+Cleanup Pattern: ~document.addEventListener\("DOMContentLoaded",function\(\)\{[^;\}]*fetch\("https:\/\/\S+\).then\(t=>{if\(!t.ok\)throw Error\(.Failed.+e.style.left="-9999rem",document\.body\.insertBefore\([^\);]+\)\W+catch\(t=>[^\}]+\}\)\}\);?~
+Triggers: ['function', 'addEventListener', ',e.style.left="-9999rem",document.body.insertBefore']
+Full Chain: ['function', 'addEventListener', ',e.style.left="-9999rem",document.body.insertBefore', ').then(t=>{if(!t.ok)throw']
+
+Signature Name: injected.spam-seo_cheap-buys.056
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['ceftin']
+
+Signature Name: injected.spam-seo_cheap-buys.066
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['deltasoneonline']
+
+Signature Name: injected.spam-seo_cheap-buys.068
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['eduaidguru.com']
+
+Signature Name: injected.spam-seo_cialis.001
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', '-cialis']
+
+Signature Name: injected.spam-seo_cialis.003
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'acialisforsale']
+
+Signature Name: injected.spam-seo_cialis.007
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'buy cialis']
+
+Signature Name: injected.spam-seo_cialis.013
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'buycialis']
+
+Signature Name: injected.spam-seo_cialis.016
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'ccialis20mg']
+
+Signature Name: injected.spam-seo_cialis.017
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'ccialisonline']
+
+Signature Name: injected.spam-seo_cialis.022
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'cialis-20']
+
+Signature Name: injected.spam-seo_cialis.023
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'cialis-best']
+
+Signature Name: injected.spam-seo_cialis.031
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'cialis-pas-cher']
+
+Signature Name: injected.spam-seo_cialis.039
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'cialis1']
+
+Signature Name: injected.spam-seo_cialis.067
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'ordercheapcialis']
+
+Signature Name: injected.spam-seo_cialis.079
+Cleanup Pattern: ~cialismed.*?cialis\s5mg~i
+Triggers: ['ialis']
+Full Chain: ['ialis', 'cialismed']
+
+Signature Name: injected.spam-seo_cialis.080
+Cleanup Pattern: spam_link_text
+Triggers: ['ialis']
+Full Chain: ['ialis', 'Cialis ']
+
+Signature Name: injected.spam-seo_cialis.082
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['ialis', 'No Prescription Needed']
+Full Chain: ['ialis', 'No Prescription Needed', 'cialis price']
+
+Signature Name: injected.spam-seo_cialis.083
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['ialis']
+Full Chain: ['ialis', 'online cialis 20mg']
+
+Signature Name: injected.spam-seo_cialis.086
+Cleanup Pattern: spam_link
+Triggers: ['ialis']
+Full Chain: ['ialis', 'cialisgeneric']
+
+Signature Name: injected.spam-seo_clomid.004
+Cleanup Pattern: spam_link
+Triggers: ['clomid']
+Full Chain: ['clomid', 'cheap-clomid']
+
+Signature Name: injected.spam-seo_dating.007
+Cleanup Pattern: spam_link_text
+Triggers: [' href']
+Full Chain: [' href', 'latin-brides']
+
+Signature Name: injected.spam-seo_diflucan.001
+Cleanup Pattern: spam_link
+Triggers: ['diflucan']
+Full Chain: ['diflucan', 'diflucan']
+
+Signature Name: injected.spam-seo_essay.012
+Cleanup Pattern: spam_link
+Triggers: ['essay']
+Full Chain: ['essay', 'essaycastle.co.uk']
+
+Signature Name: injected.spam-seo_essay.025
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['paper4college.com']
+
+Signature Name: injected.spam-seo_essay.030
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['wedohomework.net']
+
+Signature Name: injected.spam-seo_essay.048
+Cleanup Pattern: WARN
+Triggers: ['essay']
+Full Chain: ['essay', 'custom university essay']
+
+--
+Signature Name: injected.spam-seo.essay.048
+Cleanup Pattern: spam_link_text
+Triggers: [' href']
+Full Chain: [' href', 'college paper writing service']
+
+Signature Name: injected.spam-seo_exam.003
+Cleanup Pattern: spam_link_text
+Triggers: [' href']
+Full Chain: [' href', 'with my homework']
+
+Signature Name: injected.spam-seo_jerseys.004
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'ersey']
+Full Chain: [' href', 'ersey', 'cheap jersey']
+
+Signature Name: injected.spam-seo_jerseys.005
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'ersey']
+Full Chain: [' href', 'ersey', 'mlb jersey']
+
+Signature Name: injected.spam-seo_jerseys.006
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'ersey']
+Full Chain: [' href', 'ersey', 'wholesale jersey']
+
+Signature Name: injected.spam-seo_jerseys.007
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'ersey']
+Full Chain: [' href', 'ersey', 'nfl jersey']
+
+Signature Name: injected.spam-seo_jerseys.007.02
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'ersey']
+Full Chain: [' href', 'ersey', 'NFL jersey']
+
+Signature Name: injected.spam-seo_jerseys.008
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'ersey']
+Full Chain: [' href', 'ersey', 'nba jersey']
+
+Signature Name: injected.spam-seo_jerseys.009
+Cleanup Pattern: spam_link
+Triggers: [' href', 'ersey', 'cheap', 'nfl']
+Full Chain: [' href', 'ersey', 'cheap', 'nfl', '-jersey-']
+
+Signature Name: injected.spam-seo_lasix.001
+Cleanup Pattern: spam_link
+Triggers: ['asix']
+Full Chain: ['asix', 'lasix']
+
+Signature Name: injected.spam-seo_levitra.001
+Cleanup Pattern: spam_link
+Triggers: ['levitra']
+Full Chain: ['levitra', 'levitra']
+
+Signature Name: injected.spam-seo_link.001
+Cleanup Pattern: spam_link_text
+Triggers: ['ialis']
+Full Chain: ['ialis', 'cialis generic']
+
+Signature Name: injected.spam-seo_link.002
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['cyalis']
+
+Signature Name: injected.spam-seo_link.006
+Cleanup Pattern: spam_link_text
+Triggers: ['ialis']
+Full Chain: ['ialis', 'pills']
+
+Signature Name: injected.spam-seo_link.007
+Cleanup Pattern: spam_link_text
+Triggers: ['ialis']
+Full Chain: ['ialis', ' cialis ']
+
+Signature Name: injected.spam-seo_link.008
+Cleanup Pattern: spam_link_text
+Triggers: ['ialis']
+Full Chain: ['ialis', '>cialis']
+
+Signature Name: injected.spam-seo_link.109
+Cleanup Pattern: spam_link_text
+Triggers: ['ialis']
+Full Chain: ['ialis', 'buy Cialis']
+
+Signature Name: injected.spam-seo_payday-loans.005
+Cleanup Pattern: spam_link
+Triggers: ['loans']
+Full Chain: ['loans', 'payday loans']
+
+Signature Name: injected.spam-seo_payday-loans.022
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['online-cash-advance']
+
+Signature Name: injected.spam-seo_pharmacy-online.010
+Cleanup Pattern: spam_link
+Triggers: ['pharmac']
+Full Chain: ['pharmac', 'onlinepharmacy']
+
+Signature Name: injected.spam-seo_pharmacy-online.032
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['suprax']
+
+Signature Name: injected.spam-seo_pharmacy-online.034
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['albendazole']
+
+Signature Name: injected.spam-seo_pharmacy-online.036
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['buy-doxycycline-']
+
+Signature Name: injected.spam-seo_pharmacy-online.041
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['colchicine']
+
+Signature Name: injected.spam-seo_pharmacy-online.042
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['dapoxetine']
+
+Signature Name: injected.spam-seo_pharmacy-online.043
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['Disulfiram']
+
+Signature Name: injected.spam-seo_pharmacy-online.044
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['drugstore']
+
+Signature Name: injected.spam-seo_pharmacy-online.046
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['Fluconazole']
+
+Signature Name: injected.spam-seo_pharmacy-online.049
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['methotrexate']
+
+Signature Name: injected.spam-seo_pharmacy-online.050
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['misoprostol']
+
+Signature Name: injected.spam-seo_pharmacy-online.054
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['nizoral']
+
+Signature Name: injected.spam-seo_pharmacy-online.058
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['propranolol']
+
+Signature Name: injected.spam-seo_pharmacy-online.062
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['sildenafil']
+
+Signature Name: injected.spam-seo_pharmacy-online.064
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['spiriva']
+
+Signature Name: injected.spam-seo_pharmacy-online.065
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['tamoxifen']
+
+Signature Name: injected.spam-seo_pharmacy-online.066
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['valium']
+
+Signature Name: injected.spam-seo_pharmacy-online.068
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['vermox']
+
+Signature Name: injected.spam-seo_pharmacy-online.073
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['zoloft']
+
+Signature Name: injected.spam-seo_pharmacy-online.083
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['amoxicillin']
+
+Signature Name: injected.spam-seo_pharmacy-online.086
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['baclofen']
+
+Signature Name: injected.spam-seo_pharmacy-online.087
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['estradiol']
+
+Signature Name: injected.spam-seo_pharmacy-online.088
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['prednisone']
+
+Signature Name: injected.spam-seo.pharmacy-online.090
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'buy acyclovir no prescription']
+
+--
+Signature Name: injected.spam-seo_pharmacy-online.090
+Cleanup Pattern: ~<a\s&*style=.font-size:0px;.\s*href=.[htps]{4,}:[^>]+>order\s*zolpidem\s*online<.a>~
+Triggers: ['']
+Full Chain: ['>order zolpidem online<']
+
+Signature Name: injected.spam-seo.pharmacy-online.091
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'arimidex']
+
+--
+Signature Name: injected.spam-seo_pharmacy-online.091
+Cleanup Pattern: WARN
+Triggers: ['']
+Full Chain: ['buy-ativan']
+
+Signature Name: injected.spam-seo.pharmacy-online.092
+Cleanup Pattern: spam_link_text
+Triggers: [' href', 'rel="nofollow']
+Full Chain: [' href', 'rel="nofollow', 'fluoxetine']
+
+--
+Signature Name: injected.spam-seo_pharmacy-online.092
+Cleanup Pattern: WARN
+Triggers: ['']
+Full Chain: ['buy clonazepam']
+
+Signature Name: injected.spam-seo_pharmacy-online.096
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['buy accutane']
+
+Signature Name: injected.spam-seo_pharmacy-online.097
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['accutane']
+
+Signature Name: injected.spam-seo_pharmacy-online.098
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['nolvadex']
+
+Signature Name: injected.spam-seo_pharmacy-online.099
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['doxycycline']
+
+Signature Name: injected.spam-seo_pharmacy-online.100
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['bentyl']
+
+Signature Name: injected.spam-seo_pharmacy-online.102
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['mebendazole']
+
+Signature Name: injected.spam-seo_pharmacy-online.103
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['tretinoin']
+
+Signature Name: injected.spam-seo_pharmacy-online.104
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['online-pharmacy']
+
+Signature Name: injected.spam-seo_pharmacy-online.105
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['canadian-pharmacy']
+
+Signature Name: injected.spam-seo_pharmacy-online.106
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['stendra']
+
+Signature Name: injected.spam-seo_pharmacy-online.107
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['malegra']
+
+Signature Name: injected.spam-seo_pharmacy-online.108
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['motilium']
+
+Signature Name: injected.spam-seo_pharmacy-online.109
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['xanax']
+
+Signature Name: injected.spam-seo_pharmacy-online.111
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['tramadol']
+
+Signature Name: injected.spam-seo_pharmacy-online.112
+Cleanup Pattern: spam_link_text
+Triggers: ['']
+Full Chain: ['modafinil']
+
+Signature Name: injected.spam-seo_pharmacy-online.113
+Cleanup Pattern: spam_link_text
+Triggers: [' href']
+Full Chain: [' href', 'generika kaufen']
+
+Signature Name: injected.spam-seo_pharmacy-online.115
+Cleanup Pattern: spam_link
+Triggers: ['pharmac']
+Full Chain: ['pharmac', 'canadapharmacy']
+
+Signature Name: injected.spam-seo_pills.001
+Cleanup Pattern: spam_link
+Triggers: ['pills']
+Full Chain: ['pills', 'cheap-pills']
+
+Signature Name: injected.spam-seo_pills.006
+Cleanup Pattern: spam_link
+Triggers: ['pills']
+Full Chain: ['pills', 'online-pills']
+
+Signature Name: injected.spam-seo_pills.008
+Cleanup Pattern: spam_link
+Triggers: ['pills']
+Full Chain: ['pills', '-pills.html']
+
+Signature Name: injected.spam-seo_porn.003
+Cleanup Pattern: spam_link_text
+Triggers: ['sex']
+Full Chain: ['sex', 'anal sex']
+
+Signature Name: injected.spam-seo_porn.004
+Cleanup Pattern: spam_link_text
+Triggers: ['sex']
+Full Chain: ['sex', 'sex video']
+
+Signature Name: injected.spam-seo_porn.005
+Cleanup Pattern: spam_link_text
+Triggers: ['porn']
+Full Chain: ['porn', 'incest porn']
+
+Signature Name: injected.spam-seo_porn.006
+Cleanup Pattern: spam_link_text
+Triggers: ['porn']
+Full Chain: ['porn', 'hd porn']
+
+Signature Name: injected.spam-seo_porn.007
+Cleanup Pattern: spam_link_text
+Triggers: ['escort']
+Full Chain: ['escort', 'beylikdüzü escort']
+
+Signature Name: injected.spam-seo_porn.008
+Cleanup Pattern: spam_link_text
+Triggers: ['sex']
+Full Chain: ['sex', 'sextube']
+
+Signature Name: injected.spam-seo_porn.012
+Cleanup Pattern: spam_link_text
+Triggers: ['porn']
+Full Chain: ['porn', 'japan porn']
+
+Signature Name: injected.spam-seo_prescription.001
+Cleanup Pattern: spam_link
+Triggers: ['rescription']
+Full Chain: ['rescription', 'enoprescription']
+
+Signature Name: injected.spam-seo_prescription.003
+Cleanup Pattern: spam_link
+Triggers: ['rescription']
+Full Chain: ['rescription', 'noprescription']
+
+Signature Name: injected.spam-seo_prescription.008
+Cleanup Pattern: spam_link
+Triggers: ['rescription']
+Full Chain: ['rescription', 'withoutprescription']
+
+Signature Name: injected.spam-seo_tadafil.001
+Cleanup Pattern: spam_link
+Triggers: ['tada']
+Full Chain: ['tada', 'tadacip']
+
+Signature Name: injected.spam-seo_tadafil.002
+Cleanup Pattern: spam_link
+Triggers: ['tada']
+Full Chain: ['tada', 'tadafil']
+
+Signature Name: injected.spam-seo_tadafil.004
+Cleanup Pattern: spam_link
+Triggers: ['tada']
+Full Chain: ['tada', 'tadalafil-20mg']
+
+Signature Name: injected.spam-seo_tadafil.005
+Cleanup Pattern: spam_link
+Triggers: ['tada']
+Full Chain: ['tada', 'tadalafil']
+
+Signature Name: injected.spam-seo_viagra.002
+Cleanup Pattern: spam_link
+Triggers: ['iagra']
+Full Chain: ['iagra', 'viagra']
+
+Signature Name: injected.spam-seo_viagra.024
+Cleanup Pattern: spam_link_text
+Triggers: ['iagra']
+Full Chain: ['iagra', 'buy viagra']
+
+Signature Name: injected.spam-seo_viagra.025
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['iagra', 'http:']
+Full Chain: ['iagra', 'http:', 'viagra viagra online']
+
+Signature Name: injected.spam-seo_viagra.026
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['iagra', 'viagra without']
+Full Chain: ['iagra', 'viagra without', 'viagra 20mg online']
+
+Signature Name: injected.spam-seo_viagra.027
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['iagra']
+Full Chain: ['iagra', 'viagra pills http']
+
+Signature Name: injected.spam-seo_viagra.028
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['iagra', 'http:']
+Full Chain: ['iagra', 'http:', 'Viagra Samples']
+
+Signature Name: injected.spam-seo_viagra.033
+Cleanup Pattern: CLEAR_COLUMN
+Triggers: ['iagra', 'http:']
+Full Chain: ['iagra', 'http:', 'generic viagra[/URL']
+
+Signature Name: injected.spam-seo.vuitton.001
+Cleanup Pattern: spam_link
+Triggers: [' href', 'uitton', 'uitton-']
+Full Chain: [' href', 'uitton', 'uitton-', 'ouis-']
+
+Signature Name: injected.spam-seo_watches.001
+Cleanup Pattern: spam_link
+Triggers: ['']
+Full Chain: ['replica watches']
+
+Signature Name: injected.t_el.001
+Cleanup Pattern: ~<div id="t_el">\s*((<p>\s*)+)?<\/div>\s*(<p>\s*)*<script>(if\(navigator[^;{1]+-1\)\{)?const pdx=[^\}]+atob\(pde\)[^<]+<\/script>~
+Triggers: ['<script', 'src', '.split("|");', '.php?u=']
+Full Chain: ['<script', 'src', '.split("|");', '.php?u=', 's_e.src="https://"+atob(pde)+"']
+
+Signature Name: injected.wpgomaps.001
+Cleanup Pattern: ~<img src=\S+\/\w\.jpg['"] onerror=.var[^><]+\.src=['"][^'"<>]+['"]; \w.head.appendChild\(\w\);['\"][^<>]*\/>~
+Triggers: ['document', '.appendChild(']
+Full Chain: ['document', '.appendChild(', '.jpg" onerror="var d=document, s=d.createElement('scr'+'ipt'); s.src=']
+
+Signature Name: injected.wp_user_creator.001
+Cleanup Pattern: ~(<svg\W+onload=)?eval\(String.fromCharCode\(118,97,114,32,97,106,97,120,82,101,113[^<]+,116,46,115,101,110,100,40,112,97,114,97,109,115,41,59\)\)(?(1)>)~
+Triggers: ['eval(', 'fromCharCode', '97,99,116,105,111,110,61,99,114,101,97,116,101,117,115,101,114,38,95,119,112,110,111,110,99,101']
+Full Chain: ['eval(', 'fromCharCode', '97,99,116,105,111,110,61,99,114,101,97,116,101,117,115,101,114,38,95,119,112,110,111,110,99,101', 'eval(String.fromCharCode(118,97,114,32,97,106,97,120,82,101,113,117,101,115,']
+
+Signature Name: malware.cryptominer.013.02
+Cleanup Pattern: script_src
+Triggers: ['<script', 'src']
+Full Chain: ['<script', 'src', 'trustisimportant.fun']
+
+Signature Name: malware.cryptominer.013.03
+Cleanup Pattern: ~EverythingIsLife\(\W+\w{95}\W+,\s*[\w'\\]+,[\s\d]+\);~
+Triggers: ['<script', 'EverythingIsLife(']
+Full Chain: ['<script', 'EverythingIsLife(', '~EverythingIsLife\(\W+\w{95}\W~']
