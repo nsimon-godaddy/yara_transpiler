@@ -1,4 +1,22 @@
 {
+  "cleanup_constants": [
+    {
+      "name": "CLEAR_COLUMN",
+      "value": "~^.*$~s"
+    },
+    {
+      "name": "script_src",
+      "value": "~<(script|iframe)\\\\s[^<>]*?src\\\\s*=\\\\s*[\"\\"
+    },
+    {
+      "name": "spam_link",
+      "value": "~<a\\\\s[^<>]*?href\\\\s*=\\\\s*[\"\\"
+    },
+    {
+      "name": "spam_link_text",
+      "value": "~<[aA] [^>]+>[^>]*<TRIGGER>[^>]*<.[aA]>~i"
+    }
+  ],
   "signatures": [
     {
       "name": "backdoor.curl.002",
@@ -23,7 +41,7 @@
       ]
     },
     {
-      "name": "backdoor.eval.009",
+      "name": "duplicate_backdoor.eval.009",
       "cleanup_pattern": "~eval\\(base64_decode\\(.JEJP[^;]+\\);~",
       "triggers": [
         "eval(",
@@ -1588,7 +1606,7 @@
       ]
     },
     {
-      "name": "injected.spam-seo.casino.006",
+      "name": "duplicate_injected.spam-seo.casino.006",
       "cleanup_pattern": "~\\[url=http:..casinogames[^\\]]+\\]casino\\s*games[^\\[]+\\[.url\\]~",
       "triggers": [],
       "full_chain": [
@@ -1927,7 +1945,7 @@
       ]
     },
     {
-      "name": "injected.spam-seo.essay.048",
+      "name": "duplicate_injected.spam-seo.essay.048",
       "cleanup_pattern": "spam_link_text",
       "triggers": [
         " href"
@@ -2348,7 +2366,7 @@
       ]
     },
     {
-      "name": "injected.spam-seo_pharmacy-online.090",
+      "name": "duplicate_injected.spam-seo_pharmacy-online.090",
       "cleanup_pattern": "~<a\\s&*style=.font-size:0px;.\\s*href=.[htps]{4,}:[^>]+>order\\s*zolpidem\\s*online<.a>~",
       "triggers": [],
       "full_chain": [
@@ -2369,7 +2387,7 @@
       ]
     },
     {
-      "name": "injected.spam-seo_pharmacy-online.091",
+      "name": "duplicate_injected.spam-seo_pharmacy-online.091",
       "cleanup_pattern": "WARN",
       "triggers": [],
       "full_chain": [
@@ -2390,7 +2408,7 @@
       ]
     },
     {
-      "name": "injected.spam-seo_pharmacy-online.092",
+      "name": "duplicate_injected.spam-seo_pharmacy-online.092",
       "cleanup_pattern": "WARN",
       "triggers": [],
       "full_chain": [

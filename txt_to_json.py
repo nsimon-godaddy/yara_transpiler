@@ -77,6 +77,8 @@ def parse_signature_block(text: str, constants: Dict[str, str]) -> Dict:
     
     return signature
 
+
+
 def convert_doc_to_json(input_file: str, output_file: str):
     """Convert document content to JSON format"""
     # Read the input file
@@ -94,24 +96,41 @@ def convert_doc_to_json(input_file: str, output_file: str):
     
     # Split content into signature blocks
     # Look for patterns that indicate signature boundaries
+
+    # Split content into signature blocks by looking for "Signature Name:" patterns
     signature_blocks = re.split(r'\n(?=Signature Name:)', content)
     
     signatures = []
-    
+    duplicate_next = False
+
     for block in signature_blocks:
         block = block.strip()
         if not block or not block.startswith('Signature Name:'):
             continue
         
-        # Parse the signature with constants
         signature = parse_signature_block(block, constants)
+        name = signature.get('name')
+        if not name:
+            continue
+
+        # If the previous block contained "--", prefix this signature with "duplicate_"
+        if duplicate_next:
+            signature['name'] = f'duplicate_{name}'
+            duplicate_next = False
         
-        if signature.get('name'):
-            signatures.append(signature)
-            print(f"✅ Processed signature: {signature.get('name', 'unknown')}")
-    
-    # Create the JSON structure with only the essential information
+        # Check if this block contains standalone "--" to mark the next signature as duplicate
+        # Look for "--" that's on its own line or surrounded by whitespace
+        if re.search(r'(?:^|\n)\s*--\s*(?:\n|$)', block):
+            duplicate_next = True
+
+        signatures.append(signature)
+        print(f"✅ Processed signature: {signature['name']}")
+
+    # Create the JSON structure with cleanup constants at the top
     json_data = {
+        "cleanup_constants": [
+            {"name": k, "value": v} for k, v in constants.items()
+        ],
         "signatures": signatures
     }
     
