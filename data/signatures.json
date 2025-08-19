@@ -41,7 +41,7 @@
       ]
     },
     {
-      "name": "duplicate_backdoor.eval.009",
+      "name": "backdoor.eval.009",
       "cleanup_pattern": "~eval\\(base64_decode\\(.JEJP[^;]+\\);~",
       "triggers": [
         "eval(",
