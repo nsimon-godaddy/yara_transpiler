@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 YARA Pipeline Automation Script
-Runs the complete pipeline: txt_to_json -> transpile_to_yara
+Runs the complete pipeline: txt_to_json -> transpile_to_yara -> [optional] llm_validation
 """
 
 import os
@@ -11,6 +11,23 @@ import argparse
 import logging
 from pathlib import Path
 from datetime import datetime
+
+# Load environment variables from .env file if it exists
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # If python-dotenv is not available, try to load manually
+    def load_dotenv():
+        env_file = Path(__file__).parent.parent / '.env'
+        if env_file.exists():
+            with open(env_file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#') and '=' in line:
+                        key, value = line.split('=', 1)
+                        os.environ[key] = value
+    load_dotenv()
 
 # Configure logging
 logging.basicConfig(
@@ -40,6 +57,7 @@ class PipelineRunner:
         # Script paths
         self.txt_to_json_script = self.scripts_dir / "txt_to_json.py"
         self.transpile_script = self.scripts_dir / "transpile_to_yara.py"
+        self.validation_script = self.scripts_dir / "llm_validation.py"
     
     def check_prerequisites(self):
         """Check if all required files and dependencies exist"""
@@ -144,6 +162,66 @@ class PipelineRunner:
             logger.error(f"❌ Unexpected error during YARA conversion: {e}")
             raise
     
+    def run_llm_validation(self, max_rules=None, sample_size=None, output_file=None):
+        """Run the LLM validation step using Gocaas API"""
+        logger.info("🔄 Step 3: Running LLM validation of YARA rules...")
+        
+        if not self.validation_script.exists():
+            logger.warning("⚠️  LLM validation script not found, skipping validation step")
+            return
+        
+        # Check if required environment variables are set
+        jwt = os.getenv("JWT")
+        api_url = os.getenv("API_URL")
+        
+        if not jwt or not api_url:
+            logger.warning("⚠️  JWT or API_URL environment variables not set, skipping validation")
+            logger.info("💡 Set JWT and API_URL in .env file to enable LLM validation")
+            return
+        
+        logger.info(f"🔑 Using JWT: {jwt[:20]}...")
+        logger.info(f"🌐 Using API: {api_url}")
+        
+        cmd = [
+            sys.executable,
+            str(self.validation_script),
+            str(self.yara_file),
+            "--json-file", str(self.json_file)
+        ]
+        
+        # Add optional parameters
+        if max_rules:
+            cmd.extend(["--max-rules", str(max_rules)])
+        if sample_size:
+            cmd.extend(["--sample", str(sample_size)])
+        if output_file:
+            cmd.extend(["--output", str(output_file)])
+        
+        try:
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                cwd=self.workspace_root,
+                check=True
+            )
+            
+            logger.info("✅ LLM validation completed successfully")
+            if result.stdout:
+                logger.info(f"Output: {result.stdout.strip()}")
+            
+        except subprocess.CalledProcessError as e:
+            logger.error(f"❌ LLM validation failed with exit code {e.returncode}")
+            if e.stdout:
+                logger.error(f"STDOUT: {e.stdout}")
+            if e.stderr:
+                logger.error(f"STDERR: {e.stderr}")
+            # Don't fail the pipeline for validation errors
+            logger.warning("⚠️  Continuing pipeline despite validation errors")
+        except Exception as e:
+            logger.error(f"❌ Unexpected error during LLM validation: {e}")
+            logger.warning("⚠️  Continuing pipeline despite validation errors")
+    
     def validate_outputs(self):
         """Validate the generated output files"""
         logger.info("🔍 Validating output files...")
@@ -186,7 +264,7 @@ class PipelineRunner:
         
         logger.info("✅ Output validation completed")
     
-    def run_pipeline(self, clean=False):
+    def run_pipeline(self, clean=False, validate=False, max_rules=None, sample_size=None, output_file=None):
         """Run the complete pipeline"""
         start_time = datetime.now()
         logger.info("🚀 Starting YARA pipeline...")
@@ -204,6 +282,10 @@ class PipelineRunner:
             self.run_txt_to_json()
             self.run_transpile_to_yara()
             
+            # Run LLM validation if requested
+            if validate:
+                self.run_llm_validation(max_rules, sample_size, output_file)
+            
             # Validate outputs
             self.validate_outputs()
             
@@ -215,6 +297,9 @@ class PipelineRunner:
             logger.info(f"📁 Final outputs:")
             logger.info(f"   - JSON: {self.json_file}")
             logger.info(f"   - YARA: {self.yara_file}")
+            
+            if validate:
+                logger.info("🔍 LLM validation results saved to validation_results_*.json")
             
         except Exception as e:
             logger.error(f"💥 Pipeline failed: {e}")
@@ -240,10 +325,22 @@ class PipelineRunner:
         logger.info(f"   Input file: {self.input_file} {'✅' if self.input_file.exists() else '❌'}")
         logger.info(f"   JSON file: {self.json_file} {'✅' if self.json_file.exists() else '❌'}")
         logger.info(f"   YARA file: {self.yara_file} {'✅' if self.yara_file.exists() else '❌'}")
+        
+        # Check validation script
+        if self.validation_script.exists():
+            logger.info(f"   Validation script: {self.validation_script} ✅")
+        else:
+            logger.info(f"   Validation script: {self.validation_script} ❌")
+        
+        # Check environment variables
+        if os.getenv("JWT") and os.getenv("API_URL"):
+            logger.info("   Environment variables: JWT ✅ API_URL ✅")
+        else:
+            logger.info("   Environment variables: JWT ❌ API_URL ❌")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Run the complete YARA pipeline: txt_to_json -> transpile_to_yara"
+        description='Run the complete YARA pipeline: txt_to_json -> transpile_to_yara -> [optional] llm_validation'
     )
     parser.add_argument(
         "--clean", 
@@ -254,6 +351,25 @@ def main():
         "--status", 
         action="store_true", 
         help="Show current pipeline status and exit"
+    )
+    parser.add_argument(
+        "--validate", 
+        action="store_true", 
+        help="Run LLM validation after YARA generation"
+    )
+    parser.add_argument(
+        "--max-rules", 
+        type=int, 
+        help="Maximum number of rules to validate (requires --validate)"
+    )
+    parser.add_argument(
+        "--sample", 
+        type=int, 
+        help="Randomly sample N rules for validation (requires --validate)"
+    )
+    parser.add_argument(
+        "--output", "-o",
+        help="Output file for validation results"
     )
     parser.add_argument(
         "--data-dir", 
@@ -268,6 +384,11 @@ def main():
     
     args = parser.parse_args()
     
+    # Validate arguments
+    if (args.max_rules or args.sample) and not args.validate:
+        logger.error("❌ --max-rules and --sample require --validate flag")
+        sys.exit(1)
+    
     try:
         runner = PipelineRunner(args.data_dir, args.scripts_dir)
         
@@ -275,7 +396,13 @@ def main():
             runner.show_status()
             return
         
-        runner.run_pipeline(clean=args.clean)
+        runner.run_pipeline(
+            clean=args.clean,
+            validate=args.validate,
+            max_rules=args.max_rules,
+            sample_size=args.sample,
+            output_file=args.output
+        )
         
     except KeyboardInterrupt:
         logger.info("⏹️  Pipeline interrupted by user")

@@ -1,0 +1,145 @@
+2025-08-19 14:18:49,409 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:18:49,410 - INFO - 🎲 Randomly sampling 3 rules for validation
+2025-08-19 14:18:49,410 - INFO - 🚀 Starting validation of 3 rules...
+2025-08-19 14:18:49,410 - INFO - 📊 Progress: 1/3 - hacktool_cc_stealer_080
+2025-08-19 14:18:49,411 - INFO - 🔍 Validating rule: hacktool_cc_stealer_080
+2025-08-19 14:19:05,820 - ERROR - API request failed for hacktool_cc_stealer_080: 201
+2025-08-19 14:19:06,325 - INFO - 📊 Progress: 2/3 - injected_spam_seo_pharmacy_online_050
+2025-08-19 14:19:06,328 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_050
+2025-08-19 14:19:20,724 - ERROR - API request failed for injected_spam_seo_pharmacy_online_050: 201
+2025-08-19 14:19:21,232 - INFO - 📊 Progress: 3/3 - injected_hidden_div_040_02
+2025-08-19 14:19:21,236 - INFO - 🔍 Validating rule: injected_hidden_div_040_02
+2025-08-19 14:19:36,236 - ERROR - API request failed for injected_hidden_div_040_02: 201
+2025-08-19 14:19:36,740 - INFO - 💾 Validation results saved to: validation_results_20250819_141936.json
+2025-08-19 14:21:32,694 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:21:32,695 - INFO - 🎲 Randomly sampling 2 rules for validation
+2025-08-19 14:21:32,695 - INFO - 🚀 Starting validation of 2 rules...
+2025-08-19 14:21:32,695 - INFO - 📊 Progress: 1/2 - duplicate_injected_spam_seo_casino_006
+2025-08-19 14:21:32,695 - INFO - 🔍 Validating rule: duplicate_injected_spam_seo_casino_006
+2025-08-19 14:21:45,685 - INFO - 📊 Progress: 2/2 - injected_spam_seo_pharmacy_online_083
+2025-08-19 14:21:45,691 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_083
+2025-08-19 14:21:59,793 - INFO - 💾 Validation results saved to: validation_results_20250819_142159.json
+2025-08-19 14:25:31,358 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:25:31,358 - INFO - 🎲 Randomly sampling 2 rules for validation
+2025-08-19 14:25:31,358 - INFO - 🚀 Starting validation of 2 rules...
+2025-08-19 14:25:31,359 - INFO - 📊 Progress: 1/2 - injected_spam_seo_payday_loans_005
+2025-08-19 14:25:31,359 - INFO - 🔍 Validating rule: injected_spam_seo_payday_loans_005
+2025-08-19 14:25:45,163 - INFO - 📊 Progress: 2/2 - injected_csrf_001
+2025-08-19 14:25:45,165 - INFO - 🔍 Validating rule: injected_csrf_001
+2025-08-19 14:25:59,175 - INFO - 💾 Validation results saved to: validation_results.json
+2025-08-19 14:27:18,486 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:27:18,486 - INFO - 🎲 Randomly sampling 3 rules for validation
+2025-08-19 14:27:18,487 - INFO - 🚀 Starting validation of 3 rules...
+2025-08-19 14:27:18,487 - INFO - 📊 Progress: 1/3 - injected_spam_seo_cheap_buys_066
+2025-08-19 14:27:18,487 - INFO - 🔍 Validating rule: injected_spam_seo_cheap_buys_066
+2025-08-19 14:27:38,126 - INFO - 📊 Progress: 2/3 - injected_spam_seo_casino_001
+2025-08-19 14:27:38,128 - INFO - 🔍 Validating rule: injected_spam_seo_casino_001
+2025-08-19 14:27:52,874 - INFO - 📊 Progress: 3/3 - hacktool_cc_stealer_178_07
+2025-08-19 14:27:52,879 - INFO - 🔍 Validating rule: hacktool_cc_stealer_178_07
+2025-08-19 14:28:08,436 - INFO - 💾 Validation results saved to: validation_results.json
+2025-08-19 14:31:13,775 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:31:13,775 - INFO - 🎲 Randomly sampling 2 rules for validation
+2025-08-19 14:31:13,775 - INFO - 🚀 Starting validation of 2 rules...
+2025-08-19 14:31:13,775 - INFO - 📊 Progress: 1/2 - injected_csrf_URL_001_02
+2025-08-19 14:31:13,776 - INFO - 🔍 Validating rule: injected_csrf_URL_001_02
+2025-08-19 14:31:27,188 - INFO - 📊 Progress: 2/2 - injected_spam_seo_cheap_buys_068
+2025-08-19 14:31:27,194 - INFO - 🔍 Validating rule: injected_spam_seo_cheap_buys_068
+2025-08-19 14:31:40,713 - INFO - 💾 Validation results saved to: validation_results.json
+2025-08-19 14:32:53,110 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:32:53,110 - INFO - 🚀 Starting validation of 237 rules...
+2025-08-19 14:32:53,110 - INFO - 📊 Progress: 1/237 - backdoor_curl_002
+2025-08-19 14:32:53,111 - INFO - 🔍 Validating rule: backdoor_curl_002
+2025-08-19 14:33:10,923 - INFO - 📊 Progress: 2/237 - backdoor_eval_001
+2025-08-19 14:33:10,928 - INFO - 🔍 Validating rule: backdoor_eval_001
+2025-08-19 14:33:23,890 - INFO - 📊 Progress: 3/237 - backdoor_eval_009
+2025-08-19 14:33:23,894 - INFO - 🔍 Validating rule: backdoor_eval_009
+2025-08-19 14:33:40,106 - INFO - 📊 Progress: 4/237 - backdoor_eval_base64_022
+2025-08-19 14:33:40,110 - INFO - 🔍 Validating rule: backdoor_eval_base64_022
+2025-08-19 14:33:53,826 - INFO - 📊 Progress: 5/237 - backdoor_eval_base64_024
+2025-08-19 14:33:53,830 - INFO - 🔍 Validating rule: backdoor_eval_base64_024
+2025-08-19 14:34:08,462 - INFO - 📊 Progress: 6/237 - backdoor_evalphp_004
+2025-08-19 14:34:08,465 - INFO - 🔍 Validating rule: backdoor_evalphp_004
+2025-08-19 14:34:21,884 - INFO - 📊 Progress: 7/237 - backdoor_magento_template_001
+2025-08-19 14:34:21,887 - INFO - 🔍 Validating rule: backdoor_magento_template_001
+2025-08-19 14:34:36,814 - INFO - 📊 Progress: 8/237 - backdoor_magento_template_002
+2025-08-19 14:34:36,817 - INFO - 🔍 Validating rule: backdoor_magento_template_002
+2025-08-19 14:34:50,453 - INFO - 📊 Progress: 9/237 - backdoor_obfuscated_003
+2025-08-19 14:34:50,456 - INFO - 🔍 Validating rule: backdoor_obfuscated_003
+2025-08-19 14:35:05,024 - INFO - 📊 Progress: 10/237 - hacktool_cc_stealer_080
+2025-08-19 14:35:05,027 - INFO - 🔍 Validating rule: hacktool_cc_stealer_080
+2025-08-19 14:35:20,740 - INFO - 📊 Progress: 11/237 - hacktool_cc_stealer_165
+2025-08-19 14:35:20,744 - INFO - 🔍 Validating rule: hacktool_cc_stealer_165
+2025-08-19 14:35:35,072 - INFO - 📊 Progress: 12/237 - hacktool_cc_stealer_178_07
+2025-08-19 14:35:35,076 - INFO - 🔍 Validating rule: hacktool_cc_stealer_178_07
+2025-08-19 14:35:48,423 - INFO - 📊 Progress: 13/237 - hacktool_cc_stealer_200
+2025-08-19 14:35:48,427 - INFO - 🔍 Validating rule: hacktool_cc_stealer_200
+2025-08-19 14:36:04,589 - INFO - 📊 Progress: 14/237 - hacktool_cc_stealer_216_04
+2025-08-19 14:36:04,593 - INFO - 🔍 Validating rule: hacktool_cc_stealer_216_04
+2025-08-19 14:36:20,465 - INFO - 📊 Progress: 15/237 - hacktool_cc_stealer_222
+2025-08-19 14:36:20,469 - INFO - 🔍 Validating rule: hacktool_cc_stealer_222
+2025-08-19 14:36:34,955 - INFO - 📊 Progress: 16/237 - hacktool_cc_stealer_237
+2025-08-19 14:36:34,958 - INFO - 🔍 Validating rule: hacktool_cc_stealer_237
+2025-08-19 14:36:51,909 - INFO - 📊 Progress: 17/237 - hacktool_cc_stealer_241
+2025-08-19 14:36:51,910 - INFO - 🔍 Validating rule: hacktool_cc_stealer_241
+2025-08-19 14:37:07,738 - INFO - 📊 Progress: 18/237 - injected_balada_001
+2025-08-19 14:37:07,742 - INFO - 🔍 Validating rule: injected_balada_001
+2025-08-19 14:37:23,130 - INFO - 📊 Progress: 19/237 - injected_balada_002
+2025-08-19 14:37:23,132 - INFO - 🔍 Validating rule: injected_balada_002
+2025-08-19 14:37:38,212 - INFO - 📊 Progress: 20/237 - injected_balada_008
+2025-08-19 14:37:38,217 - INFO - 🔍 Validating rule: injected_balada_008
+2025-08-19 14:37:55,750 - INFO - 📊 Progress: 21/237 - injected_balada_009
+2025-08-19 14:37:55,752 - INFO - 🔍 Validating rule: injected_balada_009
+2025-08-19 14:38:09,061 - INFO - 📊 Progress: 22/237 - injected_balada_010
+2025-08-19 14:38:09,067 - INFO - 🔍 Validating rule: injected_balada_010
+2025-08-19 14:38:25,323 - INFO - 📊 Progress: 23/237 - injected_balada_011
+2025-08-19 14:38:25,327 - INFO - 🔍 Validating rule: injected_balada_011
+2025-08-19 14:38:41,672 - INFO - 📊 Progress: 24/237 - injected_balada_011_02
+2025-08-19 14:38:41,673 - INFO - 🔍 Validating rule: injected_balada_011_02
+2025-08-19 14:38:54,888 - INFO - 📊 Progress: 25/237 - injected_balada_011_03
+2025-08-19 14:38:54,893 - INFO - 🔍 Validating rule: injected_balada_011_03
+2025-08-19 14:39:10,550 - INFO - 📊 Progress: 26/237 - injected_balada_012
+2025-08-19 14:39:10,553 - INFO - 🔍 Validating rule: injected_balada_012
+2025-08-19 14:39:23,962 - INFO - 📊 Progress: 27/237 - injected_balada_013
+2025-08-19 14:39:23,965 - INFO - 🔍 Validating rule: injected_balada_013
+2025-08-19 14:39:39,424 - INFO - 📊 Progress: 28/237 - injected_balada_URL_001
+2025-08-19 14:39:39,429 - INFO - 🔍 Validating rule: injected_balada_URL_001
+2025-08-19 14:39:52,648 - INFO - 📊 Progress: 29/237 - injected_base64_option_001
+2025-08-19 14:39:52,654 - INFO - 🔍 Validating rule: injected_base64_option_001
+2025-08-19 14:40:05,733 - INFO - 📊 Progress: 30/237 - injected_counts_tds_001
+2025-08-19 14:40:05,737 - INFO - 🔍 Validating rule: injected_counts_tds_001
+2025-08-19 14:40:20,018 - INFO - 📊 Progress: 31/237 - injected_cryptodrainer_001
+2025-08-19 14:40:20,020 - INFO - 🔍 Validating rule: injected_cryptodrainer_001
+2025-08-19 14:40:36,111 - INFO - 📊 Progress: 32/237 - injected_cryptodrainer_002
+2025-08-19 14:40:36,116 - INFO - 🔍 Validating rule: injected_cryptodrainer_002
+2025-08-19 14:40:51,533 - INFO - 📊 Progress: 33/237 - injected_csrf_001
+2025-08-19 14:40:51,536 - INFO - 🔍 Validating rule: injected_csrf_001
+2025-08-19 14:41:09,203 - INFO - 📊 Progress: 34/237 - injected_csrf_URL_001_02
+2025-08-19 14:41:09,208 - INFO - 🔍 Validating rule: injected_csrf_URL_001_02
+2025-08-19 14:41:23,129 - INFO - 📊 Progress: 35/237 - injected_dns_redirect_005
+2025-08-19 14:41:23,132 - INFO - 🔍 Validating rule: injected_dns_redirect_005
+2025-08-19 14:41:36,164 - INFO - 📊 Progress: 36/237 - injected_dns_redirect_005_02
+2025-08-19 14:41:36,167 - INFO - 🔍 Validating rule: injected_dns_redirect_005_02
+2025-08-19 14:42:26,932 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:42:26,932 - INFO - 🎲 Randomly sampling 10 rules for validation
+2025-08-19 14:42:26,932 - INFO - 🚀 Starting validation of 10 rules...
+2025-08-19 14:42:26,933 - INFO - 📊 Progress: 1/10 - injected_spam_seo_pharmacy_online_044
+2025-08-19 14:42:26,933 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_044
+2025-08-19 14:42:41,553 - INFO - 📊 Progress: 2/10 - injected_js_unwanted_ads_020
+2025-08-19 14:42:41,556 - INFO - 🔍 Validating rule: injected_js_unwanted_ads_020
+2025-08-19 14:42:55,732 - INFO - 📊 Progress: 3/10 - hacktool_cc_stealer_200
+2025-08-19 14:42:55,735 - INFO - 🔍 Validating rule: hacktool_cc_stealer_200
+2025-08-19 14:43:11,600 - INFO - 📊 Progress: 4/10 - injected_spam_seo_cialis_007
+2025-08-19 14:43:11,603 - INFO - 🔍 Validating rule: injected_spam_seo_cialis_007
+2025-08-19 14:43:25,933 - INFO - 📊 Progress: 5/10 - injected_spam_seo_link_008
+2025-08-19 14:43:25,937 - INFO - 🔍 Validating rule: injected_spam_seo_link_008
+2025-08-19 14:43:38,839 - INFO - 📊 Progress: 6/10 - injected_spam_seo_pharmacy_online_043
+2025-08-19 14:43:38,842 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_043
+2025-08-19 14:43:51,837 - INFO - 📊 Progress: 7/10 - injected_spam_seo_cialis_086
+2025-08-19 14:43:51,841 - INFO - 🔍 Validating rule: injected_spam_seo_cialis_086
+2025-08-19 14:44:05,900 - INFO - 📊 Progress: 8/10 - injected_pbuilder_event_001
+2025-08-19 14:44:05,903 - INFO - 🔍 Validating rule: injected_pbuilder_event_001
+2025-08-19 14:44:20,678 - INFO - 📊 Progress: 9/10 - injected_spam_seo_cialis_083
+2025-08-19 14:44:20,681 - INFO - 🔍 Validating rule: injected_spam_seo_cialis_083
+2025-08-19 14:44:33,008 - INFO - 📊 Progress: 10/10 - injected_spam_seo_essay_030
+2025-08-19 14:44:33,012 - INFO - 🔍 Validating rule: injected_spam_seo_essay_030
+2025-08-19 14:44:44,579 - INFO - 💾 Validation results saved to: validation_results.json

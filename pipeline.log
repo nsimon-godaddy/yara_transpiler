@@ -1,0 +1,2795 @@
+2025-08-19 14:11:36,475 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:11:36,475 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:11:36,475 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:11:36,475 - INFO - ✅ All prerequisites met
+2025-08-19 14:11:36,475 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:11:36,519 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:11:36,519 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:11:36,519 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:11:36,519 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:11:36,604 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:11:36,604 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:11:36,604 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:11:36,604 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:11:36,604 - WARNING - ⚠️  JWT or API_URL environment variables not set, skipping validation
+2025-08-19 14:11:36,605 - INFO - 💡 Set JWT and API_URL in .env file to enable LLM validation
+2025-08-19 14:11:36,605 - INFO - 🔍 Validating output files...
+2025-08-19 14:11:36,608 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:11:36,609 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:11:36,609 - INFO - ✅ Output validation completed
+2025-08-19 14:11:36,609 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:11:36,609 - INFO - ⏱️  Total duration: 0:00:00.133739
+2025-08-19 14:11:36,609 - INFO - 📁 Final outputs:
+2025-08-19 14:11:36,609 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:11:36,609 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:11:36,609 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:13:20,949 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:13:20,949 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:13:20,949 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:13:20,949 - INFO - ✅ All prerequisites met
+2025-08-19 14:13:20,949 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:13:20,989 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:13:20,990 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:13:20,990 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:13:20,990 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:13:21,023 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:13:21,023 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:13:21,023 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:13:21,023 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:13:21,023 - WARNING - ⚠️  JWT or API_URL environment variables not set, skipping validation
+2025-08-19 14:13:21,024 - INFO - 💡 Set JWT and API_URL in .env file to enable LLM validation
+2025-08-19 14:13:21,024 - INFO - 🔍 Validating output files...
+2025-08-19 14:13:21,026 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:13:21,026 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:13:21,026 - INFO - ✅ Output validation completed
+2025-08-19 14:13:21,026 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:13:21,026 - INFO - ⏱️  Total duration: 0:00:00.077277
+2025-08-19 14:13:21,026 - INFO - 📁 Final outputs:
+2025-08-19 14:13:21,026 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:13:21,026 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:13:21,026 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:14:01,426 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:14:01,427 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:14:01,427 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:14:01,427 - INFO - ✅ All prerequisites met
+2025-08-19 14:14:01,427 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:14:01,469 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:14:01,469 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:14:01,469 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:14:01,469 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:14:01,502 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:14:01,502 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:14:01,502 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:14:01,502 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:14:01,502 - WARNING - ⚠️  JWT or API_URL environment variables not set, skipping validation
+2025-08-19 14:14:01,502 - INFO - 💡 Set JWT and API_URL in .env file to enable LLM validation
+2025-08-19 14:14:01,502 - INFO - 🔍 Validating output files...
+2025-08-19 14:14:01,504 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:14:01,505 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:14:01,505 - INFO - ✅ Output validation completed
+2025-08-19 14:14:01,505 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:14:01,505 - INFO - ⏱️  Total duration: 0:00:00.078315
+2025-08-19 14:14:01,505 - INFO - 📁 Final outputs:
+2025-08-19 14:14:01,505 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:14:01,505 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:14:01,505 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:17:19,290 - INFO - 📊 Pipeline Status:
+2025-08-19 14:17:19,290 - INFO -    Input file: data/signature_patterns.txt ✅
+2025-08-19 14:17:19,291 - INFO -    JSON file: data/signatures.json ✅
+2025-08-19 14:17:19,291 - INFO -    YARA file: data/yara_rules.yar ✅
+2025-08-19 14:17:19,291 - INFO -    Validation script: scripts/llm_validation.py ✅
+2025-08-19 14:17:19,291 - INFO -    Environment variables: JWT ✅ API_URL ✅
+2025-08-19 14:18:49,141 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:18:49,141 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:18:49,141 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:18:49,141 - INFO - ✅ All prerequisites met
+2025-08-19 14:18:49,141 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:18:49,184 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:18:49,185 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:18:49,185 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:18:49,185 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:18:49,218 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:18:49,218 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:18:49,218 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:18:49,218 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:19:36,755 - ERROR - ❌ LLM validation failed with exit code 1
+2025-08-19 14:19:36,755 - ERROR - STDOUT: 2025-08-19 14:18:49,409 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:18:49,410 - INFO - 🎲 Randomly sampling 3 rules for validation
+2025-08-19 14:18:49,410 - INFO - 🚀 Starting validation of 3 rules...
+2025-08-19 14:18:49,410 - INFO - 📊 Progress: 1/3 - hacktool_cc_stealer_080
+2025-08-19 14:18:49,411 - INFO - 🔍 Validating rule: hacktool_cc_stealer_080
+2025-08-19 14:19:05,820 - ERROR - API request failed for hacktool_cc_stealer_080: 201
+2025-08-19 14:19:06,325 - INFO - 📊 Progress: 2/3 - injected_spam_seo_pharmacy_online_050
+2025-08-19 14:19:06,328 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_050
+2025-08-19 14:19:20,724 - ERROR - API request failed for injected_spam_seo_pharmacy_online_050: 201
+2025-08-19 14:19:21,232 - INFO - 📊 Progress: 3/3 - injected_hidden_div_040_02
+2025-08-19 14:19:21,236 - INFO - 🔍 Validating rule: injected_hidden_div_040_02
+2025-08-19 14:19:36,236 - ERROR - API request failed for injected_hidden_div_040_02: 201
+2025-08-19 14:19:36,740 - INFO - 💾 Validation results saved to: validation_results_20250819_141936.json
+
+============================================================
+🎯 YARA VALIDATION SUMMARY
+============================================================
+📊 Total Rules: 3
+✅ Successfully Validated: 0
+❌ Validation Errors: 3
+📈 Success Rate: 0.0%
+============================================================
+
+⚠️  Rules with validation errors:
+   - hacktool_cc_stealer_080: HTTP 201: {"data":{"id":"2d0f2a27a64b750f95b4743068e2eb1cd2bef35ba4231037e3ca1a8ee8490cb9","author":"jomax:nsimon","cost":0.0006276000000000001,"effort":"default","projectId":"7908","isPrivate":true,"isTemplate":false,"flagged":false,"privacyFlagged":false,"privacyMode":"ignore","preview":"","promptId":"1c8460e536e9ade38fd492cf72d5d18569164bc4eb7a4006fb3752fa7fda1beb","promptPreview":"","provider":"anthropic_chat","source":"api","type":"chat","originalFormat":"chat","voteCount":0,"voteTotal":0,"retries":0,"status":"completed","createDate":1755638346,"datePartition":"2025-08-19","moderate":false,"moderatePrompt":false,"moderateTemplate":false,"protected":"author","expdate":1760822346,"s3Url":"s3://gd-caas-prod-caas-secure-us-west-2/prompts/v1/year=2025/month=08/day=19/2d0f2a27a64b750f95b4743068e2eb1cd2bef35ba4231037e3ca1a8ee8490cb9.json","prompts":[{"from":"system","content":"You are a senior security expert specializing in YARA rules and threat detection. Your task is to validate a YARA rule for correctness, effectiveness, and best practices.\n\nPlease analyze the following YARA rule and provide a structured validation report with the following sections:\n\n1. **SYNTAX VALIDATION**: Is the rule syntactically correct? Any syntax errors?\n2. **PATTERN EFFECTIVENESS**: Does the pattern effectively detect the intended threat? Is it too broad or too narrow?\n3. **PERFORMANCE CONSIDERATIONS**: Any performance issues? Are there optimizations possible?\n4. **FALSE POSITIVE RISK**: Could this rule trigger false positives? Risk level (LOW/MEDIUM/HIGH)?\n5. **SECURITY IMPLICATIONS**: Does the rule address the intended security concern?\n6. **BEST PRACTICES**: Does it follow YARA best practices?\n7. **RECOMMENDATIONS**: Specific suggestions for improvement\n8. **OVERALL SCORE**: Rate from 1-10 (10 being excellent)\n\nProvide your analysis in a clear, structured format. Be specific and actionable in your feedback."},{"from":"user","content":"YARA RULE TO VALIDATE:\nrule hacktool_cc_stealer_080\n{\n    meta:\n        description = \"Converted from JSON signature hacktool.cc-stealer.080\"\n\n    strings:\n    $fullchain0 = \"function\" ascii\n    $fullchain1 = \"atob\" ascii\n    $fullchain2 = \"(function(i,s,o,g,r,a,m)\" ascii\n    $fullchain3 = \".getElementsByTagName(g)[0];if(i.location\" ascii\n\n    condition:\n        all of ($fullchain*)\n}\n\n\n\nPlease provide a comprehensive validation of this YARA rule."}],"props":{},"providerOptions":{"model":"claude-3-5-haiku-20241022-v1:0","provider":"anthropic_chat","moderatePrompt":false,"moderateTemplate":false,"anthropic_version":"bedrock-2023-05-31","temperature":0.7,"max_tokens":4096,"top_p":1,"stop_sequences":[]},"privacy":{"mode":"ignore"},"resolvedPrompts":[{"from":"system","content":"You are a senior security expert specializing in YARA rules and threat detection. Your task is to validate a YARA rule for correctness, effectiveness, and best practices.\n\nPlease analyze the following YARA rule and provide a structured validation report with the following sections:\n\n1. **SYNTAX VALIDATION**: Is the rule syntactically correct? Any syntax errors?\n2. **PATTERN EFFECTIVENESS**: Does the pattern effectively detect the intended threat? Is it too broad or too narrow?\n3. **PERFORMANCE CONSIDERATIONS**: Any performance issues? Are there optimizations possible?\n4. **FALSE POSITIVE RISK**: Could this rule trigger false positives? Risk level (LOW/MEDIUM/HIGH)?\n5. **SECURITY IMPLICATIONS**: Does the rule address the intended security concern?\n6. **BEST PRACTICES**: Does it follow YARA best practices?\n7. **RECOMMENDATIONS**: Specific suggestions for improvement\n8. **OVERALL SCORE**: Rate from 1-10 (10 being excellent)\n\nProvide your analysis in a clear, structured format. Be specific and actionable in your feedback."},{"from":"user","content":"YARA RULE TO VALIDATE:\nrule hacktool_cc_stealer_080\n{\n    meta:\n        description = \"Converted from JSON signature hacktool.cc-stealer.080\"\n\n    strings:\n    $fullchain0 = \"function\" ascii\n    $fullchain1 = \"atob\" ascii\n    $fullchain2 = \"(function(i,s,o,g,r,a,m)\" ascii\n    $fullchain3 = \".getElementsByTagName(g)[0];if(i.location\" ascii\n\n    condition:\n        all of ($fullchain*)\n}\n\n\n\nPlease provide a comprehensive validation of this YARA rule."}],"resultOptions":{"costs":{"items":[{"service":"prompt","amount":0.0006276000000000001}]},"httpStatusCode":200,"requestId":"64814a0b-2b60-48e9-a8a4-25205b774da7","attempts":1,"totalRetryDelay":0,"metrics":{"latencyMs":15638},"stopReason":"end_turn","usage":{"cacheReadInputTokenCount":0,"cacheReadInputTokens":0,"cacheWriteInputTokenCount":0,"cacheWriteInputTokens":0,"inputTokens":403,"outputTokens":763,"totalTokens":1166},"role":"assistant"},"value":{"from":"assistant","content":"YARA RULE VALIDATION REPORT\n\n1. **SYNTAX VALIDATION**:\n   - Syntactically Correct: ✅ YES\n   - No obvious syntax errors detected\n   - Proper YARA rule structure with meta, strings, and condition sections\n\n2. **PATTERN EFFECTIVENESS**:\n   - Detection Scope: Moderate\n   - The rule attempts to detect a potential JavaScript-based stealer\n   - Patterns suggest browser-based credential theft mechanism\n   - WEAKNESS: Very generic strings that could match multiple scripts\n   - Detection Confidence: LOW to MEDIUM\n\n3. **PERFORMANCE CONSIDERATIONS**:\n   - String matching complexity: LOW\n   - 4 string matches required (all must be present)\n   - Potential performance impact: Minimal\n   - Optimization Potential: Moderate\n   - Recommended: Consider more specific, unique identifiers\n\n4. **FALSE POSITIVE RISK**:\n   - Risk Level: HIGH\n   - Rationale:\n     - Very generic JavaScript strings\n     - Common patterns found in many legitimate scripts\n     - High likelihood of matching benign JavaScript code\n   - False Positive Probability: 70-80%\n\n5. **SECURITY IMPLICATIONS**:\n   - Intended Security Concern: Detecting credential/information stealing JavaScript\n   - Current Implementation: Weak detection mechanism\n   - Limited specificity for precise threat identification\n\n6. **BEST PRACTICES**:\n   - Partial Compliance ✅/❌\n   - POSITIVES:\n     - Uses multiple string matches\n     - Includes descriptive meta information\n   - NEGATIVES:\n     - No file type specification\n     - No size or additional context constraints\n     - Overly broad matching criteria\n\n7. **RECOMMENDATIONS**:\n   - Add file type constraints (e.g., JavaScript, HTML)\n   - Incorporate more unique, specific strings\n   - Add regex or additional context matching\n   - Consider adding file size limitations\n   - Implement more precise detection criteria\n\n   Example Improvement:\n   ```yara\n   rule improved_cc_stealer {\n       meta:\n           description = \"Improved CC Stealer Detection\"\n           author = \"Security Expert\"\n           severity = \"HIGH\"\n\n       strings:\n           $specific_stealer_func = /steal(Credit)?Card\\s*\\(/\n           $obfuscation_pattern = /atob\\s*\\(\\s*['\"]/\n           $sensitive_data_regex = /\\b(card|cvv|expiry)\\s*:/i\n\n       condition:\n           filesize < 100KB and \n           file_type matches /javascript|html/ and\n           2 of them\n   }\n   ```\n\n8. **OVERALL SCORE**: \n   - Technical Score: 4/10\n   - Detection Effectiveness: 3/10\n   - Improvement Potential: HIGH\n\n**EXECUTIVE SUMMARY**:\nThe current YARA rule provides a basic, but ineffective detection mechanism for potential credential stealers. While the intention is good, the implementation lacks specificity and carries a high false positive risk. Significant refinement is recommended to create a robust detection strategy.\n\nURGENT RECOMMENDATIONS:\n1. Refine string matching\n2. Add contextual constraints\n3. Implement more precise detection logic\n\nWould you like me to elaborate on any specific aspect of the analysis?"},"metadata":{},"groups":[],"format":"chat"},"status":201}
+   - injected_spam_seo_pharmacy_online_050: HTTP 201: {"data":{"id":"64fdffe7a068dd7e1c09c67693a6980bd6f1e353fae517d6700e8be8e7a0a7a3","author":"jomax:nsimon","cost":0.000532,"effort":"default","projectId":"7908","isPrivate":true,"isTemplate":false,"flagged":false,"privacyFlagged":false,"privacyMode":"ignore","preview":"","promptId":"e8bf4665a1ed38d666ba55fd14f4900ba78cad3e6df528895b9fb23b3cac8966","promptPreview":"","provider":"anthropic_chat","source":"api","type":"chat","originalFormat":"chat","voteCount":0,"voteTotal":0,"retries":0,"status":"completed","createDate":1755638361,"datePartition":"2025-08-19","moderate":false,"moderatePrompt":false,"moderateTemplate":false,"protected":"author","expdate":1760822361,"s3Url":"s3://gd-caas-prod-caas-secure-us-west-2/prompts/v1/year=2025/month=08/day=19/64fdffe7a068dd7e1c09c67693a6980bd6f1e353fae517d6700e8be8e7a0a7a3.json","prompts":[{"from":"system","content":"You are a senior security expert specializing in YARA rules and threat detection. Your task is to validate a YARA rule for correctness, effectiveness, and best practices.\n\nPlease analyze the following YARA rule and provide a structured validation report with the following sections:\n\n1. **SYNTAX VALIDATION**: Is the rule syntactically correct? Any syntax errors?\n2. **PATTERN EFFECTIVENESS**: Does the pattern effectively detect the intended threat? Is it too broad or too narrow?\n3. **PERFORMANCE CONSIDERATIONS**: Any performance issues? Are there optimizations possible?\n4. **FALSE POSITIVE RISK**: Could this rule trigger false positives? Risk level (LOW/MEDIUM/HIGH)?\n5. **SECURITY IMPLICATIONS**: Does the rule address the intended security concern?\n6. **BEST PRACTICES**: Does it follow YARA best practices?\n7. **RECOMMENDATIONS**: Specific suggestions for improvement\n8. **OVERALL SCORE**: Rate from 1-10 (10 being excellent)\n\nProvide your analysis in a clear, structured format. Be specific and actionable in your feedback."},{"from":"user","content":"YARA RULE TO VALIDATE:\nrule injected_spam_seo_pharmacy_online_050\n{\n    meta:\n        description = \"Converted from JSON signature injected.spam-seo_pharmacy-online.050\"\n\n    strings:\n    $fullchain0 = \"misoprostol\" ascii\n\n    condition:\n        all of ($fullchain*)\n}\n\n\n\nPlease provide a comprehensive validation of this YARA rule."}],"props":{},"providerOptions":{"model":"claude-3-5-haiku-20241022-v1:0","provider":"anthropic_chat","moderatePrompt":false,"moderateTemplate":false,"anthropic_version":"bedrock-2023-05-31","temperature":0.7,"max_tokens":4096,"top_p":1,"stop_sequences":[]},"privacy":{"mode":"ignore"},"resolvedPrompts":[{"from":"system","content":"You are a senior security expert specializing in YARA rules and threat detection. Your task is to validate a YARA rule for correctness, effectiveness, and best practices.\n\nPlease analyze the following YARA rule and provide a structured validation report with the following sections:\n\n1. **SYNTAX VALIDATION**: Is the rule syntactically correct? Any syntax errors?\n2. **PATTERN EFFECTIVENESS**: Does the pattern effectively detect the intended threat? Is it too broad or too narrow?\n3. **PERFORMANCE CONSIDERATIONS**: Any performance issues? Are there optimizations possible?\n4. **FALSE POSITIVE RISK**: Could this rule trigger false positives? Risk level (LOW/MEDIUM/HIGH)?\n5. **SECURITY IMPLICATIONS**: Does the rule address the intended security concern?\n6. **BEST PRACTICES**: Does it follow YARA best practices?\n7. **RECOMMENDATIONS**: Specific suggestions for improvement\n8. **OVERALL SCORE**: Rate from 1-10 (10 being excellent)\n\nProvide your analysis in a clear, structured format. Be specific and actionable in your feedback."},{"from":"user","content":"YARA RULE TO VALIDATE:\nrule injected_spam_seo_pharmacy_online_050\n{\n    meta:\n        description = \"Converted from JSON signature injected.spam-seo_pharmacy-online.050\"\n\n    strings:\n    $fullchain0 = \"misoprostol\" ascii\n\n    condition:\n        all of ($fullchain*)\n}\n\n\n\nPlease provide a comprehensive validation of this YARA rule."}],"resultOptions":{"costs":{"items":[{"service":"prompt","amount":0.000532}]},"httpStatusCode":200,"requestId":"4879f8ae-0fdf-44e4-b72a-45e09ae27578","attempts":1,"totalRetryDelay":0,"metrics":{"latencyMs":13592},"stopReason":"end_turn","usage":{"cacheReadInputTokenCount":0,"cacheReadInputTokens":0,"cacheWriteInputTokenCount":0,"cacheWriteInputTokens":0,"inputTokens":349,"outputTokens":632,"totalTokens":981},"role":"assistant"},"value":{"from":"assistant","content":"YARA Rule Validation Report\n\n1. **SYNTAX VALIDATION**: \n   - Syntactically Correct: ✓ Yes\n   - No syntax errors detected\n   - Proper rule structure with meta, strings, and condition sections\n\n2. **PATTERN EFFECTIVENESS**: \n   - VERY WEAK Detection Pattern\n   - Uses only a single string match for \"misoprostol\"\n   - Extremely narrow scope\n   - Single keyword detection is highly unreliable\n   - Limited contextual understanding of the threat\n\n3. **PERFORMANCE CONSIDERATIONS**:\n   - Low computational overhead\n   - Simple single-string search\n   - Minimal performance impact\n   - However, minimal detection capability\n\n4. **FALSE POSITIVE RISK**:\n   - Risk Level: HIGH\n   - \"Misoprostol\" is a legitimate medical term\n   - Used in genuine medical contexts (ulcer treatment, medical procedures)\n   - Extremely high chance of false positives\n   - Could incorrectly flag medical documents or pharmaceutical research\n\n5. **SECURITY IMPLICATIONS**:\n   - Intended to detect spam/SEO pharmacy content\n   - Current implementation is ineffective\n   - Does not provide meaningful threat detection\n   - Lacks comprehensive threat identification mechanism\n\n6. **BEST PRACTICES**:\n   - Does NOT follow YARA best practices\n   - Missing:\n     * Multiple string matches\n     * Context-aware conditions\n     * Comprehensive threat indicators\n     * Detailed metadata\n\n7. **RECOMMENDATIONS**:\n   - Add multiple string matches\n   - Include context-specific pharmaceutical spam indicators\n   - Implement regex or more complex string matching\n   - Enhance metadata with threat details\n   - Consider additional detection criteria\n\n   Improved Rule Skeleton:\n   ```yara\n   rule improved_pharmacy_spam_detection {\n       meta:\n           description = \"Detect pharmaceutical spam with multiple indicators\"\n           author = \"Security Team\"\n           severity = \"HIGH\"\n\n       strings:\n           $spam_keyword1 = \"misoprostol\" ascii wide\n           $spam_keyword2 = /buy.*online/i\n           $spam_pattern1 = /cheap.*delivery/i\n           $spam_pattern2 = /no prescription/i\n\n       condition:\n           2 of ($spam_keyword*, $spam_pattern*)\n   }\n   ```\n\n8. **OVERALL SCORE**: \n   - Current Rule: 2/10\n   - Potential Improved Rule: 7/10\n\n**ADDITIONAL NOTES**:\n- Requires significant enhancement\n- Current rule is essentially non-functional\n- Urgent redesign recommended\n\nRecommended Next Steps:\n1. Expand detection criteria\n2. Add contextual matching\n3. Implement more robust string detection\n4. Enhance metadata and specificity"},"metadata":{},"groups":[],"format":"chat"},"status":201}
+   - injected_hidden_div_040_02: HTTP 201: {"data":{"id":"50e705436d5be92d7a05b90d607194102d5d4accf4ec2c5b067205b3eb6ce55f","author":"jomax:nsimon","cost":0.0006076,"effort":"default","projectId":"7908","isPrivate":true,"isTemplate":false,"flagged":false,"privacyFlagged":false,"privacyMode":"ignore","preview":"","promptId":"cf33c3b2dc526b6a99fd66c36b5d6c5dbd4e34f11db433cbb31bd74036184d51","promptPreview":"","provider":"anthropic_chat","source":"api","type":"chat","originalFormat":"chat","voteCount":0,"voteTotal":0,"retries":0,"status":"completed","createDate":1755638376,"datePartition":"2025-08-19","moderate":false,"moderatePrompt":false,"moderateTemplate":false,"protected":"author","expdate":1760822376,"s3Url":"s3://gd-caas-prod-caas-secure-us-west-2/prompts/v1/year=2025/month=08/day=19/50e705436d5be92d7a05b90d607194102d5d4accf4ec2c5b067205b3eb6ce55f.json","prompts":[{"from":"system","content":"You are a senior security expert specializing in YARA rules and threat detection. Your task is to validate a YARA rule for correctness, effectiveness, and best practices.\n\nPlease analyze the following YARA rule and provide a structured validation report with the following sections:\n\n1. **SYNTAX VALIDATION**: Is the rule syntactically correct? Any syntax errors?\n2. **PATTERN EFFECTIVENESS**: Does the pattern effectively detect the intended threat? Is it too broad or too narrow?\n3. **PERFORMANCE CONSIDERATIONS**: Any performance issues? Are there optimizations possible?\n4. **FALSE POSITIVE RISK**: Could this rule trigger false positives? Risk level (LOW/MEDIUM/HIGH)?\n5. **SECURITY IMPLICATIONS**: Does the rule address the intended security concern?\n6. **BEST PRACTICES**: Does it follow YARA best practices?\n7. **RECOMMENDATIONS**: Specific suggestions for improvement\n8. **OVERALL SCORE**: Rate from 1-10 (10 being excellent)\n\nProvide your analysis in a clear, structured format. Be specific and actionable in your feedback."},{"from":"user","content":"YARA RULE TO VALIDATE:\nrule injected_hidden_div_040_02\n{\n    meta:\n        description = \"Converted from JSON signature injected.hidden-div.040.02\"\n\n    strings:\n    $fullchain0 = \"document\" ascii\n    $fullchain1 = \"getElementsByTagName\" ascii\n    $fullchain2 = \"document.getElementsByTagName\" ascii\n    $fullchain3 = \"appendChild(document.createTextNode\" ascii\n    $fullchain4 = \".styleSheet.cssText\" ascii\n    $fullchain5 = \"margin:0px \" ascii\n\n    condition:\n        all of ($fullchain*)\n}\n\n\n\nPlease provide a comprehensive validation of this YARA rule."}],"props":{},"providerOptions":{"model":"claude-3-5-haiku-20241022-v1:0","provider":"anthropic_chat","moderatePrompt":false,"moderateTemplate":false,"anthropic_version":"bedrock-2023-05-31","temperature":0.7,"max_tokens":4096,"top_p":1,"stop_sequences":[]},"privacy":{"mode":"ignore"},"resolvedPrompts":[{"from":"system","content":"You are a senior security expert specializing in YARA rules and threat detection. Your task is to validate a YARA rule for correctness, effectiveness, and best practices.\n\nPlease analyze the following YARA rule and provide a structured validation report with the following sections:\n\n1. **SYNTAX VALIDATION**: Is the rule syntactically correct? Any syntax errors?\n2. **PATTERN EFFECTIVENESS**: Does the pattern effectively detect the intended threat? Is it too broad or too narrow?\n3. **PERFORMANCE CONSIDERATIONS**: Any performance issues? Are there optimizations possible?\n4. **FALSE POSITIVE RISK**: Could this rule trigger false positives? Risk level (LOW/MEDIUM/HIGH)?\n5. **SECURITY IMPLICATIONS**: Does the rule address the intended security concern?\n6. **BEST PRACTICES**: Does it follow YARA best practices?\n7. **RECOMMENDATIONS**: Specific suggestions for improvement\n8. **OVERALL SCORE**: Rate from 1-10 (10 being excellent)\n\nProvide your analysis in a clear, structured format. Be specific and actionable in your feedback."},{"from":"user","content":"YARA RULE TO VALIDATE:\nrule injected_hidden_div_040_02\n{\n    meta:\n        description = \"Converted from JSON signature injected.hidden-div.040.02\"\n\n    strings:\n    $fullchain0 = \"document\" ascii\n    $fullchain1 = \"getElementsByTagName\" ascii\n    $fullchain2 = \"document.getElementsByTagName\" ascii\n    $fullchain3 = \"appendChild(document.createTextNode\" ascii\n    $fullchain4 = \".styleSheet.cssText\" ascii\n    $fullchain5 = \"margin:0px \" ascii\n\n    condition:\n        all of ($fullchain*)\n}\n\n\n\nPlease provide a comprehensive validation of this YARA rule."}],"resultOptions":{"costs":{"items":[{"service":"prompt","amount":0.0006076}]},"httpStatusCode":200,"requestId":"dded8455-67b2-4e21-aeac-09ae928adbd6","attempts":1,"totalRetryDelay":0,"metrics":{"latencyMs":14459},"stopReason":"end_turn","usage":{"cacheReadInputTokenCount":0,"cacheReadInputTokens":0,"cacheWriteInputTokenCount":0,"cacheWriteInputTokens":0,"inputTokens":419,"outputTokens":681,"totalTokens":1100},"role":"assistant"},"value":{"from":"assistant","content":"YARA Rule Validation Report\n\n1. **SYNTAX VALIDATION**:\n   - Syntactically Correct: ✓ YES\n   - No syntax errors detected\n   - Well-formed YARA rule structure\n   - Proper use of meta, strings, and condition sections\n\n2. **PATTERN EFFECTIVENESS**:\n   - Moderate Detection Capability\n   - Targets potential DOM manipulation techniques\n   - Looks for specific JavaScript method chains related to hidden div injection\n   - Requires ALL specified strings to be present, which may limit detection\n\n3. **PERFORMANCE CONSIDERATIONS**:\n   - Performance: MODERATE\n   - Uses multiple string matches (6 strings)\n   - `all of ($fullchain*)` ensures comprehensive matching\n   - Potential performance overhead due to multiple string searches\n   - Recommendation: Consider more specific, targeted string matching\n\n4. **FALSE POSITIVE RISK**:\n   - Risk Level: MEDIUM\n   - Strings are common in web development\n   - Generic JavaScript method names could trigger false positives\n   - Lack of context-specific indicators increases false positive potential\n\n5. **SECURITY IMPLICATIONS**:\n   - Targets potential web-based injection techniques\n   - Focuses on hidden div creation and manipulation\n   - Attempts to detect suspicious DOM modification patterns\n   - Limited scope of detection\n\n6. **BEST PRACTICES**:\n   - Follows basic YARA rule structure ✓\n   - Uses consistent naming convention ✓\n   - Includes descriptive meta information ✓\n   - Could benefit from more specific conditions\n\n7. **RECOMMENDATIONS**:\n   - Add regex or more specific string matching\n   - Incorporate additional context-specific indicators\n   - Consider adding file type or source restrictions\n   - Implement more granular condition logic\n   - Add comments explaining the specific threat model\n\n   Example Improvement:\n   ```yara\n   rule improved_hidden_div_detection {\n       meta:\n           description = \"Detect suspicious hidden div injection techniques\"\n           author = \"Security Team\"\n           severity = \"MEDIUM\"\n\n       strings:\n           $js_method1 = \"getElementsByTagName\" ascii wide\n           $js_method2 = \"appendChild\" ascii wide\n           $suspicious_style = \"display:none\" ascii wide\n           $inject_pattern = /document\\..*?\\.cssText\\s*=/ ascii\n\n       condition:\n           filetype == \"js\" and \n           2 of them and \n           not legitimate_source\n   }\n   ```\n\n8. **OVERALL SCORE**: 6/10\n   - Solid basic detection approach\n   - Needs more sophisticated matching\n   - Limited contextual awareness\n   - Moderate false positive risk\n\n**KEY TAKEAWAYS**:\n- Rule provides basic detection of potential hidden div injection\n- Requires refinement for more precise threat detection\n- Implement more sophisticated matching techniques\n- Add contextual and behavioral indicators\n\nRecommendation: Revise the rule to include more specific detection mechanisms and reduce false positive potential."},"metadata":{},"groups":[],"format":"chat"},"status":201}
+
+📁 Detailed results saved to: validation_results_*.json
+📋 Log file: validation.log
+
+2025-08-19 14:19:36,755 - WARNING - ⚠️  Continuing pipeline despite validation errors
+2025-08-19 14:19:36,756 - INFO - 🔍 Validating output files...
+2025-08-19 14:19:36,759 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:19:36,760 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:19:36,760 - INFO - ✅ Output validation completed
+2025-08-19 14:19:36,760 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:19:36,760 - INFO - ⏱️  Total duration: 0:00:47.618980
+2025-08-19 14:19:36,760 - INFO - 📁 Final outputs:
+2025-08-19 14:19:36,760 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:19:36,760 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:19:36,760 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:21:32,477 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:21:32,477 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:21:32,477 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:21:32,477 - INFO - ✅ All prerequisites met
+2025-08-19 14:21:32,477 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:21:32,519 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:21:32,519 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:21:32,520 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:21:32,520 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:21:32,552 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:21:32,552 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:21:32,553 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:21:32,553 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:21:32,553 - INFO - 🔑 Using JWT: eyJhbGciOiAiUlMyNTYi...
+2025-08-19 14:21:32,553 - INFO - 🌐 Using API: https://caas.api.godaddy.com/v1/prompts
+2025-08-19 14:21:59,809 - INFO - ✅ LLM validation completed successfully
+2025-08-19 14:21:59,810 - INFO - Output: 2025-08-19 14:21:32,694 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:21:32,695 - INFO - 🎲 Randomly sampling 2 rules for validation
+2025-08-19 14:21:32,695 - INFO - 🚀 Starting validation of 2 rules...
+2025-08-19 14:21:32,695 - INFO - 📊 Progress: 1/2 - duplicate_injected_spam_seo_casino_006
+2025-08-19 14:21:32,695 - INFO - 🔍 Validating rule: duplicate_injected_spam_seo_casino_006
+2025-08-19 14:21:45,685 - INFO - 📊 Progress: 2/2 - injected_spam_seo_pharmacy_online_083
+2025-08-19 14:21:45,691 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_083
+2025-08-19 14:21:59,793 - INFO - 💾 Validation results saved to: validation_results_20250819_142159.json
+
+============================================================
+🎯 YARA VALIDATION SUMMARY
+============================================================
+📊 Total Rules: 2
+✅ Successfully Validated: 2
+❌ Validation Errors: 0
+📈 Success Rate: 100.0%
+============================================================
+
+📁 Detailed results saved to: validation_results_*.json
+📋 Log file: validation.log
+2025-08-19 14:21:59,810 - INFO - 🔍 Validating output files...
+2025-08-19 14:21:59,813 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:21:59,813 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:21:59,813 - INFO - ✅ Output validation completed
+2025-08-19 14:21:59,813 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:21:59,813 - INFO - ⏱️  Total duration: 0:00:27.336111
+2025-08-19 14:21:59,813 - INFO - 📁 Final outputs:
+2025-08-19 14:21:59,813 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:21:59,813 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:21:59,813 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:25:31,091 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:25:31,091 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:25:31,091 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:25:31,092 - INFO - ✅ All prerequisites met
+2025-08-19 14:25:31,092 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:25:31,134 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:25:31,134 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:25:31,135 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:25:31,135 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:25:31,173 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:25:31,173 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:25:31,174 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:25:31,174 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:25:31,174 - INFO - 🔑 Using JWT: eyJhbGciOiAiUlMyNTYi...
+2025-08-19 14:25:31,174 - INFO - 🌐 Using API: https://caas.api.godaddy.com/v1/prompts
+2025-08-19 14:25:59,189 - INFO - ✅ LLM validation completed successfully
+2025-08-19 14:25:59,190 - INFO - Output: 2025-08-19 14:25:31,358 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:25:31,358 - INFO - 🎲 Randomly sampling 2 rules for validation
+2025-08-19 14:25:31,358 - INFO - 🚀 Starting validation of 2 rules...
+2025-08-19 14:25:31,359 - INFO - 📊 Progress: 1/2 - injected_spam_seo_payday_loans_005
+2025-08-19 14:25:31,359 - INFO - 🔍 Validating rule: injected_spam_seo_payday_loans_005
+2025-08-19 14:25:45,163 - INFO - 📊 Progress: 2/2 - injected_csrf_001
+2025-08-19 14:25:45,165 - INFO - 🔍 Validating rule: injected_csrf_001
+2025-08-19 14:25:59,175 - INFO - 💾 Validation results saved to: validation_results.json
+
+============================================================
+🎯 YARA VALIDATION SUMMARY
+============================================================
+📊 Total Rules: 2
+✅ Successfully Validated: 2
+❌ Validation Errors: 0
+📈 Success Rate: 100.0%
+============================================================
+
+📁 Detailed results saved to: validation_results_*.json
+📋 Log file: validation.log
+2025-08-19 14:25:59,190 - INFO - 🔍 Validating output files...
+2025-08-19 14:25:59,193 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:25:59,193 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:25:59,194 - INFO - ✅ Output validation completed
+2025-08-19 14:25:59,194 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:25:59,194 - INFO - ⏱️  Total duration: 0:00:28.102307
+2025-08-19 14:25:59,194 - INFO - 📁 Final outputs:
+2025-08-19 14:25:59,194 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:25:59,194 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:25:59,194 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:27:18,292 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:27:18,292 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:27:18,292 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:27:18,293 - INFO - ✅ All prerequisites met
+2025-08-19 14:27:18,293 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:27:18,334 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:27:18,334 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:27:18,335 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:27:18,335 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:27:18,369 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:27:18,369 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:27:18,369 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:27:18,369 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:27:18,369 - INFO - 🔑 Using JWT: eyJhbGciOiAiUlMyNTYi...
+2025-08-19 14:27:18,369 - INFO - 🌐 Using API: https://caas.api.godaddy.com/v1/prompts
+2025-08-19 14:28:08,461 - INFO - ✅ LLM validation completed successfully
+2025-08-19 14:28:08,461 - INFO - Output: 2025-08-19 14:27:18,486 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:27:18,486 - INFO - 🎲 Randomly sampling 3 rules for validation
+2025-08-19 14:27:18,487 - INFO - 🚀 Starting validation of 3 rules...
+2025-08-19 14:27:18,487 - INFO - 📊 Progress: 1/3 - injected_spam_seo_cheap_buys_066
+2025-08-19 14:27:18,487 - INFO - 🔍 Validating rule: injected_spam_seo_cheap_buys_066
+2025-08-19 14:27:38,126 - INFO - 📊 Progress: 2/3 - injected_spam_seo_casino_001
+2025-08-19 14:27:38,128 - INFO - 🔍 Validating rule: injected_spam_seo_casino_001
+2025-08-19 14:27:52,874 - INFO - 📊 Progress: 3/3 - hacktool_cc_stealer_178_07
+2025-08-19 14:27:52,879 - INFO - 🔍 Validating rule: hacktool_cc_stealer_178_07
+2025-08-19 14:28:08,436 - INFO - 💾 Validation results saved to: validation_results.json
+
+============================================================
+🎯 YARA VALIDATION SUMMARY
+============================================================
+📊 Total Rules: 3
+✅ Successfully Validated: 3
+❌ Validation Errors: 0
+📈 Success Rate: 100.0%
+============================================================
+
+📁 Detailed results saved to: validation_results_*.json
+📋 Log file: validation.log
+2025-08-19 14:28:08,461 - INFO - 🔍 Validating output files...
+2025-08-19 14:28:08,464 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:28:08,464 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:28:08,464 - INFO - ✅ Output validation completed
+2025-08-19 14:28:08,464 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:28:08,465 - INFO - ⏱️  Total duration: 0:00:50.172196
+2025-08-19 14:28:08,465 - INFO - 📁 Final outputs:
+2025-08-19 14:28:08,465 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:28:08,465 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:28:08,465 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:31:13,566 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:31:13,566 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:31:13,566 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:31:13,566 - INFO - ✅ All prerequisites met
+2025-08-19 14:31:13,566 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:31:13,607 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:31:13,608 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:31:13,608 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:31:13,608 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:31:13,646 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:31:13,646 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:31:13,646 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:31:13,646 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:31:13,647 - INFO - 🔑 Using JWT: eyJhbGciOiAiUlMyNTYi...
+2025-08-19 14:31:13,647 - INFO - 🌐 Using API: https://caas.api.godaddy.com/v1/prompts
+2025-08-19 14:31:40,738 - INFO - ✅ LLM validation completed successfully
+2025-08-19 14:31:40,738 - INFO - Output: 2025-08-19 14:31:13,775 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:31:13,775 - INFO - 🎲 Randomly sampling 2 rules for validation
+2025-08-19 14:31:13,775 - INFO - 🚀 Starting validation of 2 rules...
+2025-08-19 14:31:13,775 - INFO - 📊 Progress: 1/2 - injected_csrf_URL_001_02
+2025-08-19 14:31:13,776 - INFO - 🔍 Validating rule: injected_csrf_URL_001_02
+2025-08-19 14:31:27,188 - INFO - 📊 Progress: 2/2 - injected_spam_seo_cheap_buys_068
+2025-08-19 14:31:27,194 - INFO - 🔍 Validating rule: injected_spam_seo_cheap_buys_068
+2025-08-19 14:31:40,713 - INFO - 💾 Validation results saved to: validation_results.json
+
+============================================================
+🎯 YARA VALIDATION SUMMARY
+============================================================
+📊 Total Rules: 2
+✅ Successfully Validated: 2
+❌ Validation Errors: 0
+📈 Success Rate: 100.0%
+============================================================
+
+📁 Results saved to: validation_results_*.json
+📋 Log file: validation.log
+
+💡 Output format: rule_name + LLM response (simplified)
+2025-08-19 14:31:40,738 - INFO - 🔍 Validating output files...
+2025-08-19 14:31:40,742 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:31:40,743 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:31:40,743 - INFO - ✅ Output validation completed
+2025-08-19 14:31:40,743 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:31:40,743 - INFO - ⏱️  Total duration: 0:00:27.177178
+2025-08-19 14:31:40,743 - INFO - 📁 Final outputs:
+2025-08-19 14:31:40,743 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:31:40,743 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:31:40,743 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-19 14:32:52,921 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:32:52,921 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:32:52,921 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:32:52,921 - INFO - ✅ All prerequisites met
+2025-08-19 14:32:52,921 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:32:52,961 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:32:52,961 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:32:52,961 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:32:52,961 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:32:52,995 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:32:52,995 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:32:52,995 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:32:52,995 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:32:52,995 - INFO - 🔑 Using JWT: eyJhbGciOiAiUlMyNTYi...
+2025-08-19 14:32:52,995 - INFO - 🌐 Using API: https://caas.api.godaddy.com/v1/prompts
+2025-08-19 14:41:49,903 - INFO - ⏹️  Pipeline interrupted by user
+2025-08-19 14:42:26,736 - INFO - 🚀 Starting YARA pipeline...
+2025-08-19 14:42:26,736 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-19 14:42:26,736 - INFO - 🔍 Checking prerequisites...
+2025-08-19 14:42:26,736 - INFO - ✅ All prerequisites met
+2025-08-19 14:42:26,736 - INFO - 🔄 Step 1: Converting signature patterns to JSON...
+2025-08-19 14:42:26,777 - INFO - ✅ JSON conversion completed successfully
+2025-08-19 14:42:26,777 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.curl.002
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: backdoor.eval_base64.022
+✅ Processed signature: backdoor.eval_base64.024
+✅ Processed signature: backdoor.evalphp.004
+✅ Processed signature: backdoor.magento_template.001
+✅ Processed signature: backdoor.magento_template.002
+✅ Processed signature: backdoor.obfuscated.003
+✅ Processed signature: hacktool.cc-stealer.080
+✅ Processed signature: hacktool.cc-stealer.165
+✅ Processed signature: hacktool.cc-stealer.178.07
+✅ Processed signature: hacktool.cc-stealer.200
+✅ Processed signature: hacktool.cc-stealer.216.04
+✅ Processed signature: hacktool.cc-stealer.222
+✅ Processed signature: hacktool.cc-stealer.237
+✅ Processed signature: hacktool.cc-stealer.241
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.balada.002
+✅ Processed signature: injected.balada.008
+✅ Processed signature: injected.balada.009
+✅ Processed signature: injected.balada.010
+✅ Processed signature: injected.balada.011
+✅ Processed signature: injected.balada.011.02
+✅ Processed signature: injected.balada.011.03
+✅ Processed signature: injected.balada.012
+✅ Processed signature: injected.balada.013
+✅ Processed signature: injected.balada_URL.001
+✅ Processed signature: injected.base64_option.001
+✅ Processed signature: injected.counts_tds.001
+✅ Processed signature: injected.cryptodrainer.001
+✅ Processed signature: injected.cryptodrainer.002
+✅ Processed signature: injected.csrf.001
+✅ Processed signature: injected.csrf_URL.001.02
+✅ Processed signature: injected.dns_redirect.005
+✅ Processed signature: injected.dns_redirect.005.02
+✅ Processed signature: injected.dns_redirect.006
+✅ Processed signature: injected.hacklinks.001
+✅ Processed signature: injected.hidden_a-href.001.02
+✅ Processed signature: injected.hidden_a-href.002
+✅ Processed signature: injected.hidden_a-href.004
+✅ Processed signature: injected.hidden-div.002
+✅ Processed signature: injected.hidden-div.035
+✅ Processed signature: injected.hidden-div.035.02
+✅ Processed signature: injected.hidden-div.036.03
+✅ Processed signature: injected.hidden-div.037
+✅ Processed signature: injected.hidden-div.040
+✅ Processed signature: injected.hidden-div.040.02
+✅ Processed signature: injected.hidden-div.047
+✅ Processed signature: injected.hidden-div.047.02
+✅ Processed signature: injected.hidden-div.047.04
+✅ Processed signature: injected.hidden-div.049
+✅ Processed signature: injected.hidden-div.050
+✅ Processed signature: injected.hidden-div.051
+✅ Processed signature: injected.hidden-div.052
+✅ Processed signature: injected.hidden-div.053
+✅ Processed signature: injected.hidden-div.054
+✅ Processed signature: injected.hidden-span.005
+✅ Processed signature: injected.hidden-span.005.02
+✅ Processed signature: injected.js_appendChild.004
+✅ Processed signature: injected.js_appendChild.006
+✅ Processed signature: injected.js_create_document.026
+✅ Processed signature: injected.js_create_element.010
+✅ Processed signature: injected.js_css_xss.002
+✅ Processed signature: injected.js_malware.008
+✅ Processed signature: injected.js_malware.010
+✅ Processed signature: injected.js_redirect.015
+✅ Processed signature: injected.js_redirect.017
+✅ Processed signature: injected.js_redirect.035
+✅ Processed signature: injected.js_redirect.051
+✅ Processed signature: injected.js_redirect.054
+✅ Processed signature: injected.js_sign1.001
+✅ Processed signature: injected.js_sign1.002
+✅ Processed signature: injected.js_sign1.002.03
+✅ Processed signature: injected.js_sign1.002.04
+✅ Processed signature: injected.js_sign1.003
+✅ Processed signature: injected.js_sign1.004
+✅ Processed signature: injected.js_sign1.005
+✅ Processed signature: injected.js_unwanted_ads.020
+✅ Processed signature: injected.js_unwanted_ads.024
+✅ Processed signature: injected.js_unwanted_ads.029
+✅ Processed signature: injected.lnkr.002
+✅ Processed signature: injected.malicious_URL.145
+✅ Processed signature: injected.malicious_URL.165
+✅ Processed signature: injected.malicious_URL.182
+✅ Processed signature: injected.malicious_URL.227
+✅ Processed signature: injected.malicious_URL.230
+✅ Processed signature: injected.mass_injection.001
+✅ Processed signature: injected.pbuilder_event.001
+✅ Processed signature: injected.pbuilder_event.002
+✅ Processed signature: injected.php_base64.001
+✅ Processed signature: injected.socgholish.002
+✅ Processed signature: injected.socgholish.002.02
+✅ Processed signature: injected.spam_links.002
+✅ Processed signature: injected.spam-seo.014
+✅ Processed signature: injected.spam-seo.019
+✅ Processed signature: injected.spam-seo.024
+✅ Processed signature: injected.spam-seo.adidas.001
+✅ Processed signature: injected.spam-seo.adidas.002
+✅ Processed signature: injected.spam-seo.adidas.003
+✅ Processed signature: injected.spam-seo_amoxil.001
+✅ Processed signature: injected.spam-seo_antibiotics.006
+✅ Processed signature: injected.spam-seo_antibiotics.007
+✅ Processed signature: injected.spam-seo_antibiotics.008
+✅ Processed signature: injected.spam-seo_antibiotics.009
+✅ Processed signature: injected.spam-seo_antibiotics.010
+✅ Processed signature: injected.spam-seo_antibiotics.011
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_casino.005
+✅ Processed signature: injected.spam-seo_casino.006
+✅ Processed signature: duplicate_injected.spam-seo.casino.006
+✅ Processed signature: injected.spam-seo_casino.008
+✅ Processed signature: injected.spam-seo_casino.009.08
+✅ Processed signature: injected.spam-seo_casino.011
+✅ Processed signature: injected.spam-seo_casino.014
+✅ Processed signature: injected.spam-seo_cheap-buys.056
+✅ Processed signature: injected.spam-seo_cheap-buys.066
+✅ Processed signature: injected.spam-seo_cheap-buys.068
+✅ Processed signature: injected.spam-seo_cialis.001
+✅ Processed signature: injected.spam-seo_cialis.003
+✅ Processed signature: injected.spam-seo_cialis.007
+✅ Processed signature: injected.spam-seo_cialis.013
+✅ Processed signature: injected.spam-seo_cialis.016
+✅ Processed signature: injected.spam-seo_cialis.017
+✅ Processed signature: injected.spam-seo_cialis.022
+✅ Processed signature: injected.spam-seo_cialis.023
+✅ Processed signature: injected.spam-seo_cialis.031
+✅ Processed signature: injected.spam-seo_cialis.039
+✅ Processed signature: injected.spam-seo_cialis.067
+✅ Processed signature: injected.spam-seo_cialis.079
+✅ Processed signature: injected.spam-seo_cialis.080
+✅ Processed signature: injected.spam-seo_cialis.082
+✅ Processed signature: injected.spam-seo_cialis.083
+✅ Processed signature: injected.spam-seo_cialis.086
+✅ Processed signature: injected.spam-seo_clomid.004
+✅ Processed signature: injected.spam-seo_dating.007
+✅ Processed signature: injected.spam-seo_diflucan.001
+✅ Processed signature: injected.spam-seo_essay.012
+✅ Processed signature: injected.spam-seo_essay.025
+✅ Processed signature: injected.spam-seo_essay.030
+✅ Processed signature: injected.spam-seo_essay.048
+✅ Processed signature: duplicate_injected.spam-seo.essay.048
+✅ Processed signature: injected.spam-seo_exam.003
+✅ Processed signature: injected.spam-seo_jerseys.004
+✅ Processed signature: injected.spam-seo_jerseys.005
+✅ Processed signature: injected.spam-seo_jerseys.006
+✅ Processed signature: injected.spam-seo_jerseys.007
+✅ Processed signature: injected.spam-seo_jerseys.007.02
+✅ Processed signature: injected.spam-seo_jerseys.008
+✅ Processed signature: injected.spam-seo_jerseys.009
+✅ Processed signature: injected.spam-seo_lasix.001
+✅ Processed signature: injected.spam-seo_levitra.001
+✅ Processed signature: injected.spam-seo_link.001
+✅ Processed signature: injected.spam-seo_link.002
+✅ Processed signature: injected.spam-seo_link.006
+✅ Processed signature: injected.spam-seo_link.007
+✅ Processed signature: injected.spam-seo_link.008
+✅ Processed signature: injected.spam-seo_link.109
+✅ Processed signature: injected.spam-seo_payday-loans.005
+✅ Processed signature: injected.spam-seo_payday-loans.022
+✅ Processed signature: injected.spam-seo_pharmacy-online.010
+✅ Processed signature: injected.spam-seo_pharmacy-online.032
+✅ Processed signature: injected.spam-seo_pharmacy-online.034
+✅ Processed signature: injected.spam-seo_pharmacy-online.036
+✅ Processed signature: injected.spam-seo_pharmacy-online.041
+✅ Processed signature: injected.spam-seo_pharmacy-online.042
+✅ Processed signature: injected.spam-seo_pharmacy-online.043
+✅ Processed signature: injected.spam-seo_pharmacy-online.044
+✅ Processed signature: injected.spam-seo_pharmacy-online.046
+✅ Processed signature: injected.spam-seo_pharmacy-online.049
+✅ Processed signature: injected.spam-seo_pharmacy-online.050
+✅ Processed signature: injected.spam-seo_pharmacy-online.054
+✅ Processed signature: injected.spam-seo_pharmacy-online.058
+✅ Processed signature: injected.spam-seo_pharmacy-online.062
+✅ Processed signature: injected.spam-seo_pharmacy-online.064
+✅ Processed signature: injected.spam-seo_pharmacy-online.065
+✅ Processed signature: injected.spam-seo_pharmacy-online.066
+✅ Processed signature: injected.spam-seo_pharmacy-online.068
+✅ Processed signature: injected.spam-seo_pharmacy-online.073
+✅ Processed signature: injected.spam-seo_pharmacy-online.083
+✅ Processed signature: injected.spam-seo_pharmacy-online.086
+✅ Processed signature: injected.spam-seo_pharmacy-online.087
+✅ Processed signature: injected.spam-seo_pharmacy-online.088
+✅ Processed signature: injected.spam-seo.pharmacy-online.090
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.090
+✅ Processed signature: injected.spam-seo.pharmacy-online.091
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.091
+✅ Processed signature: injected.spam-seo.pharmacy-online.092
+✅ Processed signature: duplicate_injected.spam-seo_pharmacy-online.092
+✅ Processed signature: injected.spam-seo_pharmacy-online.096
+✅ Processed signature: injected.spam-seo_pharmacy-online.097
+✅ Processed signature: injected.spam-seo_pharmacy-online.098
+✅ Processed signature: injected.spam-seo_pharmacy-online.099
+✅ Processed signature: injected.spam-seo_pharmacy-online.100
+✅ Processed signature: injected.spam-seo_pharmacy-online.102
+✅ Processed signature: injected.spam-seo_pharmacy-online.103
+✅ Processed signature: injected.spam-seo_pharmacy-online.104
+✅ Processed signature: injected.spam-seo_pharmacy-online.105
+✅ Processed signature: injected.spam-seo_pharmacy-online.106
+✅ Processed signature: injected.spam-seo_pharmacy-online.107
+✅ Processed signature: injected.spam-seo_pharmacy-online.108
+✅ Processed signature: injected.spam-seo_pharmacy-online.109
+✅ Processed signature: injected.spam-seo_pharmacy-online.111
+✅ Processed signature: injected.spam-seo_pharmacy-online.112
+✅ Processed signature: injected.spam-seo_pharmacy-online.113
+✅ Processed signature: injected.spam-seo_pharmacy-online.115
+✅ Processed signature: injected.spam-seo_pills.001
+✅ Processed signature: injected.spam-seo_pills.006
+✅ Processed signature: injected.spam-seo_pills.008
+✅ Processed signature: injected.spam-seo_porn.003
+✅ Processed signature: injected.spam-seo_porn.004
+✅ Processed signature: injected.spam-seo_porn.005
+✅ Processed signature: injected.spam-seo_porn.006
+✅ Processed signature: injected.spam-seo_porn.007
+✅ Processed signature: injected.spam-seo_porn.008
+✅ Processed signature: injected.spam-seo_porn.012
+✅ Processed signature: injected.spam-seo_prescription.001
+✅ Processed signature: injected.spam-seo_prescription.003
+✅ Processed signature: injected.spam-seo_prescription.008
+✅ Processed signature: injected.spam-seo_tadafil.001
+✅ Processed signature: injected.spam-seo_tadafil.002
+✅ Processed signature: injected.spam-seo_tadafil.004
+✅ Processed signature: injected.spam-seo_tadafil.005
+✅ Processed signature: injected.spam-seo_viagra.002
+✅ Processed signature: injected.spam-seo_viagra.024
+✅ Processed signature: injected.spam-seo_viagra.025
+✅ Processed signature: injected.spam-seo_viagra.026
+✅ Processed signature: injected.spam-seo_viagra.027
+✅ Processed signature: injected.spam-seo_viagra.028
+✅ Processed signature: injected.spam-seo_viagra.033
+✅ Processed signature: injected.spam-seo.vuitton.001
+✅ Processed signature: injected.spam-seo_watches.001
+✅ Processed signature: injected.t_el.001
+✅ Processed signature: injected.wpgomaps.001
+✅ Processed signature: injected.wp_user_creator.001
+✅ Processed signature: malware.cryptominer.013.02
+✅ Processed signature: malware.cryptominer.013.03
+
+✅ Converted 237 signatures to data/signatures.json
+2025-08-19 14:42:26,777 - INFO - 📁 JSON file created: data/signatures.json
+2025-08-19 14:42:26,777 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-19 14:42:26,809 - INFO - ✅ YARA conversion completed successfully
+2025-08-19 14:42:26,809 - INFO - Output: Converted 237 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-19 14:42:26,809 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-19 14:42:26,809 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-19 14:42:26,809 - INFO - 🔑 Using JWT: eyJhbGciOiAiUlMyNTYi...
+2025-08-19 14:42:26,809 - INFO - 🌐 Using API: https://caas.api.godaddy.com/v1/prompts
+2025-08-19 14:44:44,608 - INFO - ✅ LLM validation completed successfully
+2025-08-19 14:44:44,608 - INFO - Output: 2025-08-19 14:42:26,932 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-19 14:42:26,932 - INFO - 🎲 Randomly sampling 10 rules for validation
+2025-08-19 14:42:26,932 - INFO - 🚀 Starting validation of 10 rules...
+2025-08-19 14:42:26,933 - INFO - 📊 Progress: 1/10 - injected_spam_seo_pharmacy_online_044
+2025-08-19 14:42:26,933 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_044
+2025-08-19 14:42:41,553 - INFO - 📊 Progress: 2/10 - injected_js_unwanted_ads_020
+2025-08-19 14:42:41,556 - INFO - 🔍 Validating rule: injected_js_unwanted_ads_020
+2025-08-19 14:42:55,732 - INFO - 📊 Progress: 3/10 - hacktool_cc_stealer_200
+2025-08-19 14:42:55,735 - INFO - 🔍 Validating rule: hacktool_cc_stealer_200
+2025-08-19 14:43:11,600 - INFO - 📊 Progress: 4/10 - injected_spam_seo_cialis_007
+2025-08-19 14:43:11,603 - INFO - 🔍 Validating rule: injected_spam_seo_cialis_007
+2025-08-19 14:43:25,933 - INFO - 📊 Progress: 5/10 - injected_spam_seo_link_008
+2025-08-19 14:43:25,937 - INFO - 🔍 Validating rule: injected_spam_seo_link_008
+2025-08-19 14:43:38,839 - INFO - 📊 Progress: 6/10 - injected_spam_seo_pharmacy_online_043
+2025-08-19 14:43:38,842 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_043
+2025-08-19 14:43:51,837 - INFO - 📊 Progress: 7/10 - injected_spam_seo_cialis_086
+2025-08-19 14:43:51,841 - INFO - 🔍 Validating rule: injected_spam_seo_cialis_086
+2025-08-19 14:44:05,900 - INFO - 📊 Progress: 8/10 - injected_pbuilder_event_001
+2025-08-19 14:44:05,903 - INFO - 🔍 Validating rule: injected_pbuilder_event_001
+2025-08-19 14:44:20,678 - INFO - 📊 Progress: 9/10 - injected_spam_seo_cialis_083
+2025-08-19 14:44:20,681 - INFO - 🔍 Validating rule: injected_spam_seo_cialis_083
+2025-08-19 14:44:33,008 - INFO - 📊 Progress: 10/10 - injected_spam_seo_essay_030
+2025-08-19 14:44:33,012 - INFO - 🔍 Validating rule: injected_spam_seo_essay_030
+2025-08-19 14:44:44,579 - INFO - 💾 Validation results saved to: validation_results.json
+
+============================================================
+🎯 YARA VALIDATION SUMMARY
+============================================================
+📊 Total Rules: 10
+✅ Successfully Validated: 10
+❌ Validation Errors: 0
+📈 Success Rate: 100.0%
+============================================================
+
+📁 Results saved to: validation_results_*.json
+📋 Log file: validation.log
+
+💡 Output format: rule_name + LLM response (simplified)
+2025-08-19 14:44:44,609 - INFO - 🔍 Validating output files...
+2025-08-19 14:44:44,615 - INFO - 📊 JSON validation: 237 signatures, 4 constants
+2025-08-19 14:44:44,615 - INFO - 📊 YARA validation: 237 rules generated
+2025-08-19 14:44:44,615 - INFO - ✅ Output validation completed
+2025-08-19 14:44:44,615 - INFO - 🎉 Pipeline completed successfully!
+2025-08-19 14:44:44,615 - INFO - ⏱️  Total duration: 0:02:17.879679
+2025-08-19 14:44:44,616 - INFO - 📁 Final outputs:
+2025-08-19 14:44:44,616 - INFO -    - JSON: data/signatures.json
+2025-08-19 14:44:44,616 - INFO -    - YARA: data/yara_rules.yar
+2025-08-19 14:44:44,616 - INFO - 🔍 LLM validation results saved to validation_results_*.json
