@@ -19,13 +19,17 @@ This project processes signature pattern files containing malware detection sign
 
 ```
 yara/
-├── README.md                    # This file
-├── txt_to_json.py              # Main conversion script
-├── data/
-│   └── signature_patterns.txt  # Input signature file
-├── requirements.txt             # Python dependencies
-├── converted_yara.json          # Sample output file
-└── signatures.json             # Default output file
+├── README.md                 # Project description & usage
+├── requirements.txt          # Python dependencies
+├── data/                     # Input/output signature data
+│   ├── signature_patterns.txt  # Raw input signature file
+│   ├── signatures.json         # Normalized JSON signatures
+│   └── yara_rules.yar          # Transpiled YARA rules
+├── old/                      # Archived/legacy files
+├── scripts/                  # Processing & transpilation scripts
+│   ├── txt_to_json.py        # Convert raw text signatures → JSON
+│   └── transpile_to_yara.py  # Convert JSON signatures → YARA rules
+
 ```
 
 ## Installation
