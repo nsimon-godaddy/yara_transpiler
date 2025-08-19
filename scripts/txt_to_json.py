@@ -81,10 +81,9 @@ def parse_signature_block(text: str, constants: Dict[str, str]) -> Dict:
 
 def convert_doc_to_json(input_file: str, output_file: str):
     """Convert document content to JSON format"""
-    # Read the input file
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    input_path = os.path.join(script_dir, input_file)
-    output_path = os.path.join(script_dir, output_file)
+    # Use the input and output paths as provided (they should be relative to current working directory)
+    input_path = input_file
+    output_path = output_file
 
 
     with open(input_path, 'r', encoding='utf-8') as f:
