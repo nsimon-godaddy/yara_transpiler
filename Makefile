@@ -1,12 +1,12 @@
-# YARA Pipeline Makefile with LLM Validation
+# YARA Pipeline Makefile with Data Classification and LLM Validation
 # Provides simple targets for running the automation pipeline
 
-.PHONY: help pipeline clean status test validate validate-sample
+.PHONY: help pipeline clean status test validate validate-sample skip-class
 
 # Default target
 help:
-	@echo "YARA Pipeline Makefile with LLM Validation"
-	@echo "=========================================="
+	@echo "YARA Pipeline Makefile with Data Classification and LLM Validation"
+	@echo "================================================================="
 	@echo ""
 	@echo "Available targets:"
 	@echo "  pipeline        - Run the complete pipeline (txt_to_json -> transpile_to_yara)"
@@ -21,10 +21,11 @@ help:
 	@echo "  make pipeline        # Run the basic pipeline"
 	@echo "  make validate        # Run pipeline with full LLM validation"
 	@echo "  make validate-sample # Run pipeline with sample validation"
+	@echo "  make skip-class      # Run pipeline without data classification"
 	@echo "  make test            # Clean and run pipeline"
 	@echo "  make status          # Check pipeline status"
 	@echo ""
-	@echo "Note: LLM validation requires JWT and API_URL environment variables"
+	@echo "Note: Data classification and LLM validation require JWT and API_URL environment variables"
 
 # Run the complete pipeline
 pipeline:
@@ -40,6 +41,11 @@ validate:
 validate-sample:
 	@echo "🎲 Running YARA pipeline with sample LLM validation (10 rules)..."
 	@python3 scripts/run_pipeline.py --validate --sample 10
+
+# Run pipeline without data classification
+skip-class:
+	@echo "⏭️  Running YARA pipeline without data classification..."
+	@python3 scripts/run_pipeline.py --skip-classification
 
 # Clean previous outputs and run pipeline
 test:

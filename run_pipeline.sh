@@ -31,28 +31,34 @@ fi
 
 # Function to show usage
 show_usage() {
-    echo "Usage: $0 [OPTIONS]"
+    echo "Usage: $0 [OPTIONS] [INPUT_FILES...]"
+    echo ""
+    echo "File Arguments:"
+    echo "  INPUT_FILES        One or more input text files (default: data/signature_patterns.txt)"
+    echo "                     Multiple files will be processed sequentially"
     echo ""
     echo "Pipeline Options:"
     echo "  --clean           Clean previous output files before running"
     echo "  --validate        Run LLM validation after YARA generation"
     echo "  --max-rules N     Validate maximum N rules (requires --validate)"
-echo "  --sample N        Randomly sample N rules for validation (requires --validate)"
-echo "  --output FILE     Output file for validation results"
+    echo "  --sample N        Randomly sample N rules for validation (requires --validate)"
+    echo "  --skip-classification  Skip data classification step"
+    echo "  --output FILE     Output file for validation results"
     echo ""
     echo "Utility Options:"
     echo "  --status          Show current pipeline status and exit"
     echo "  --help            Show this help message"
     echo ""
     echo "Examples:"
-    echo "  $0                                    # Run basic pipeline"
-    echo "  $0 --clean                           # Clean and run pipeline"
-    echo "  $0 --validate                        # Run pipeline with LLM validation"
-    echo "  $0 --clean --validate                # Clean, run, and validate"
-    echo "  $0 --validate --max-rules 10         # Validate max 10 rules"
-    echo "  $0 --validate --sample 5             # Validate random 5 rules"
-echo "  $0 --validate --output results.json  # Validate with custom output file"
-    echo "  $0 --status                          # Check pipeline status"
+    echo "  $0                                    # Run with default files"
+    echo "  $0 my_patterns.txt                    # Use single custom input file"
+    echo "  $0 file1.txt file2.txt file3.txt     # Process multiple input files"
+    echo "  $0 --clean                            # Clean and run with defaults"
+    echo "  $0 --validate                         # Run with LLM validation"
+    echo "  $0 --validate --sample 5              # Validate random 5 rules"
+    echo "  $0 --validate --output results.json   # Validate with custom output file"
+    echo "  $0 --skip-classification              # Skip data classification step"
+    echo "  $0 --status                           # Check pipeline status"
     echo ""
     echo "Note: LLM validation requires JWT and API_URL environment variables"
 }
@@ -63,7 +69,11 @@ VALIDATE=false
 MAX_RULES=""
 SAMPLE=""
 OUTPUT=""
+SKIP_CLASSIFICATION=false
 STATUS=false
+
+# Array to store input files
+INPUT_FILES=()
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -81,11 +91,15 @@ while [[ $# -gt 0 ]]; do
             ;;
         --sample)
             SAMPLE="$2"
-            shift 2
+            shift
             ;;
         --output)
             OUTPUT="$2"
             shift 2
+            ;;
+        --skip-classification)
+            SKIP_CLASSIFICATION=true
+            shift
             ;;
         --status)
             STATUS=true
@@ -95,10 +109,15 @@ while [[ $# -gt 0 ]]; do
             show_usage
             exit 0
             ;;
-        *)
+        -*)
             echo -e "${RED}❌ Unknown option: $1${NC}"
             show_usage
             exit 1
+            ;;
+        *)
+            # This is a file argument - add to input files array
+            INPUT_FILES+=("$1")
+            shift
             ;;
     esac
 done
@@ -111,6 +130,13 @@ fi
 
 # Build the command
 CMD="python3 scripts/run_pipeline.py"
+
+# Add input files if provided
+if [ ${#INPUT_FILES[@]} -gt 0 ]; then
+    for file in "${INPUT_FILES[@]}"; do
+        CMD="$CMD $file"
+    done
+fi
 
 if [ "$CLEAN" = true ]; then
     CMD="$CMD --clean"
@@ -130,6 +156,10 @@ fi
 
 if [ -n "$OUTPUT" ]; then
     CMD="$CMD --output $OUTPUT"
+fi
+
+if [ "$SKIP_CLASSIFICATION" = true ]; then
+    CMD="$CMD --skip-classification"
 fi
 
 if [ "$STATUS" = true ]; then
@@ -185,3 +215,4 @@ else
     echo "Check the logs above for details."
     exit 1
 fi
+

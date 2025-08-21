@@ -143,3 +143,95 @@
 2025-08-19 14:44:33,008 - INFO - 📊 Progress: 10/10 - injected_spam_seo_essay_030
 2025-08-19 14:44:33,012 - INFO - 🔍 Validating rule: injected_spam_seo_essay_030
 2025-08-19 14:44:44,579 - INFO - 💾 Validation results saved to: validation_results.json
+2025-08-20 09:38:45,383 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-20 09:38:45,384 - INFO - 🎲 Randomly sampling 10 rules for validation
+2025-08-20 09:38:45,384 - INFO - 🚀 Starting validation of 10 rules...
+2025-08-20 09:38:45,384 - INFO - 📊 Progress: 1/10 - injected_spam_seo_pharmacy_online_097
+2025-08-20 09:38:45,385 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_097
+2025-08-20 09:38:58,810 - INFO - 📊 Progress: 2/10 - injected_spam_seo_antibiotics_007
+2025-08-20 09:38:58,813 - INFO - 🔍 Validating rule: injected_spam_seo_antibiotics_007
+2025-08-20 09:39:12,899 - INFO - 📊 Progress: 3/10 - injected_js_unwanted_ads_024
+2025-08-20 09:39:12,903 - INFO - 🔍 Validating rule: injected_js_unwanted_ads_024
+2025-08-20 09:39:28,360 - INFO - 📊 Progress: 4/10 - injected_balada_011_03
+2025-08-20 09:39:28,364 - INFO - 🔍 Validating rule: injected_balada_011_03
+2025-08-20 09:39:43,044 - INFO - 📊 Progress: 5/10 - injected_js_unwanted_ads_029
+2025-08-20 09:39:43,048 - INFO - 🔍 Validating rule: injected_js_unwanted_ads_029
+2025-08-20 09:39:56,302 - INFO - 📊 Progress: 6/10 - injected_js_malware_010
+2025-08-20 09:39:56,305 - INFO - 🔍 Validating rule: injected_js_malware_010
+2025-08-20 09:40:10,229 - INFO - 📊 Progress: 7/10 - injected_spam_seo_viagra_025
+2025-08-20 09:40:10,233 - INFO - 🔍 Validating rule: injected_spam_seo_viagra_025
+2025-08-20 09:40:26,258 - INFO - 📊 Progress: 8/10 - injected_spam_seo_pharmacy_online_046
+2025-08-20 09:40:26,261 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_046
+2025-08-20 09:40:39,783 - INFO - 📊 Progress: 9/10 - injected_spam_seo_vuitton_001
+2025-08-20 09:40:39,786 - INFO - 🔍 Validating rule: injected_spam_seo_vuitton_001
+2025-08-20 09:40:52,724 - INFO - 📊 Progress: 10/10 - injected_hidden_div_040_02
+2025-08-20 09:40:52,729 - INFO - 🔍 Validating rule: injected_hidden_div_040_02
+2025-08-20 09:41:06,015 - INFO - 💾 Validation results saved to: validation_results.json
+2025-08-20 09:41:33,240 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-20 09:41:33,240 - INFO - 🎲 Randomly sampling 10 rules for validation
+2025-08-20 09:41:33,240 - INFO - 🚀 Starting validation of 10 rules...
+2025-08-20 09:41:33,241 - INFO - 📊 Progress: 1/10 - injected_spam_seo_essay_048
+2025-08-20 09:41:33,241 - INFO - 🔍 Validating rule: injected_spam_seo_essay_048
+2025-08-20 09:41:49,930 - INFO - 📊 Progress: 2/10 - injected_js_malware_010
+2025-08-20 09:41:49,935 - INFO - 🔍 Validating rule: injected_js_malware_010
+2025-08-20 09:42:06,393 - INFO - 📊 Progress: 3/10 - injected_balada_011_03
+2025-08-20 09:42:06,397 - INFO - 🔍 Validating rule: injected_balada_011_03
+2025-08-20 09:42:20,590 - INFO - 📊 Progress: 4/10 - injected_spam_seo_pharmacy_online_099
+2025-08-20 09:42:20,593 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_099
+2025-08-20 09:42:32,037 - INFO - 📊 Progress: 5/10 - injected_mass_injection_001
+2025-08-20 09:42:32,040 - INFO - 🔍 Validating rule: injected_mass_injection_001
+2025-08-20 09:42:46,188 - INFO - 📊 Progress: 6/10 - injected_spam_links_002
+2025-08-20 09:42:46,192 - INFO - 🔍 Validating rule: injected_spam_links_002
+2025-08-20 09:43:01,044 - INFO - 📊 Progress: 7/10 - injected_spam_seo_lasix_001
+2025-08-20 09:43:01,047 - INFO - 🔍 Validating rule: injected_spam_seo_lasix_001
+2025-08-20 09:43:17,113 - INFO - 📊 Progress: 8/10 - injected_hidden_div_035_02
+2025-08-20 09:43:17,117 - INFO - 🔍 Validating rule: injected_hidden_div_035_02
+2025-08-20 09:43:32,270 - INFO - 📊 Progress: 9/10 - injected_spam_seo_tadafil_004
+2025-08-20 09:43:32,274 - INFO - 🔍 Validating rule: injected_spam_seo_tadafil_004
+2025-08-20 09:43:47,322 - INFO - 📊 Progress: 10/10 - injected_spam_seo_pharmacy_online_066
+2025-08-20 09:43:47,326 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_066
+2025-08-20 09:44:00,438 - INFO - 💾 Validation results saved to: validation_results.json
+2025-08-21 10:51:50,700 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-21 10:51:50,700 - INFO - 🎲 Randomly sampling 5 rules for validation
+2025-08-21 10:51:50,700 - INFO - 🚀 Starting validation of 5 rules...
+2025-08-21 10:51:50,701 - INFO - 📊 Progress: 1/5 - hacktool_cc_stealer_165
+2025-08-21 10:51:50,701 - INFO - 🔍 Validating rule: hacktool_cc_stealer_165
+2025-08-21 10:52:04,910 - INFO - 📊 Progress: 2/5 - injected_wp_user_creator_001
+2025-08-21 10:52:04,912 - INFO - 🔍 Validating rule: injected_wp_user_creator_001
+2025-08-21 10:52:19,415 - INFO - 📊 Progress: 3/5 - injected_hidden_div_050
+2025-08-21 10:52:19,418 - INFO - 🔍 Validating rule: injected_hidden_div_050
+2025-08-21 10:52:36,243 - INFO - 📊 Progress: 4/5 - injected_spam_seo_pharmacy_online_091
+2025-08-21 10:52:36,247 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_091
+2025-08-21 10:52:50,683 - INFO - 📊 Progress: 5/5 - injected_spam_seo_pharmacy_online_098
+2025-08-21 10:52:50,686 - INFO - 🔍 Validating rule: injected_spam_seo_pharmacy_online_098
+2025-08-21 10:53:05,196 - INFO - 💾 Validation results saved to: validation_results_20250821_105305.json
+2025-08-21 15:43:34,652 - INFO - 📋 Parsed 6 YARA rules from data/yara_rules.yar
+2025-08-21 15:43:34,653 - INFO - 🚀 Starting validation of 6 rules...
+2025-08-21 15:43:34,653 - INFO - 📊 Progress: 1/6 - backdoor_eval_001
+2025-08-21 15:43:34,654 - INFO - 🔍 Validating rule: backdoor_eval_001
+2025-08-21 15:43:50,708 - INFO - 📊 Progress: 2/6 - backdoor_eval_009
+2025-08-21 15:43:50,708 - INFO - 🔍 Validating rule: backdoor_eval_009
+2025-08-21 15:44:08,017 - INFO - 📊 Progress: 3/6 - injected_balada_001
+2025-08-21 15:44:08,019 - INFO - 🔍 Validating rule: injected_balada_001
+2025-08-21 15:44:26,446 - INFO - 📊 Progress: 4/6 - injected_spam_seo_casino_001
+2025-08-21 15:44:26,447 - INFO - 🔍 Validating rule: injected_spam_seo_casino_001
+2025-08-21 15:44:40,174 - INFO - 📊 Progress: 5/6 - injected_spam_seo_viagra_002
+2025-08-21 15:44:40,176 - INFO - 🔍 Validating rule: injected_spam_seo_viagra_002
+2025-08-21 15:44:53,073 - INFO - 📊 Progress: 6/6 - KingDefacer_PHP_Webshell
+2025-08-21 15:44:53,075 - INFO - 🔍 Validating rule: KingDefacer_PHP_Webshell
+2025-08-21 15:45:08,845 - INFO - 💾 Validation results saved to: validation_results_20250821_154508.json
+2025-08-21 15:47:55,765 - INFO - 📋 Parsed 6 YARA rules from data/yara_rules.yar
+2025-08-21 15:47:55,765 - INFO - 🚀 Starting validation of 6 rules...
+2025-08-21 15:47:55,766 - INFO - 📊 Progress: 1/6 - backdoor_eval_001
+2025-08-21 15:47:55,766 - INFO - 🔍 Validating rule: backdoor_eval_001
+2025-08-21 15:48:12,073 - INFO - 📊 Progress: 2/6 - backdoor_eval_009
+2025-08-21 15:48:12,075 - INFO - 🔍 Validating rule: backdoor_eval_009
+2025-08-21 15:48:28,585 - INFO - 📊 Progress: 3/6 - injected_balada_001
+2025-08-21 15:48:28,587 - INFO - 🔍 Validating rule: injected_balada_001
+2025-08-21 15:48:43,182 - INFO - 📊 Progress: 4/6 - injected_spam_seo_casino_001
+2025-08-21 15:48:43,184 - INFO - 🔍 Validating rule: injected_spam_seo_casino_001
+2025-08-21 15:48:57,759 - INFO - 📊 Progress: 5/6 - injected_spam_seo_viagra_002
+2025-08-21 15:48:57,761 - INFO - 🔍 Validating rule: injected_spam_seo_viagra_002
+2025-08-21 15:49:12,128 - INFO - 📊 Progress: 6/6 - PHP_KingDefacer_WebShell
+2025-08-21 15:49:12,129 - INFO - 🔍 Validating rule: PHP_KingDefacer_WebShell
+2025-08-21 15:49:27,850 - INFO - 💾 Validation results saved to: validation_results_20250821_154927.json
