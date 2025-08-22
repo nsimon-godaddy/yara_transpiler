@@ -71,20 +71,16 @@ rule injected_spam_seo_viagra_002
 
 rule PHP_KingDefacer_WebShell {
     meta:
-        description = "Detects KingDefacer PHP web shell exploit"
+        description = "Detects KingDefacer PHP Web Shell Exploit"
         author = "Security Analyst"
-        date = "2023"
-        hash = "md5_to_be_added"
+        threat_level = "HIGH"
     strings:
-        $signature1 = "safe_mode and open_basedir Bypass" ascii
-        $signature2 = "KingDefacer" ascii
-        $signature3 = "Turkish Security Network" ascii
-        $php_bypass = "!empty($_GET['file'])" ascii
-        $exploit_marker = "This is exploit from" ascii
-        $network_ref = "Md5Cracking.Com Crew" ascii
+        $signature1 = "KingDefacer" nocase
+        $signature2 = "Turkish Security Network" nocase
+        $php_bypass = "safe_mode" nocase
+        $remote_exec = "$_GET['file']" nocase
+        $exploit_marker = "This is exploit from" nocase
     condition:
         filetype == "php" and 
-        (3 of ($signature1, $signature2, $signature3)) and
-        $php_bypass and 
-        $exploit_marker
+        (3 of ($signature1, $signature2, $php_bypass, $remote_exec, $exploit_marker))
 }

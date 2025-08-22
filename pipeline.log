@@ -784,3 +784,539 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0xdd in position 72: invalid
 2025-08-21 15:49:27,875 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
 2025-08-21 15:49:27,875 - INFO -    - YARA: data/yara_rules.yar
 2025-08-21 15:49:27,875 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-22 09:10:27,886 - INFO - 🚀 Starting YARA pipeline...
+2025-08-22 09:10:27,886 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-22 09:10:27,886 - INFO - 🧹 Cleaning previous output files...
+2025-08-22 09:10:27,886 - INFO - 🗑️  Deleted: data/yara_rules.yar
+2025-08-22 09:10:27,886 - INFO - 🔍 Checking prerequisites...
+2025-08-22 09:10:27,886 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-22 09:10:27,886 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-22 09:10:27,886 - INFO - 📁 Processing input file 1/2: 529.php
+2025-08-22 09:10:41,315 - INFO - ✅ LLM analysis completed for 529.php
+2025-08-22 09:10:41,315 - INFO - Output: 2025-08-22 09:10:28,266 - INFO - 📋 Loaded binary data from test_files/529.php (size: 1523 bytes)
+2025-08-22 09:10:28,266 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-22 09:10:41,289 - INFO - 💾 Classification results saved to: classification_results_20250822_091041.json
+
+============================================================
+🔍 DATA CLASSIFICATION SUMMARY
+============================================================
+📋 Format Compatibility: BINARY_FILE
+📊 Recognition Status: YES
+🔧 Data Type: BINARY_FILE
+🎯 YARA Compatibility: YES
+📈 Conversion Readiness: 10/10
+✅ Can Proceed to YARA: YES
+============================================================
+📋 Data Statistics:
+   - Total Lines: 0
+   - Has Cleanup Section: NO
+   - Has Signature Section: NO
+   - Signature Count: 0
+   - Cleanup Constants: 0
+
+🔍 Format Validation:
+   - Has cleanup section: ❌
+   - Has signature section: ❌
+   - Has define statements: ❌
+   - Has signature entries: ❌
+   - Overall format valid: ❌
+
+✅ Binary file detected - ready for LLM YARA generation!
+   File will be processed directly by LLM to create YARA rule.
+
+📁 Classification results saved to: classification_results_*.json
+📋 Log file: classification.log
+2025-08-22 09:10:41,316 - INFO - 📁 Processing input file 2/2: signature_patterns_subset.txt
+2025-08-22 09:10:41,404 - INFO - ✅ JSON conversion completed for signature_patterns_subset.txt
+2025-08-22 09:10:41,404 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_viagra.002
+
+✅ Converted 5 signatures to data/signatures_signature_patterns_subset.json
+2025-08-22 09:10:41,404 - INFO - 📁 JSON file created: data/signatures_signature_patterns_subset.json
+2025-08-22 09:10:41,404 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-22 09:10:41,404 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-22 09:10:41,405 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-22 09:10:41,405 - INFO - ✅ File processing completed: 1 text, 1 binary
+2025-08-22 09:10:41,405 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-22 09:10:41,439 - INFO - ✅ JSON to YARA conversion completed successfully
+2025-08-22 09:10:41,440 - INFO - Output: Converted 5 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-22 09:10:41,440 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-22 09:10:41,440 - INFO - 🔄 Adding 1 binary file YARA rules...
+2025-08-22 09:10:41,440 - INFO - ✅ Added 1 binary file YARA rules to data/yara_rules.yar
+2025-08-22 09:10:41,440 - INFO - 🔍 Validating output files...
+2025-08-22 09:10:41,440 - INFO - 📊 JSON validation: 5 signatures, 4 constants
+2025-08-22 09:10:41,440 - INFO - 📊 YARA validation: 6 rules generated
+2025-08-22 09:10:41,440 - INFO - ✅ Output validation completed
+2025-08-22 09:10:41,440 - INFO - 🎉 Pipeline completed successfully!
+2025-08-22 09:10:41,440 - INFO - ⏱️  Total duration: 0:00:13.554647
+2025-08-22 09:10:41,440 - INFO - 📁 Final outputs:
+2025-08-22 09:10:41,440 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
+2025-08-22 09:10:41,440 - INFO -    - YARA: data/yara_rules.yar
+2025-08-22 09:11:01,186 - INFO - 🚀 Starting YARA pipeline...
+2025-08-22 09:11:01,186 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-22 09:11:01,186 - INFO - 🧹 Cleaning previous output files...
+2025-08-22 09:11:01,186 - INFO - 🗑️  Deleted: data/yara_rules.yar
+2025-08-22 09:11:01,186 - INFO - 🔍 Checking prerequisites...
+2025-08-22 09:11:01,186 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-22 09:11:01,186 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-22 09:11:01,186 - INFO - 📁 Processing input file 1/2: 529.php
+2025-08-22 09:11:13,665 - INFO - ✅ LLM analysis completed for 529.php
+2025-08-22 09:11:13,665 - INFO - Output: 2025-08-22 09:11:01,289 - INFO - 📋 Loaded binary data from test_files/529.php (size: 1523 bytes)
+2025-08-22 09:11:01,290 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-22 09:11:13,643 - INFO - 💾 Classification results saved to: classification_results_20250822_091113.json
+
+============================================================
+🔍 DATA CLASSIFICATION SUMMARY
+============================================================
+📋 Format Compatibility: BINARY_FILE
+📊 Recognition Status: YES
+🔧 Data Type: BINARY_FILE
+🎯 YARA Compatibility: YES
+📈 Conversion Readiness: 10/10
+✅ Can Proceed to YARA: YES
+============================================================
+📋 Data Statistics:
+   - Total Lines: 0
+   - Has Cleanup Section: NO
+   - Has Signature Section: NO
+   - Signature Count: 0
+   - Cleanup Constants: 0
+
+🔍 Format Validation:
+   - Has cleanup section: ❌
+   - Has signature section: ❌
+   - Has define statements: ❌
+   - Has signature entries: ❌
+   - Overall format valid: ❌
+
+✅ Binary file detected - ready for LLM YARA generation!
+   File will be processed directly by LLM to create YARA rule.
+
+📁 Classification results saved to: classification_results_*.json
+📋 Log file: classification.log
+2025-08-22 09:11:13,666 - INFO - 📁 Processing input file 2/2: signature_patterns_subset.txt
+2025-08-22 09:11:13,709 - INFO - ✅ JSON conversion completed for signature_patterns_subset.txt
+2025-08-22 09:11:13,710 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_viagra.002
+
+✅ Converted 5 signatures to data/signatures_signature_patterns_subset.json
+2025-08-22 09:11:13,710 - INFO - 📁 JSON file created: data/signatures_signature_patterns_subset.json
+2025-08-22 09:11:13,710 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-22 09:11:13,710 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-22 09:11:13,710 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-22 09:11:13,710 - INFO - ✅ File processing completed: 1 text, 1 binary
+2025-08-22 09:11:13,710 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-22 09:11:13,742 - INFO - ✅ JSON to YARA conversion completed successfully
+2025-08-22 09:11:13,742 - INFO - Output: Converted 5 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-22 09:11:13,742 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-22 09:11:13,742 - INFO - 🔄 Adding 1 binary file YARA rules...
+2025-08-22 09:11:13,742 - INFO - ✅ Added 1 binary file YARA rules to data/yara_rules.yar
+2025-08-22 09:11:13,742 - INFO - 🔄 Step 3: Running LLM validation of YARA rules...
+2025-08-22 09:12:44,290 - INFO - ✅ LLM validation completed successfully
+2025-08-22 09:12:44,291 - INFO - Output: 2025-08-22 09:11:13,850 - INFO - 📋 Parsed 6 YARA rules from data/yara_rules.yar
+2025-08-22 09:11:13,851 - INFO - 🚀 Starting validation of 6 rules...
+2025-08-22 09:11:13,852 - INFO - 📊 Progress: 1/6 - backdoor_eval_001
+2025-08-22 09:11:13,852 - INFO - 🔍 Validating rule: backdoor_eval_001
+2025-08-22 09:11:26,742 - INFO - 📊 Progress: 2/6 - backdoor_eval_009
+2025-08-22 09:11:26,742 - INFO - 🔍 Validating rule: backdoor_eval_009
+2025-08-22 09:11:42,618 - INFO - 📊 Progress: 3/6 - injected_balada_001
+2025-08-22 09:11:42,619 - INFO - 🔍 Validating rule: injected_balada_001
+2025-08-22 09:11:59,909 - INFO - 📊 Progress: 4/6 - injected_spam_seo_casino_001
+2025-08-22 09:11:59,910 - INFO - 🔍 Validating rule: injected_spam_seo_casino_001
+2025-08-22 09:12:13,846 - INFO - 📊 Progress: 5/6 - injected_spam_seo_viagra_002
+2025-08-22 09:12:13,851 - INFO - 🔍 Validating rule: injected_spam_seo_viagra_002
+2025-08-22 09:12:28,287 - INFO - 📊 Progress: 6/6 - KingDefacer_PHP_WebShell
+2025-08-22 09:12:28,289 - INFO - 🔍 Validating rule: KingDefacer_PHP_WebShell
+2025-08-22 09:12:44,265 - INFO - 💾 Validation results saved to: validation_results_20250822_091244.json
+
+============================================================
+🎯 YARA VALIDATION SUMMARY
+============================================================
+📊 Total Rules: 6
+✅ Successfully Validated: 6
+❌ Validation Errors: 0
+📈 Success Rate: 100.0%
+============================================================
+
+📁 Results saved to: validation_results_*.json
+📋 Log file: validation.log
+
+💡 Output format: rule_name + LLM response (simplified)
+2025-08-22 09:12:44,291 - INFO - 🔍 Validating output files...
+2025-08-22 09:12:44,292 - INFO - 📊 JSON validation: 5 signatures, 4 constants
+2025-08-22 09:12:44,292 - INFO - 📊 YARA validation: 6 rules generated
+2025-08-22 09:12:44,292 - INFO - ✅ Output validation completed
+2025-08-22 09:12:44,292 - INFO - 🎉 Pipeline completed successfully!
+2025-08-22 09:12:44,292 - INFO - ⏱️  Total duration: 0:01:43.106202
+2025-08-22 09:12:44,292 - INFO - 📁 Final outputs:
+2025-08-22 09:12:44,292 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
+2025-08-22 09:12:44,292 - INFO -    - YARA: data/yara_rules.yar
+2025-08-22 09:12:44,292 - INFO - 🔍 LLM validation results saved to validation_results_*.json
+2025-08-22 09:22:26,596 - INFO - 🚀 Starting YARA pipeline...
+2025-08-22 09:22:26,596 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-22 09:22:26,596 - INFO - 🧹 Cleaning previous output files...
+2025-08-22 09:22:26,596 - INFO - 🗑️  Deleted: data/yara_rules.yar
+2025-08-22 09:22:26,596 - INFO - 🔍 Checking prerequisites...
+2025-08-22 09:22:26,596 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-22 09:22:26,596 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-22 09:22:26,596 - INFO - 📁 Processing input file 1/2: 529.php
+2025-08-22 09:22:39,220 - INFO - ✅ LLM analysis completed for 529.php
+2025-08-22 09:22:39,220 - INFO - Output: 2025-08-22 09:22:26,744 - INFO - 📋 Loaded binary data from test_files/529.php (size: 1523 bytes)
+2025-08-22 09:22:26,744 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-22 09:22:39,192 - INFO - 💾 Classification results saved to: classification_results_20250822_092239.json
+
+============================================================
+🔍 DATA CLASSIFICATION SUMMARY
+============================================================
+📋 Format Compatibility: BINARY_FILE
+📊 Recognition Status: YES
+🔧 Data Type: BINARY_FILE
+🎯 YARA Compatibility: YES
+📈 Conversion Readiness: 10/10
+✅ Can Proceed to YARA: YES
+============================================================
+📋 Data Statistics:
+   - Total Lines: 0
+   - Has Cleanup Section: NO
+   - Has Signature Section: NO
+   - Signature Count: 0
+   - Cleanup Constants: 0
+
+🔍 Format Validation:
+   - Has cleanup section: ❌
+   - Has signature section: ❌
+   - Has define statements: ❌
+   - Has signature entries: ❌
+   - Overall format valid: ❌
+
+✅ Binary file detected - ready for LLM YARA generation!
+   File will be processed directly by LLM to create YARA rule.
+
+📁 Classification results saved to: classification_results_*.json
+📋 Log file: classification.log
+2025-08-22 09:22:39,221 - INFO - 📁 Processing input file 2/2: signature_patterns_subset.txt
+2025-08-22 09:22:39,270 - INFO - ✅ JSON conversion completed for signature_patterns_subset.txt
+2025-08-22 09:22:39,270 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_viagra.002
+
+✅ Converted 5 signatures to data/signatures_signature_patterns_subset.json
+2025-08-22 09:22:39,270 - INFO - 📁 JSON file created: data/signatures_signature_patterns_subset.json
+2025-08-22 09:22:39,270 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-22 09:22:39,270 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-22 09:22:39,271 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-22 09:22:39,271 - INFO - ✅ File processing completed: 1 text, 1 binary
+2025-08-22 09:22:39,271 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-22 09:22:39,304 - INFO - ✅ JSON to YARA conversion completed successfully
+2025-08-22 09:22:39,304 - INFO - Output: Converted 5 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-22 09:22:39,304 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-22 09:22:39,304 - INFO - 🔄 Adding 1 binary file YARA rules...
+2025-08-22 09:22:39,304 - INFO - ✅ Added 1 binary file YARA rules to data/yara_rules.yar
+2025-08-22 09:22:39,304 - INFO - 🔍 Validating output files...
+2025-08-22 09:22:39,305 - INFO - 📊 JSON validation: 5 signatures, 4 constants
+2025-08-22 09:22:39,305 - INFO - 📊 YARA validation: 6 rules generated
+2025-08-22 09:22:39,305 - INFO - ✅ Output validation completed
+2025-08-22 09:22:39,305 - INFO - 🎉 Pipeline completed successfully!
+2025-08-22 09:22:39,305 - INFO - ⏱️  Total duration: 0:00:12.709158
+2025-08-22 09:22:39,305 - INFO - 📁 Final outputs:
+2025-08-22 09:22:39,305 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
+2025-08-22 09:22:39,305 - INFO -    - YARA: data/yara_rules.yar
+2025-08-22 09:36:30,446 - INFO - 🚀 Starting YARA pipeline...
+2025-08-22 09:36:30,446 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-22 09:36:30,446 - INFO - 🧹 Cleaning previous output files...
+2025-08-22 09:36:30,447 - INFO - 🗑️  Deleted: data/yara_rules.yar
+2025-08-22 09:36:30,447 - INFO - 🔍 Checking prerequisites...
+2025-08-22 09:36:30,447 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-22 09:36:30,447 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-22 09:36:30,447 - INFO - 📁 Processing input file 1/2: 529.php
+2025-08-22 09:36:44,358 - INFO - ✅ LLM analysis completed for 529.php
+2025-08-22 09:36:44,358 - INFO - Output: 2025-08-22 09:36:30,600 - INFO - 📋 Loaded binary data from test_files/529.php (size: 1523 bytes)
+2025-08-22 09:36:30,600 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-22 09:36:44,330 - INFO - 💾 Classification results saved to: classification_results_20250822_093644.json
+
+============================================================
+🔍 DATA CLASSIFICATION SUMMARY
+============================================================
+📋 Format Compatibility: BINARY_FILE
+📊 Recognition Status: YES
+🔧 Data Type: BINARY_FILE
+🎯 YARA Compatibility: YES
+📈 Conversion Readiness: 10/10
+✅ Can Proceed to YARA: YES
+============================================================
+📋 Data Statistics:
+   - Total Lines: 0
+   - Has Cleanup Section: NO
+   - Has Signature Section: NO
+   - Signature Count: 0
+   - Cleanup Constants: 0
+
+🔍 Format Validation:
+   - Has cleanup section: ❌
+   - Has signature section: ❌
+   - Has define statements: ❌
+   - Has signature entries: ❌
+   - Overall format valid: ❌
+
+✅ Binary file detected - ready for LLM YARA generation!
+   File will be processed directly by LLM to create YARA rule.
+
+📁 Classification results saved to: classification_results_*.json
+📋 Log file: classification.log
+2025-08-22 09:36:44,359 - INFO - 📁 Processing input file 2/2: signature_patterns_subset.txt
+2025-08-22 09:36:44,415 - INFO - ✅ JSON conversion completed for signature_patterns_subset.txt
+2025-08-22 09:36:44,416 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_viagra.002
+
+✅ Converted 5 signatures to data/signatures_signature_patterns_subset.json
+2025-08-22 09:36:44,416 - INFO - 📁 JSON file created: data/signatures_signature_patterns_subset.json
+2025-08-22 09:36:44,416 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-22 09:36:44,416 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-22 09:36:44,416 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-22 09:36:44,416 - INFO - ✅ File processing completed: 1 text, 1 binary
+2025-08-22 09:36:44,416 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-22 09:36:44,453 - INFO - ✅ JSON to YARA conversion completed successfully
+2025-08-22 09:36:44,453 - INFO - Output: Converted 5 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-22 09:36:44,453 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-22 09:36:44,453 - INFO - 🔄 Adding 1 binary file YARA rules...
+2025-08-22 09:36:44,453 - INFO - ✅ Added 1 binary file YARA rules to data/yara_rules.yar
+2025-08-22 09:36:44,453 - INFO - 🔍 Validating output files...
+2025-08-22 09:36:44,454 - INFO - 📊 JSON validation: 5 signatures, 4 constants
+2025-08-22 09:36:44,454 - INFO - 📊 YARA validation: 6 rules generated
+2025-08-22 09:36:44,454 - INFO - ✅ Output validation completed
+2025-08-22 09:36:44,454 - INFO - 🎉 Pipeline completed successfully!
+2025-08-22 09:36:44,454 - INFO - ⏱️  Total duration: 0:00:14.007804
+2025-08-22 09:36:44,454 - INFO - 📁 Final outputs:
+2025-08-22 09:36:44,454 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
+2025-08-22 09:36:44,454 - INFO -    - YARA: data/yara_rules.yar
+2025-08-22 09:41:03,999 - INFO - 🚀 Starting YARA pipeline...
+2025-08-22 09:41:03,999 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-22 09:41:03,999 - INFO - 🧹 Cleaning previous output files...
+2025-08-22 09:41:03,999 - INFO - 🗑️  Deleted: data/yara_rules.yar
+2025-08-22 09:41:03,999 - INFO - 🔍 Checking prerequisites...
+2025-08-22 09:41:03,999 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-22 09:41:03,999 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-22 09:41:03,999 - INFO - 📁 Processing input file 1/2: 529.php
+2025-08-22 09:41:16,104 - INFO - ✅ LLM analysis completed for 529.php
+2025-08-22 09:41:16,104 - INFO - Output: 2025-08-22 09:41:04,125 - INFO - 📋 Loaded binary data from test_files/529.php (size: 1523 bytes)
+2025-08-22 09:41:04,125 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-22 09:41:16,077 - INFO - 💾 Classification results saved to: classification_results_20250822_094116.json
+
+============================================================
+🔍 DATA CLASSIFICATION SUMMARY
+============================================================
+📋 Format Compatibility: BINARY_FILE
+📊 Recognition Status: YES
+🔧 Data Type: BINARY_FILE
+🎯 YARA Compatibility: YES
+📈 Conversion Readiness: 10/10
+✅ Can Proceed to YARA: YES
+============================================================
+📋 Data Statistics:
+   - Total Lines: 0
+   - Has Cleanup Section: NO
+   - Has Signature Section: NO
+   - Signature Count: 0
+   - Cleanup Constants: 0
+
+🔍 Format Validation:
+   - Has cleanup section: ❌
+   - Has signature section: ❌
+   - Has define statements: ❌
+   - Has signature entries: ❌
+   - Overall format valid: ❌
+
+✅ Binary file detected - ready for LLM YARA generation!
+   File will be processed directly by LLM to create YARA rule.
+
+📁 Classification results saved to: classification_results_*.json
+📋 Log file: classification.log
+2025-08-22 09:41:16,104 - INFO - 📁 Processing input file 2/2: signature_patterns_subset.txt
+2025-08-22 09:41:16,154 - INFO - ✅ JSON conversion completed for signature_patterns_subset.txt
+2025-08-22 09:41:16,154 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_viagra.002
+
+✅ Converted 5 signatures to data/signatures_signature_patterns_subset.json
+2025-08-22 09:41:16,154 - INFO - 📁 JSON file created: data/signatures_signature_patterns_subset.json
+2025-08-22 09:41:16,154 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-22 09:41:16,154 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-22 09:41:16,155 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-22 09:41:16,155 - INFO - ✅ File processing completed: 1 text, 1 binary
+2025-08-22 09:41:16,155 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-22 09:41:16,188 - INFO - ✅ JSON to YARA conversion completed successfully
+2025-08-22 09:41:16,188 - INFO - Output: Converted 5 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-22 09:41:16,188 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-22 09:41:16,188 - INFO - 🔄 Adding 1 binary file YARA rules...
+2025-08-22 09:41:16,189 - INFO - ✅ Added 1 binary file YARA rules to data/yara_rules.yar
+2025-08-22 09:41:16,189 - INFO - 🔍 Validating output files...
+2025-08-22 09:41:16,189 - INFO - 📊 JSON validation: 5 signatures, 4 constants
+2025-08-22 09:41:16,189 - INFO - 📊 YARA validation: 6 rules generated
+2025-08-22 09:41:16,189 - INFO - ✅ Output validation completed
+2025-08-22 09:41:16,189 - INFO - 🎉 Pipeline completed successfully!
+2025-08-22 09:41:16,189 - INFO - ⏱️  Total duration: 0:00:12.190057
+2025-08-22 09:41:16,189 - INFO - 📁 Final outputs:
+2025-08-22 09:41:16,189 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
+2025-08-22 09:41:16,189 - INFO -    - YARA: data/yara_rules.yar
+2025-08-22 09:55:28,365 - INFO - 🚀 Starting YARA pipeline...
+2025-08-22 09:55:28,366 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-22 09:55:28,366 - INFO - 🧹 Cleaning previous output files...
+2025-08-22 09:55:28,366 - INFO - 🗑️  Deleted: data/yara_rules.yar
+2025-08-22 09:55:28,366 - INFO - 🔍 Checking prerequisites...
+2025-08-22 09:55:28,366 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-22 09:55:28,366 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-22 09:55:28,366 - INFO - 📁 Processing input file 1/2: 529.php
+2025-08-22 09:55:40,056 - INFO - ✅ LLM analysis completed for 529.php
+2025-08-22 09:55:40,057 - INFO - Output: 2025-08-22 09:55:28,558 - INFO - 📋 Loaded binary data from test_files/529.php (size: 1523 bytes)
+2025-08-22 09:55:28,558 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-22 09:55:40,025 - INFO - 💾 Classification results saved to: classification_results_20250822_095540.json
+
+============================================================
+🔍 DATA CLASSIFICATION SUMMARY
+============================================================
+📋 Format Compatibility: BINARY_FILE
+📊 Recognition Status: YES
+🔧 Data Type: BINARY_FILE
+🎯 YARA Compatibility: YES
+📈 Conversion Readiness: 10/10
+✅ Can Proceed to YARA: YES
+============================================================
+📋 Data Statistics:
+   - Total Lines: 0
+   - Has Cleanup Section: NO
+   - Has Signature Section: NO
+   - Signature Count: 0
+   - Cleanup Constants: 0
+
+🔍 Format Validation:
+   - Has cleanup section: ❌
+   - Has signature section: ❌
+   - Has define statements: ❌
+   - Has signature entries: ❌
+   - Overall format valid: ❌
+
+✅ Binary file detected - ready for LLM YARA generation!
+   File will be processed directly by LLM to create YARA rule.
+
+📁 Classification results saved to: classification_results_*.json
+📋 Log file: classification.log
+2025-08-22 09:55:40,057 - INFO - 📁 Processing input file 2/2: signature_patterns_subset.txt
+2025-08-22 09:55:40,113 - INFO - ✅ JSON conversion completed for signature_patterns_subset.txt
+2025-08-22 09:55:40,114 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_viagra.002
+
+✅ Converted 5 signatures to data/signatures_signature_patterns_subset.json
+2025-08-22 09:55:40,114 - INFO - 📁 JSON file created: data/signatures_signature_patterns_subset.json
+2025-08-22 09:55:40,114 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-22 09:55:40,114 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-22 09:55:40,114 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-22 09:55:40,114 - INFO - ✅ File processing completed: 1 text, 1 binary
+2025-08-22 09:55:40,115 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-22 09:55:40,153 - INFO - ✅ JSON to YARA conversion completed successfully
+2025-08-22 09:55:40,153 - INFO - Output: Converted 5 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-22 09:55:40,153 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-22 09:55:40,153 - INFO - 🔄 Adding 1 binary file YARA rules...
+2025-08-22 09:55:40,154 - INFO - ✅ Added 1 binary file YARA rules to data/yara_rules.yar
+2025-08-22 09:55:40,154 - INFO - 🔍 Validating output files...
+2025-08-22 09:55:40,154 - INFO - 📊 JSON validation: 5 signatures, 4 constants
+2025-08-22 09:55:40,154 - INFO - 📊 YARA validation: 6 rules generated
+2025-08-22 09:55:40,154 - INFO - ✅ Output validation completed
+2025-08-22 09:55:40,154 - INFO - 🎉 Pipeline completed successfully!
+2025-08-22 09:55:40,154 - INFO - ⏱️  Total duration: 0:00:11.788657
+2025-08-22 09:55:40,154 - INFO - 📁 Final outputs:
+2025-08-22 09:55:40,154 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
+2025-08-22 09:55:40,154 - INFO -    - YARA: data/yara_rules.yar
+2025-08-22 10:35:47,098 - INFO - 🚀 Starting YARA pipeline...
+2025-08-22 10:35:47,098 - INFO - 📁 Working directory: /Users/nsimon/code/yara
+2025-08-22 10:35:47,098 - INFO - 🧹 Cleaning previous output files...
+2025-08-22 10:35:47,099 - INFO - 🗑️  Deleted: data/yara_rules.yar
+2025-08-22 10:35:47,099 - INFO - 🔍 Checking prerequisites...
+2025-08-22 10:35:47,099 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-22 10:35:47,099 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-22 10:35:47,099 - INFO - 📁 Processing input file 1/2: 529.php
+2025-08-22 10:35:59,115 - INFO - ✅ LLM analysis completed for 529.php
+2025-08-22 10:35:59,116 - INFO - Output: 2025-08-22 10:35:47,260 - INFO - 📋 Loaded binary data from test_files/529.php (size: 1523 bytes)
+2025-08-22 10:35:47,261 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-22 10:35:59,092 - INFO - 💾 Classification results saved to: classification_results_20250822_103559.json
+
+============================================================
+🔍 DATA CLASSIFICATION SUMMARY
+============================================================
+📋 Format Compatibility: BINARY_FILE
+📊 Recognition Status: YES
+🔧 Data Type: BINARY_FILE
+🎯 YARA Compatibility: YES
+📈 Conversion Readiness: 10/10
+✅ Can Proceed to YARA: YES
+============================================================
+📋 Data Statistics:
+   - Total Lines: 0
+   - Has Cleanup Section: NO
+   - Has Signature Section: NO
+   - Signature Count: 0
+   - Cleanup Constants: 0
+
+🔍 Format Validation:
+   - Has cleanup section: ❌
+   - Has signature section: ❌
+   - Has define statements: ❌
+   - Has signature entries: ❌
+   - Overall format valid: ❌
+
+✅ Binary file detected - ready for LLM YARA generation!
+   File will be processed directly by LLM to create YARA rule.
+
+📁 Classification results saved to: classification_results_*.json
+📋 Log file: classification.log
+2025-08-22 10:35:59,116 - INFO - 📁 Processing input file 2/2: signature_patterns_subset.txt
+2025-08-22 10:35:59,175 - INFO - ✅ JSON conversion completed for signature_patterns_subset.txt
+2025-08-22 10:35:59,175 - INFO - Output: 🔧 Found 4 cleanup constants: ['CLEAR_COLUMN', 'script_src', 'spam_link', 'spam_link_text']
+✅ Processed signature: backdoor.eval.001
+✅ Processed signature: backdoor.eval.009
+✅ Processed signature: injected.balada.001
+✅ Processed signature: injected.spam-seo_casino.001
+✅ Processed signature: injected.spam-seo_viagra.002
+
+✅ Converted 5 signatures to data/signatures_signature_patterns_subset.json
+2025-08-22 10:35:59,175 - INFO - 📁 JSON file created: data/signatures_signature_patterns_subset.json
+2025-08-22 10:35:59,175 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-22 10:35:59,175 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-22 10:35:59,176 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-22 10:35:59,176 - INFO - ✅ File processing completed: 1 text, 1 binary
+2025-08-22 10:35:59,176 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-22 10:35:59,212 - INFO - ✅ JSON to YARA conversion completed successfully
+2025-08-22 10:35:59,212 - INFO - Output: Converted 5 signatures to YARA rules in 'data/yara_rules.yar'
+2025-08-22 10:35:59,212 - INFO - 📁 YARA file created: data/yara_rules.yar
+2025-08-22 10:35:59,212 - INFO - 🔄 Adding 1 binary file YARA rules...
+2025-08-22 10:35:59,213 - INFO - ✅ Added 1 binary file YARA rules to data/yara_rules.yar
+2025-08-22 10:35:59,213 - INFO - 🔍 Validating output files...
+2025-08-22 10:35:59,213 - INFO - 📊 JSON validation: 5 signatures, 4 constants
+2025-08-22 10:35:59,213 - INFO - 📊 YARA validation: 6 rules generated
+2025-08-22 10:35:59,213 - INFO - ✅ Output validation completed
+2025-08-22 10:35:59,213 - INFO - 🎉 Pipeline completed successfully!
+2025-08-22 10:35:59,213 - INFO - ⏱️  Total duration: 0:00:12.114896
+2025-08-22 10:35:59,213 - INFO - 📁 Final outputs:
+2025-08-22 10:35:59,213 - INFO -    - JSON: data/signatures_signature_patterns_subset.json
+2025-08-22 10:35:59,213 - INFO -    - YARA: data/yara_rules.yar
