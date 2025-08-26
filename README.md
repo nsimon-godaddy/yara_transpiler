@@ -20,12 +20,14 @@ This project processes signature pattern files containing malware detection sign
 ```
 yara/
 ├── README.md                 # Project description & usage
+├── PIPELINE_FLOW_DIAGRAM.md  # Detailed pipeline architecture
 ├── requirements.txt          # Python dependencies
 ├── data/                     # Input/output signature data
 │   ├── signature_patterns.txt  # Raw input signature file
 │   ├── signatures.json         # Normalized JSON signatures
 │   └── yara_rules.yar          # Transpiled YARA rules
-├── old/                      # Archived/legacy files
+├── examples/                  # Example YARA rules and best practices
+│   └── good_yara_rules.yar    # Reference examples for different malware types
 ├── scripts/                  # Processing & transpilation scripts
 │   ├── txt_to_json.py        # Convert raw text signatures → JSON
 │   └── transpile_to_yara.py  # Convert JSON signatures → YARA rules
@@ -46,6 +48,36 @@ yara/
    ```bash
    pip install -r requirements.txt
    ```
+
+## Examples and Best Practices
+
+### Example YARA Rules
+
+The `examples/good_yara_rules.yar` file contains properly transpiled YARA rules that demonstrate:
+
+### Pipeline Architecture
+
+For a detailed understanding of how the pipeline works, see `PIPELINE_FLOW_DIAGRAM.md` which includes:
+
+- **Complete flow diagram** showing all components and data flow
+- **Detailed process phases** from input to output
+- **Technical implementation** details for each layer
+- **Component functions** and their interactions
+- **Data flow summary** and architecture benefits
+
+- **PHP Webshell Detection**: Focus on code execution functions, not descriptive text
+- **Executable Malware**: Use API calls and behavior patterns, not just strings
+- **Document Malware**: Check for embedded payloads and suspicious content
+- **Script Malware**: Look for execution capabilities and network activity
+- **Archive Malware**: Detect suspicious files and autorun mechanisms
+
+### Key Principles for Good YARA Rules
+
+1. **Focus on Behavior, Not Text**: Use function names, API calls, and variable patterns
+2. **Reduce False Positives**: Require multiple conditions and use file type checks
+3. **Use Proper Syntax**: Correct string definitions with modifiers and logical operators
+4. **Avoid Common Pitfalls**: No unsupported regex, backreferences, or overly broad patterns
+5. **Prioritize Detection**: Focus on what malware DOES, not what it SAYS
 
 ## Usage
 

@@ -101,20 +101,13 @@ class YaraValidator:
     def get_validation_prompt(self, rule: Dict, context: Dict = None) -> List[Dict]:
         """Generate validation prompt for a YARA rule"""
         
-        system_prompt = """You are a senior security expert specializing in YARA rules and threat detection. Your task is to validate a YARA rule for correctness, effectiveness, and best practices.
+        system_prompt = """Task: Validate this YARA rule for correctness, effectiveness, and best practices.
 
-Please analyze the following YARA rule and provide a structured validation report with the following sections:
+Context: Analyze syntax, pattern effectiveness, performance, and security implications.
 
-1. **SYNTAX VALIDATION**: Is the rule syntactically correct? Any syntax errors?
-2. **PATTERN EFFECTIVENESS**: Does the pattern effectively detect the intended threat? Is it too broad or too narrow?
-3. **PERFORMANCE CONSIDERATIONS**: Any performance issues? Are there optimizations possible?
-4. **FALSE POSITIVE RISK**: Could this rule trigger false positives? Risk level (LOW/MEDIUM/HIGH)?
-5. **SECURITY IMPLICATIONS**: Does the rule address the intended security concern?
-6. **BEST PRACTICES**: Does it follow YARA best practices?
-7. **RECOMMENDATIONS**: Specific suggestions for improvement
-8. **OVERALL SCORE**: Rate from 1-10 (10 being excellent)
+Constraints: Check for syntax errors, false positive risks, and optimization opportunities.
 
-Provide your analysis in a clear, structured format. Be specific and actionable in your feedback."""
+Output format: Return structured validation report with specific recommendations."""
 
         # Build context information if available
         context_info = ""
@@ -142,7 +135,7 @@ ORIGINAL SIGNATURE CONTEXT:
 
 {context_info}
 
-Please provide a comprehensive validation of this YARA rule."""
+Validate this YARA rule."""
 
         return [
             {"from": "system", "content": system_prompt},

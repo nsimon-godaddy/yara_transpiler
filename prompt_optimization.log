@@ -1,0 +1,192 @@
+2025-08-26 12:09:24,598 - INFO - 📋 File analysis completed for test_malware.php
+2025-08-26 12:09:24,598 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:09:24,599 - INFO - 💾 Optimization results saved to: prompt_optimization_test_malware_php.json
+2025-08-26 12:09:51,584 - INFO - 📋 File analysis completed for test_malware.php
+2025-08-26 12:09:51,584 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:09:51,584 - INFO - 💾 Optimization results saved to: prompt_optimization_test_malware_php.json
+2025-08-26 12:10:25,499 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 12:10:25,499 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:10:25,499 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 12:10:41,585 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 12:10:41,586 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:10:41,586 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 12:11:35,849 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 12:11:35,849 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:11:35,849 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 12:11:47,624 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 12:11:47,624 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:11:47,625 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 12:28:16,407 - INFO - 📋 File analysis completed for 123_test.php
+2025-08-26 12:28:16,407 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:28:16,408 - INFO - 💾 Optimization results saved to: prompt_optimization_123_test_php.json
+2025-08-26 12:29:09,908 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 12:29:09,908 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:29:09,908 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 12:35:58,407 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 12:35:58,407 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:35:58,408 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 12:36:35,782 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 12:36:35,782 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:36:35,783 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 12:37:28,412 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 12:37:28,412 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:37:28,412 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 12:37:45,094 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 12:37:45,095 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:37:45,095 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 12:45:31,441 - INFO - 📋 File analysis completed for test_validation.php
+2025-08-26 12:45:31,441 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:45:31,442 - INFO - 💾 Optimization results saved to: prompt_optimization_test_validation_php.json
+2025-08-26 12:46:31,209 - INFO - 📋 File analysis completed for test_validation.php
+2025-08-26 12:46:31,209 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:46:31,209 - INFO - 💾 Optimization results saved to: prompt_optimization_test_validation_php.json
+2025-08-26 12:47:30,052 - INFO - 📋 File analysis completed for test_validation.php
+2025-08-26 12:47:30,052 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:47:30,052 - INFO - 💾 Optimization results saved to: prompt_optimization_test_validation_php.json
+2025-08-26 12:48:35,320 - INFO - 📋 File analysis completed for test_validation.php
+2025-08-26 12:48:35,321 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:48:35,321 - INFO - 💾 Optimization results saved to: prompt_optimization_test_validation_php.json
+2025-08-26 12:49:24,441 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 12:49:24,442 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:49:24,442 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 12:49:37,921 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 12:49:37,921 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:49:37,921 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 12:55:52,630 - INFO - 📋 File analysis completed for test_validation.php
+2025-08-26 12:55:52,630 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:55:52,630 - INFO - 💾 Optimization results saved to: prompt_optimization_test_validation_php.json
+2025-08-26 12:58:49,772 - INFO - 📋 File analysis completed for test_validation.php
+2025-08-26 12:58:49,773 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 12:58:49,773 - INFO - 💾 Optimization results saved to: prompt_optimization_test_validation_php.json
+2025-08-26 13:01:38,839 - INFO - 📋 File analysis completed for test_validation.php
+2025-08-26 13:01:38,839 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:01:38,840 - INFO - 💾 Optimization results saved to: prompt_optimization_test_validation_php.json
+2025-08-26 13:04:06,303 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:04:06,303 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:04:06,303 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:04:18,855 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:04:18,855 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:04:18,855 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:20:55,040 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:20:55,040 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:20:55,040 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:20:59,704 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:20:59,704 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:20:59,704 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:33:11,171 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:33:11,171 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:33:11,172 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:33:21,262 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:33:21,262 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:33:21,262 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:33:35,606 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:33:35,606 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:33:35,606 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:33:59,901 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:33:59,901 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:33:59,901 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:34:04,752 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:34:04,752 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:34:04,752 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:34:51,035 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:34:51,035 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:34:51,035 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:34:57,743 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:34:57,743 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:34:57,743 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:36:01,598 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:36:01,599 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:36:01,599 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:36:06,176 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:36:06,176 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:36:06,176 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:39:15,589 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:39:15,589 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:39:15,589 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:40:06,892 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:40:06,892 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:40:06,892 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:40:11,073 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:40:11,074 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:40:11,074 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:45:13,969 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:45:13,969 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:45:13,969 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:45:18,444 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:45:18,444 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:45:18,444 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:45:21,342 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:45:21,342 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:45:21,342 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:46:14,066 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:46:14,066 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:46:14,066 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:46:20,093 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:46:20,093 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:46:20,093 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:47:13,002 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:47:13,002 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:47:13,002 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:47:20,704 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:47:20,704 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:47:20,704 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:48:27,156 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:48:27,156 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:48:27,156 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:48:35,686 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:48:35,686 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:48:35,686 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:58:25,290 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:58:25,291 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:58:25,291 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:58:25,510 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:58:25,510 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:58:25,510 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 13:59:11,682 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 13:59:11,682 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:59:11,682 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 13:59:18,519 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 13:59:18,519 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 13:59:18,520 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 14:00:10,747 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 14:00:10,747 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:00:10,748 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 14:00:18,279 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 14:00:18,279 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:00:18,280 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 14:07:42,148 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 14:07:42,148 - ERROR - 💥 Prompt optimization failed: '\n    meta'
+2025-08-26 14:07:42,191 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 14:07:42,191 - ERROR - 💥 Prompt optimization failed: '\n    meta'
+2025-08-26 14:07:47,692 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 14:07:47,695 - ERROR - 💥 Prompt optimization failed: '\n    meta'
+2025-08-26 14:08:24,859 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 14:08:24,860 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:08:24,860 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 14:08:28,945 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 14:08:28,945 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:08:28,945 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 14:08:34,627 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 14:08:34,628 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:08:34,628 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 14:14:16,222 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 14:14:16,222 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:14:16,222 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 14:14:23,110 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 14:14:23,110 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:14:23,110 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 14:14:51,604 - INFO - 📋 File analysis completed for AK-74.php
+2025-08-26 14:14:51,604 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:14:51,604 - INFO - 💾 Optimization results saved to: prompt_optimization_AK-74_php.json
+2025-08-26 14:18:21,580 - INFO - 📋 File analysis completed for 529.php
+2025-08-26 14:18:21,580 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:18:21,581 - INFO - 💾 Optimization results saved to: prompt_optimization_529_php.json
+2025-08-26 14:18:29,969 - INFO - 📋 File analysis completed for memWebshell.php
+2025-08-26 14:18:29,969 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:18:29,969 - INFO - 💾 Optimization results saved to: prompt_optimization_memWebshell_php.json
+2025-08-26 14:18:53,252 - INFO - 📋 File analysis completed for AK-74.php
+2025-08-26 14:18:53,252 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:18:53,253 - INFO - 💾 Optimization results saved to: prompt_optimization_AK-74_php.json
+2025-08-26 14:19:30,332 - INFO - 📋 File analysis completed for AK-74.php
+2025-08-26 14:19:30,333 - INFO - 🎯 Generated optimized prompt for script file type
+2025-08-26 14:19:30,333 - INFO - 💾 Optimization results saved to: prompt_optimization_AK-74_php.json

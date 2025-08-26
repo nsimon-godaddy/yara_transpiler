@@ -13,7 +13,7 @@ import json
 import re
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 # Configure logging
 logging.basicConfig(
@@ -99,231 +99,361 @@ class PipelineRunner:
                 logger.info(f"🔄 Converting {len(successful_text)} text file(s) to JSON...")
                 self.json_file = self._process_text_files_to_json(successful_text)
             else:
-                logger.warning("⚠️  No text files were successfully converted")
+                logger.warning("⚠️  No text files were successfully processed")
+                self.json_file = self._create_empty_json_structure()
+        else:
+            logger.info("📁 No text files to process")
+            self.json_file = self._create_empty_json_structure()
         
-        # Process binary files through LLM
+        # Store binary results for later YARA generation
+        self.binary_yara_rules = []
         if binary_results:
             successful_binary = [r for r in binary_results if r['success']]
             if successful_binary:
                 logger.info(f"🔄 Processing {len(successful_binary)} binary file(s) with LLM...")
                 self.binary_yara_rules = self._extract_binary_yara_rules(successful_binary)
+                logger.info(f"✅ Extracted {len(self.binary_yara_rules)} YARA rules from binary files")
             else:
                 logger.warning("⚠️  No binary files were successfully processed")
         
-        # If no text files, create empty JSON structure
-        if not text_results or not any(r['success'] for r in text_results):
-            self.json_file = self._create_empty_json_structure()
-        
-        logger.info(f"✅ File processing completed: {len([r for r in text_results if r['success']])} text, {len([r for r in binary_results if r['success']])} binary")
-        return {'text': text_results, 'binary': binary_results}
-    
-    def _combine_json_files(self, successful_conversions):
-        """Combine multiple JSON files into a single merged JSON file"""
-        import json
-        
-        combined_data = {
-            'cleanup_constants': [],
-            'signatures': []
-        }
-        
-        # Track processed constants to avoid duplicates
-        processed_constants = set()
-        
-        for conversion in successful_conversions:
-            json_file = conversion['output']
-            try:
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                
-                # Add cleanup constants (avoiding duplicates)
-                if 'cleanup_constants' in data:
-                    for constant in data['cleanup_constants']:
-                        constant_key = f"{constant.get('name', '')}:{constant.get('value', '')}"
-                        if constant_key not in processed_constants:
-                            combined_data['cleanup_constants'].append(constant)
-                            processed_constants.add(constant_key)
-                
-                # Add signatures
-                if 'signatures' in data:
-                    combined_data['signatures'].extend(data['signatures'])
-                
-                logger.info(f"📋 Merged {json_file.name}: {len(data.get('signatures', []))} signatures, {len(data.get('cleanup_constants', []))} constants")
-                
-            except Exception as e:
-                logger.warning(f"⚠️  Failed to merge {json_file.name}: {e}")
-                continue
-        
-        # Create combined output file
-        combined_file = self.data_dir / "signatures_combined.json"
-        with open(combined_file, 'w', encoding='utf-8') as f:
-            json.dump(combined_data, f, indent=2, ensure_ascii=False)
-        
-        logger.info(f"📁 Combined JSON file created: {combined_file}")
-        logger.info(f"📊 Total: {len(combined_data['signatures'])} signatures, {len(combined_data['cleanup_constants'])} constants")
-        
-        return combined_file
+        logger.info("✅ Step 1 completed")
     
     def _process_text_file(self, input_file: Path, index: int) -> Dict:
-        """Process a text file through JSON conversion"""
-        # Generate output filename for this input
-        if len(self.input_files) == 1:
-            output_file = self.json_file
-        else:
-            # Create unique output filename for multiple inputs
-            output_file = self.data_dir / f"signatures_{input_file.stem}.json"
-        
-        cmd = [
-            sys.executable,
-            str(self.txt_to_json_script),
-            str(input_file),
-            "--output", str(output_file)
-        ]
-        
+        """Process a single text file through txt_to_json.py"""
         try:
+            # Create unique output filename for this input
+            output_file = self.data_dir / f"signatures_{input_file.stem}_{index}.json"
+            
+            # Run txt_to_json.py
+            cmd = [
+                sys.executable,
+                str(self.txt_to_json_script),
+                str(input_file),
+                "--output", str(output_file)
+            ]
+            
+            logger.debug(f"🔧 Running command: {' '.join(cmd)}")
+            
             result = subprocess.run(
                 cmd,
                 capture_output=True,
                 text=True,
                 cwd=self.workspace_root,
-                check=True
+                check=True,
+                timeout=60
             )
             
-            logger.info(f"✅ JSON conversion completed for {input_file.name}")
-            if result.stdout:
-                logger.info(f"Output: {result.stdout.strip()}")
-            
-            # Verify output file was created
-            if not output_file.exists():
-                raise FileNotFoundError(f"JSON file was not created for {input_file.name}")
-            
-            logger.info(f"📁 JSON file created: {output_file}")
-            
-            return {
-                'input': input_file,
-                'output': output_file,
-                'success': True
-            }
-            
+            if result.returncode == 0:
+                logger.info(f"✅ Successfully converted {input_file.name} to JSON")
+                return {
+                    'success': True,
+                    'input_file': input_file,
+                    'output_file': output_file,
+                    'index': index
+                }
+            else:
+                logger.error(f"❌ txt_to_json.py failed for {input_file.name}")
+                return {
+                    'success': False,
+                    'input_file': input_file,
+                    'error': f"Exit code: {result.returncode}"
+                }
+                
         except subprocess.CalledProcessError as e:
-            logger.error(f"❌ JSON conversion failed for {input_file.name} with exit code {e.returncode}")
-            if e.stdout:
-                logger.error(f"STDOUT: {e.stdout}")
-            if e.stderr:
-                logger.error(f"STDERR: {e.stderr}")
+            logger.error(f"❌ txt_to_json.py failed for {input_file.name}: {e}")
             return {
-                'input': input_file,
-                'output': output_file,
                 'success': False,
-                'error': f"Exit code {e.returncode}"
+                'input_file': input_file,
+                'error': str(e)
             }
         except Exception as e:
-            logger.error(f"❌ Unexpected error during JSON conversion for {input_file.name}: {e}")
+            logger.error(f"❌ Unexpected error processing {input_file.name}: {e}")
             return {
-                'input': input_file,
-                'output': output_file,
                 'success': False,
+                'input_file': input_file,
                 'error': str(e)
             }
     
     def _process_binary_file(self, input_file: Path, index: int) -> Dict:
-        """Process a binary file through LLM analysis"""
+        """Process a single binary file through data_classifier.py with prompt optimization"""
         try:
-            # Use the data classifier to analyze the binary file
-            cmd = [
+            logger.info(f"🔍 Analyzing binary file: {input_file.name}")
+            
+            # First, run prompt optimizer to analyze the file
+            prompt_optimizer_cmd = [
+                sys.executable,
+                str(self.scripts_dir / "prompt_optimizer.py"),
+                str(input_file)
+            ]
+            
+            logger.debug(f"🔧 Running prompt optimizer: {' '.join(prompt_optimizer_cmd)}")
+            
+            prompt_result = subprocess.run(
+                prompt_optimizer_cmd,
+                capture_output=True,
+                text=True,
+                cwd=self.workspace_root,
+                check=True,
+                timeout=60
+            )
+            
+            if prompt_result.returncode == 0:
+                logger.info(f"✅ Prompt optimization completed for {input_file.name}")
+                
+                # Find the optimization results file
+                optimization_files = list(Path('.').glob(f"prompt_optimization_{input_file.stem}_*.json"))
+                if optimization_files:
+                    # Use the most recent optimization file
+                    latest_optimization = max(optimization_files, key=lambda f: f.stat().st_mtime)
+                    
+                    try:
+                        with open(latest_optimization, 'r', encoding='utf-8') as f:
+                            prompt_data = json.load(f)
+                        optimized_prompt = prompt_data.get('optimized_prompt', '')
+                        
+                        if optimized_prompt:
+                            logger.info(f"📝 Using optimized prompt for {input_file.name}")
+                            logger.debug(f"📋 Prompt preview: {optimized_prompt[:200]}...")
+                        else:
+                            logger.warning(f"⚠️  No optimized prompt found for {input_file.name}")
+                            optimized_prompt = ""
+                            
+                    except Exception as e:
+                        logger.warning(f"⚠️  Could not read optimization file for {input_file.name}: {e}")
+                        optimized_prompt = ""
+                else:
+                    logger.warning(f"⚠️  No optimization results file found for {input_file.name}")
+                    optimized_prompt = ""
+            else:
+                logger.warning(f"⚠️  Prompt optimization failed for {input_file.name}, using default")
+                optimized_prompt = ""
+            
+            # Now run data classifier with the optimized prompt
+            classifier_cmd = [
                 sys.executable,
                 str(self.scripts_dir / "data_classifier.py"),
                 str(input_file)
             ]
             
+            if optimized_prompt:
+                classifier_cmd.extend(["--custom-prompt", optimized_prompt])
+            
+            logger.debug(f"🔧 Running data classifier: {' '.join(classifier_cmd)}")
+            
             result = subprocess.run(
-                cmd,
+                classifier_cmd,
                 capture_output=True,
                 text=True,
                 cwd=self.workspace_root,
-                check=True
+                check=True,
+                timeout=120
             )
             
-            logger.info(f"✅ LLM analysis completed for {input_file.name}")
-            if result.stdout:
-                logger.info(f"Output: {result.stdout.strip()}")
-            
-            return {
-                'input': input_file,
-                'success': True,
-                'stdout': result.stdout,
-                'stderr': result.stderr
-            }
-            
+            if result.returncode == 0:
+                logger.info(f"✅ Data classification completed for {input_file.name}")
+                
+                # Save classification results
+                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                classification_file = self.data_dir / f"classification_{input_file.stem}_{timestamp}.json"
+                
+                # The data classifier saves results to a file, so we need to read that file
+                # Find the classification results file
+                classification_files = list(Path('.').glob(f"classification_{input_file.stem}_*.json"))
+                if classification_files:
+                    # Use the most recent classification file
+                    latest_classification = max(classification_files, key=lambda f: f.stat().st_mtime)
+                    
+                    try:
+                        with open(latest_classification, 'r', encoding='utf-8') as f:
+                            classification_data = json.load(f)
+                        
+                        # Update the classification file path to the actual file found
+                        classification_file = latest_classification
+                        
+                        logger.info(f"💾 Classification results loaded from {classification_file}")
+                        
+                        return {
+                            'success': True,
+                            'input_file': input_file,
+                            'classification_file': classification_file,
+                            'classification_data': classification_data,
+                            'index': index
+                        }
+                    except Exception as e:
+                        logger.error(f"❌ Failed to read classification file for {input_file.name}: {e}")
+                        return {
+                            'success': False,
+                            'input_file': input_file,
+                            'error': f"File read error: {e}"
+                        }
+                else:
+                    logger.warning(f"⚠️  No classification results file found for {input_file.name}")
+                    return {
+                        'success': False,
+                        'input_file': input_file,
+                        'error': "No classification file found"
+                    }
+            else:
+                logger.error(f"❌ Data classification failed for {input_file.name}")
+                return {
+                    'success': False,
+                    'input_file': input_file,
+                    'error': f"Exit code: {result.returncode}"
+                }
+                
         except subprocess.CalledProcessError as e:
-            logger.error(f"❌ LLM analysis failed for {input_file.name} with exit code {e.returncode}")
-            if e.stdout:
-                logger.error(f"STDOUT: {e.stdout}")
-            if e.stderr:
-                logger.error(f"STDERR: {e.stderr}")
+            logger.error(f"❌ Binary file processing failed for {input_file.name}: {e}")
             return {
-                'input': input_file,
                 'success': False,
-                'error': f"Exit code {e.returncode}"
+                'input_file': input_file,
+                'error': str(e)
             }
         except Exception as e:
-            logger.error(f"❌ Unexpected error during LLM analysis for {input_file.name}: {e}")
+            logger.error(f"❌ Unexpected error processing binary file {input_file.name}: {e}")
             return {
-                'input': input_file,
                 'success': False,
+                'input_file': input_file,
                 'error': str(e)
             }
     
-    def _process_text_files_to_json(self, successful_text: List[Dict]) -> Path:
-        """Process text files through JSON conversion and combining"""
-        if len(successful_text) == 1:
-            return successful_text[0]['output']
-        else:
-            # Multiple text files - combine them
-            logger.info(f"🔄 Combining {len(successful_text)} JSON files into single output...")
-            combined_file = self._combine_json_files(successful_text)
-            # Clean up individual JSON files after combining
-            self._cleanup_individual_json_files(successful_text)
-            return combined_file
-    
-    def _extract_binary_yara_rules(self, successful_binary: List[Dict]) -> List[str]:
-        """Extract YARA rules from binary file LLM analysis"""
-        yara_rules = []
-        
-        for binary_result in successful_binary:
-            input_file = binary_result['input']
+    def _process_text_files_to_json(self, text_results: List[Dict]) -> Path:
+        """Combine multiple text file JSON outputs into a single file"""
+        try:
+            if len(text_results) == 1:
+                # Single file, just rename it
+                single_result = text_results[0]
+                final_json = self.data_dir / "signatures.json"
+                single_result['output_file'].rename(final_json)
+                logger.info(f"📁 Single JSON file created: {final_json}")
+                return final_json
             
-            # Find the classification results file for this binary file
-            classification_files = list(Path('.').glob(f"classification_results_*.json"))
-            if not classification_files:
-                logger.warning(f"⚠️  No classification results found for {input_file.name}")
+            # Multiple files, combine them
+            logger.info(f"🔄 Combining {len(text_results)} JSON files...")
+            
+            combined_signatures = []
+            combined_cleanup_constants = []
+            
+            for result in text_results:
+                try:
+                    with open(result['output_file'], 'r', encoding='utf-8') as f:
+                        data = json.load(f)
+                    
+                    # Collect signatures
+                    if 'signatures' in data:
+                        combined_signatures.extend(data['signatures'])
+                    
+                    # Collect cleanup constants
+                    if 'cleanup_constants' in data:
+                        combined_cleanup_constants.extend(data['cleanup_constants'])
+                        
+                except Exception as e:
+                    logger.warning(f"⚠️  Could not read {result['output_file']}: {e}")
+                    continue
+            
+            # Create combined JSON
+            combined_data = {
+                'cleanup_constants': combined_cleanup_constants,
+                'signatures': combined_signatures
+            }
+            
+            final_json = self.data_dir / "signatures_combined.json"
+            with open(final_json, 'w', encoding='utf-8') as f:
+                json.dump(combined_data, f, indent=2, ensure_ascii=False)
+            
+            logger.info(f"📁 Combined JSON created: {final_json} ({len(combined_signatures)} signatures)")
+            
+            # Clean up individual files
+            self._cleanup_individual_json_files(text_results)
+            
+            return final_json
+            
+        except Exception as e:
+            logger.error(f"❌ Failed to combine JSON files: {e}")
+            # Fallback to first successful result
+            if text_results:
+                return text_results[0]['output_file']
+            else:
+                raise
+    
+    def _cleanup_individual_json_files(self, text_results: List[Dict]):
+        """Remove individual JSON files after combining"""
+        for result in text_results:
+            if 'output_file' in result and result['output_file'].exists():
+                try:
+                    result['output_file'].unlink()
+                    logger.debug(f"🗑️  Removed individual JSON: {result['output_file']}")
+                except Exception as e:
+                    logger.warning(f"⚠️  Could not remove {result['output_file']}: {e}")
+    
+    def _extract_binary_yara_rules(self, binary_results: List[Dict]) -> List[str]:
+        """Extract YARA rules from binary file classification results"""
+        yara_rules = []
+        processed_rules = set()
+        
+        for result in binary_results:
+            if not result['success'] or 'classification_file' not in result:
                 continue
             
-            # Use the most recent classification file
-            latest_classification = max(classification_files, key=lambda f: f.stat().st_mtime)
+            input_file = result['input_file']
+            classification_file = result['classification_file']
             
             try:
-                with open(latest_classification, 'r', encoding='utf-8') as f:
+                # Read classification results
+                with open(classification_file, 'r', encoding='utf-8') as f:
                     classification_data = json.load(f)
                 
+                # Extract YARA rule from classification content
                 classification_content = classification_data.get('classification_content', '')
                 
-                # Look for YARA rule in the classification content
-                import re
-                # More flexible pattern to catch YARA rules with markdown formatting
+                if not classification_content:
+                    logger.warning(f"⚠️  No classification content found for {input_file.name}")
+                    continue
+                
+                # Look for YARA rule in the content
+                # Try markdown format first (most common)
                 rule_pattern = r'```yara\s*\n(.*?)\n```'
                 rule_matches = re.findall(rule_pattern, classification_content, re.DOTALL | re.IGNORECASE)
                 
-                # If no markdown pattern found, try the standard rule pattern
                 if not rule_matches:
-                    rule_pattern = r'rule\s+\w+\s*\{[^}]*\}'
-                    rule_matches = re.findall(rule_pattern, classification_content, re.DOTALL | re.IGNORECASE)
+                    # Try standard rule format without markdown
+                    # Use brace counting to find complete rules
+                    rule_start_pattern = r'rule\s+\w+\s*\{'
+                    rule_starts = list(re.finditer(rule_start_pattern, classification_content, re.IGNORECASE))
+                    
+                    if rule_starts:
+                        for match in rule_starts:
+                            start_pos = match.start()
+                            # Count braces to find the end
+                            brace_count = 0
+                            for i, char in enumerate(classification_content[start_pos:], start_pos):
+                                if char == '{':
+                                    brace_count += 1
+                                elif char == '}':
+                                    brace_count -= 1
+                                    if brace_count == 0:
+                                        # Found complete rule
+                                        complete_rule = classification_content[start_pos:i+1]
+                                        rule_matches.append(complete_rule)
+                                        break
+                    else:
+                        # Fallback to old pattern
+                        rule_pattern = r'rule\s+\w+\s*\{[^}]*\}'
+                        rule_matches = re.findall(rule_pattern, classification_content, re.DOTALL | re.IGNORECASE)
                 
                 if rule_matches:
                     for rule in rule_matches:
-                        # Clean up the rule syntax
-                        cleaned_rule = self._clean_yara_rule_syntax(rule)
-                        yara_rules.append(cleaned_rule)
-                        logger.info(f"📋 Extracted YARA rule from {input_file.name}")
+                        # Clean up the rule syntax and rename based on input file
+                        cleaned_rule = self._clean_yara_rule_syntax(rule, input_file.stem)
+                        
+                        # Create a unique identifier for this rule to prevent duplicates
+                        rule_id = self._create_rule_identifier(cleaned_rule)
+                        
+                        if rule_id not in processed_rules:
+                            processed_rules.add(rule_id)
+                            yara_rules.append(cleaned_rule)
+                            logger.info(f"📋 Extracted YARA rule from {input_file.name}")
+                        else:
+                            logger.info(f"🔄 Skipping duplicate rule from {input_file.name}")
                 else:
                     logger.warning(f"⚠️  No YARA rule found in classification results for {input_file.name}")
                     
@@ -333,8 +463,10 @@ class PipelineRunner:
         
         return yara_rules
     
-    def _clean_yara_rule_syntax(self, rule: str) -> str:
+    def _clean_yara_rule_syntax(self, rule: str, input_stem: str) -> str:
         """Clean up YARA rule syntax to ensure proper formatting"""
+        import re
+        
         # Remove any markdown formatting
         rule = rule.replace('```yara', '').replace('```', '')
         
@@ -342,7 +474,41 @@ class PipelineRunner:
         rule = re.sub(r'\n\s*\n', '\n', rule)
         rule = rule.strip()
         
+        # Rename rule to match input file stem
+        rule_name_match = re.search(r'rule\s+(\w+)', rule)
+        if rule_name_match:
+            old_rule_name = rule_name_match.group(1)
+            
+            # Ensure the new rule name doesn't start with a number
+            # YARA rule names must start with a letter or underscore
+            # Replace dashes and spaces with underscores
+            clean_stem = input_stem.replace('-', '_').replace(' ', '_') if input_stem else ""
+            
+            if clean_stem and clean_stem[0].isdigit():
+                new_rule_name = f"file_{clean_stem}"
+            else:
+                new_rule_name = clean_stem
+            
+            # Replace the old rule name with the new rule name
+            rule = re.sub(rf'rule\s+{re.escape(old_rule_name)}\s*{{', f'rule {new_rule_name} {{', rule)
+        
         return rule
+    
+    def _create_rule_identifier(self, rule: str) -> str:
+        """Create a unique identifier for a YARA rule to help with deduplication"""
+        import re
+        
+        # Extract rule name
+        rule_name_match = re.search(r'rule\s+(\w+)', rule)
+        rule_name = rule_name_match.group(1) if rule_name_match else "unknown"
+        
+        # Extract key strings (first few)
+        strings_matches = re.findall(r'\$\w+\s*=\s*"([^"]+)"', rule)
+        key_strings = strings_matches[:3]  # Use first 3 strings
+        
+        # Create identifier from rule name and key strings
+        identifier = f"{rule_name}:{':'.join(key_strings)}"
+        return identifier.lower()
     
     def _create_empty_json_structure(self) -> Path:
         """Create an empty JSON structure for when no text files are present"""
@@ -368,325 +534,184 @@ class PipelineRunner:
             # Add binary file rules
             binary_rules_content = "\n\n" + "\n\n".join(self.binary_yara_rules)
             
-            # Write back with binary rules appended
+            # Write back to file
             with open(self.yara_file, 'w', encoding='utf-8') as f:
                 f.write(existing_content + binary_rules_content)
             
-            logger.info(f"✅ Added {len(self.binary_yara_rules)} binary file YARA rules to {self.yara_file}")
+            logger.info(f"✅ Appended {len(self.binary_yara_rules)} binary file rules to {self.yara_file}")
             
         except Exception as e:
-            logger.error(f"❌ Failed to append binary YARA rules: {e}")
-    
-    def _cleanup_individual_json_files(self, successful_conversions):
-        """Clean up individual JSON files after combining them"""
-        logger.info("🧹 Cleaning up individual JSON files...")
-        
-        for conversion in successful_conversions:
-            json_file = conversion['output']
-            try:
-                if json_file.exists():
-                    json_file.unlink()
-                    logger.info(f"🗑️  Removed: {json_file.name}")
-            except Exception as e:
-                logger.warning(f"⚠️  Failed to remove {json_file.name}: {e}")
-        
-        logger.info("✅ Individual JSON files cleaned up")
+            logger.error(f"❌ Failed to append binary file rules: {e}")
     
     def run_transpile_to_yara(self):
-        """Convert JSON to YARA rules and add binary file rules"""
+        """Convert JSON signatures to YARA rules"""
         logger.info("🔄 Step 2: Converting JSON to YARA rules...")
         
-        # First, convert JSON to YARA rules
-        cmd = [
-            sys.executable,
-            str(self.transpile_script),
-            str(self.json_file),
-            str(self.yara_file)
-        ]
-        
         try:
+            # Run transpile_to_yara.py
+            cmd = [
+                sys.executable,
+                str(self.transpile_script),
+                str(self.json_file),
+                str(self.yara_file)
+            ]
+            
+            logger.debug(f"🔧 Running command: {' '.join(cmd)}")
+            
             result = subprocess.run(
                 cmd,
                 capture_output=True,
                 text=True,
                 cwd=self.workspace_root,
-                check=True
+                check=True,
+                timeout=60
             )
             
-            logger.info("✅ JSON to YARA conversion completed successfully")
-            if result.stdout:
-                logger.info(f"Output: {result.stdout.strip()}")
-            
-            # Verify output file was created
-            if not self.yara_file.exists():
-                raise FileNotFoundError("YARA file was not created")
-            
-            logger.info(f"📁 YARA file created: {self.yara_file}")
-            
+            if result.returncode == 0:
+                logger.info(f"✅ Successfully converted JSON to YARA rules: {self.yara_file}")
+                
+                # Append binary file rules if any
+                if hasattr(self, 'binary_yara_rules') and self.binary_yara_rules:
+                    self._append_binary_yara_rules()
+                
+                logger.info("✅ Step 2 completed")
+            else:
+                logger.error(f"❌ transpile_to_yara.py failed with exit code {result.returncode}")
+                raise subprocess.CalledProcessError(result.returncode, cmd)
+                
         except subprocess.CalledProcessError as e:
-            logger.error(f"❌ YARA conversion failed with exit code {e.returncode}")
-            if e.stdout:
-                logger.error(f"STDOUT: {e.stdout}")
-            if e.stderr:
-                logger.error(f"STDERR: {e.stderr}")
+            logger.error(f"❌ transpile_to_yara.py failed: {e}")
             raise
         except Exception as e:
-            logger.error(f"❌ Unexpected error during YARA conversion: {e}")
+            logger.error(f"❌ Unexpected error in transpile_to_yara: {e}")
             raise
-        
-        # Now add binary file YARA rules if any exist
-        if hasattr(self, 'binary_yara_rules') and self.binary_yara_rules:
-            logger.info(f"🔄 Adding {len(self.binary_yara_rules)} binary file YARA rules...")
-            self._append_binary_yara_rules()
     
-    def run_llm_validation(self, max_rules=None, sample_size=None):
-        """Run the LLM validation step using Gocaas API"""
-        logger.info("🔄 Step 3: Running LLM validation of YARA rules...")
-        
-        if not self.validation_script.exists():
-            logger.warning("⚠️  LLM validation script not found, skipping validation step")
-            return
-        
-        # Check if required environment variables are set
-        if not os.getenv("JWT") or not os.getenv("API_URL"):
-            logger.warning("⚠️  JWT or API_URL environment variables not set, skipping validation")
-            logger.info("💡 Set JWT and API_URL in .env file to enable LLM validation")
-            return
-        
-        cmd = [
-            sys.executable,
-            str(self.validation_script),
-            str(self.yara_file),
-            "--json-file", str(self.json_file)
-        ]
-        
-        # Add optional parameters
-        if max_rules:
-            cmd.extend(["--max-rules", str(max_rules)])
-        if sample_size:
-            cmd.extend(["--sample", str(sample_size)])
+    def run_llm_validation(self, output_file: str = None):
+        """Run LLM validation on the generated YARA rules"""
+        logger.info("🔄 Step 3: Running LLM validation...")
         
         try:
+            # Check if validation script exists
+            if not self.validation_script.exists():
+                logger.warning("⚠️  LLM validation script not found, skipping validation")
+                return
+            
+            # Build validation command
+            cmd = [
+                sys.executable,
+                str(self.validation_script),
+                str(self.yara_file),
+                "--json-file", str(self.json_file)
+            ]
+            
+            if output_file:
+                cmd.extend(["--output", output_file])
+            
+            logger.debug(f"🔧 Running command: {' '.join(cmd)}")
+            
             result = subprocess.run(
                 cmd,
                 capture_output=True,
                 text=True,
                 cwd=self.workspace_root,
-                check=True
+                check=True,
+                timeout=300  # 5 minutes for validation
             )
             
-            logger.info("✅ LLM validation completed successfully")
-            if result.stdout:
-                logger.info(f"Output: {result.stdout.strip()}")
-            
+            if result.returncode == 0:
+                logger.info("✅ LLM validation completed successfully")
+                logger.info("✅ Step 3 completed")
+            else:
+                logger.error(f"❌ LLM validation failed with exit code {result.returncode}")
+                
         except subprocess.CalledProcessError as e:
-            logger.error(f"❌ LLM validation failed with exit code {e.returncode}")
-            if e.stdout:
-                logger.error(f"STDOUT: {e.stdout}")
-            if e.stderr:
-                logger.error(f"STDERR: {e.stderr}")
-            # Don't fail the pipeline for validation errors
-            logger.warning("⚠️  Continuing pipeline despite validation errors")
+            logger.error(f"❌ LLM validation failed: {e}")
         except Exception as e:
-            logger.error(f"❌ Unexpected error during LLM validation: {e}")
-            logger.warning("⚠️  Continuing pipeline despite validation errors")
+            logger.error(f"❌ Unexpected error in LLM validation: {e}")
     
     def validate_outputs(self):
-        """Validate the generated output files"""
-        logger.info("🔍 Validating output files...")
+        """Validate that the pipeline produced the expected outputs"""
+        logger.info("🔍 Validating pipeline outputs...")
         
         # Check JSON file
         if self.json_file.exists():
             try:
-                import json
                 with open(self.json_file, 'r') as f:
-                    data = json.load(f)
-                
-                signature_count = len(data.get('signatures', []))
-                constants_count = len(data.get('cleanup_constants', []))
-                
-                logger.info(f"📊 JSON validation: {signature_count} signatures, {constants_count} constants")
-                
-            except json.JSONDecodeError as e:
-                logger.error(f"❌ Invalid JSON in output file: {e}")
-                raise
+                    json_data = json.load(f)
+                signature_count = len(json_data.get('signatures', []))
+                logger.info(f"✅ JSON file created: {self.json_file} ({signature_count} signatures)")
             except Exception as e:
-                logger.error(f"❌ Error validating JSON file: {e}")
-                raise
+                logger.error(f"❌ JSON file validation failed: {e}")
+        else:
+            logger.error(f"❌ JSON file not found: {self.json_file}")
         
         # Check YARA file
         if self.yara_file.exists():
             try:
                 with open(self.yara_file, 'r') as f:
-                    content = f.read()
+                    yara_content = f.read()
                 
-                # Count YARA rules (look for "rule" keyword)
-                rule_count = content.count('rule ')
-                logger.info(f"📊 YARA validation: {rule_count} rules generated")
-                
-                if rule_count == 0:
-                    logger.warning("⚠️  No YARA rules found in output file")
-                
+                # Count YARA rules
+                rule_count = len(re.findall(r'^rule\s+\w+', yara_content, re.MULTILINE))
+                logger.info(f"✅ YARA file created: {self.yara_file} ({rule_count} rules)")
             except Exception as e:
-                logger.error(f"❌ Error validating YARA file: {e}")
-                raise
-        
-        logger.info("✅ Output validation completed")
+                logger.error(f"❌ YARA file validation failed: {e}")
+        else:
+            logger.error(f"❌ YARA file not found: {self.yara_file}")
     
-    def run_pipeline(self, clean=False, validate=False, max_rules=None, sample_size=None):
+    def run_pipeline(self, skip_validation: bool = False, output_file: str = None):
         """Run the complete pipeline"""
-        start_time = datetime.now()
-        logger.info("🚀 Starting YARA pipeline...")
-        logger.info(f"📁 Working directory: {self.workspace_root}")
-        
         try:
-            # Clean previous outputs if requested
-            if clean:
-                self.clean_outputs()
+            logger.info("🚀 Starting YARA Pipeline...")
             
             # Check prerequisites
             self.check_prerequisites()
             
-            # Run the pipeline steps
+            # Step 1: Convert text files to JSON, analyze binary files
             self.run_txt_to_json()
+            
+            # Step 2: Convert JSON to YARA
             self.run_transpile_to_yara()
             
-            # Run LLM validation if requested
-            if validate:
-                self.run_llm_validation(max_rules, sample_size)
+            # Step 3: LLM validation (optional)
+            if not skip_validation:
+                self.run_llm_validation(output_file)
             
             # Validate outputs
             self.validate_outputs()
             
-            end_time = datetime.now()
-            duration = end_time - start_time
-            
             logger.info("🎉 Pipeline completed successfully!")
-            logger.info(f"⏱️  Total duration: {duration}")
-            logger.info(f"📁 Final outputs:")
-            logger.info(f"   - JSON: {self.json_file}")
-            logger.info(f"   - YARA: {self.yara_file}")
-            
-            if validate:
-                logger.info("🔍 LLM validation results saved to validation_results_*.json")
             
         except Exception as e:
-            logger.error(f"💥 Pipeline failed: {e}")
+            logger.error(f"❌ Pipeline failed: {e}")
             raise
-    
-    def clean_outputs(self):
-        """Clean previous output files"""
-        logger.info("🧹 Cleaning previous output files...")
-        
-        files_to_clean = [self.json_file, self.yara_file]
-        
-        for file_path in files_to_clean:
-            if file_path.exists():
-                try:
-                    file_path.unlink()
-                    logger.info(f"🗑️  Deleted: {file_path}")
-                except Exception as e:
-                    logger.warning(f"⚠️  Could not delete {file_path}: {e}")
-    
-    def show_status(self):
-        """Show the current status of pipeline files"""
-        logger.info("📊 Pipeline Status:")
-        
-        # Show input files
-        logger.info(f"   Input files ({len(self.input_files)}):")
-        for i, input_file in enumerate(self.input_files):
-            status = '✅' if input_file.exists() else '❌'
-            logger.info(f"     {i+1}. {input_file} {status}")
-        
-        logger.info(f"   JSON file: {self.json_file} {'✅' if self.json_file.exists() else '❌'}")
-        logger.info(f"   YARA file: {self.yara_file} {'✅' if self.yara_file.exists() else '❌'}")
-        
-        # Check validation script
-        if self.validation_script.exists():
-            logger.info(f"   Validation script: {self.validation_script} ✅")
-        else:
-            logger.info(f"   Validation script: {self.validation_script} ❌")
-        
-        # Check environment variables
-        if os.getenv("JWT") and os.getenv("API_URL"):
-            logger.info("   Environment variables: JWT ✅ API_URL ✅")
-        else:
-            logger.info("   Environment variables: JWT ❌ API_URL ❌")
 
 def main():
-    parser = argparse.ArgumentParser(
-        description='Run the complete YARA pipeline: txt_to_json -> transpile_to_yara -> [optional] llm_validation'
-    )
-    parser.add_argument(
-        "input_files",
-        nargs="*",
-        help="Input text files to process (default: data/signature_patterns.txt)"
-    )
-    parser.add_argument(
-        "--clean", 
-        action="store_true", 
-        help="Clean previous output files before running"
-    )
-    parser.add_argument(
-        "--status", 
-        action="store_true", 
-        help="Show current pipeline status and exit"
-    )
-    parser.add_argument(
-        "--validate", 
-        action="store_true", 
-        help="Run LLM validation after YARA generation"
-    )
-    parser.add_argument(
-        "--max-rules", 
-        type=int, 
-        help="Maximum number of rules to validate (requires --validate)"
-    )
-    parser.add_argument(
-        "--sample", 
-        type=int, 
-        help="Randomly sample N rules for validation (requires --validate)"
-    )
-    parser.add_argument(
-        "--data-dir", 
-        default="data", 
-        help="Data directory path (default: data)"
-    )
-    parser.add_argument(
-        "--scripts-dir", 
-        default="scripts", 
-        help="Scripts directory path (default: scripts)"
-    )
+    parser = argparse.ArgumentParser(description="Run the complete YARA pipeline")
+    parser.add_argument("--input", "-i", nargs="+", help="Input files to process")
+    parser.add_argument("--data-dir", "-d", default="data", help="Data directory")
+    parser.add_argument("--scripts-dir", "-s", default="scripts", help="Scripts directory")
+    parser.add_argument("--skip-validation", action="store_true", help="Skip LLM validation")
+    parser.add_argument("--output", "-o", help="Output file for validation results")
     
     args = parser.parse_args()
     
-    # Validate arguments
-    if (args.max_rules or args.sample) and not args.validate:
-        logger.error("❌ --max-rules and --sample require --validate flag")
-        sys.exit(1)
-    
     try:
-        # Use provided input files or default
-        input_files = args.input_files if args.input_files else None
-        
-        runner = PipelineRunner(args.data_dir, args.scripts_dir, input_files)
-        
-        if args.status:
-            runner.show_status()
-            return
-        
-        runner.run_pipeline(
-            clean=args.clean,
-            validate=args.validate,
-            max_rules=args.max_rules,
-            sample_size=args.sample
+        # Initialize pipeline runner
+        runner = PipelineRunner(
+            data_dir=args.data_dir,
+            scripts_dir=args.scripts_dir,
+            input_files=args.input
         )
         
-    except KeyboardInterrupt:
-        logger.info("⏹️  Pipeline interrupted by user")
-        sys.exit(1)
+        # Run pipeline
+        runner.run_pipeline(
+            skip_validation=args.skip_validation,
+            output_file=args.output
+        )
+        
     except Exception as e:
-        logger.error(f"💥 Pipeline failed: {e}")
+        logger.error(f"Pipeline failed: {e}")
         sys.exit(1)
 
 if __name__ == "__main__":

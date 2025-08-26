@@ -250,3 +250,23 @@
 2025-08-22 09:12:28,287 - INFO - 📊 Progress: 6/6 - KingDefacer_PHP_WebShell
 2025-08-22 09:12:28,289 - INFO - 🔍 Validating rule: KingDefacer_PHP_WebShell
 2025-08-22 09:12:44,265 - INFO - 💾 Validation results saved to: validation_results_20250822_091244.json
+2025-08-26 13:29:30,445 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-26 13:29:30,445 - INFO - 🚀 Starting validation of 237 rules...
+2025-08-26 13:29:30,446 - INFO - 📊 Progress: 1/237 - backdoor_curl_002
+2025-08-26 13:29:30,446 - INFO - 🔍 Validating rule: backdoor_curl_002
+2025-08-26 13:29:44,165 - INFO - 📊 Progress: 2/237 - backdoor_eval_001
+2025-08-26 13:29:44,166 - INFO - 🔍 Validating rule: backdoor_eval_001
+2025-08-26 13:29:54,471 - INFO - 📊 Progress: 3/237 - backdoor_eval_009
+2025-08-26 13:29:54,472 - INFO - 🔍 Validating rule: backdoor_eval_009
+2025-08-26 13:30:05,546 - INFO - 📊 Progress: 4/237 - backdoor_eval_base64_022
+2025-08-26 13:30:05,547 - INFO - 🔍 Validating rule: backdoor_eval_base64_022
+2025-08-26 13:30:14,947 - INFO - 📊 Progress: 5/237 - backdoor_eval_base64_024
+2025-08-26 13:30:14,947 - INFO - 🔍 Validating rule: backdoor_eval_base64_024
+2025-08-26 13:30:25,462 - INFO - 📊 Progress: 6/237 - backdoor_evalphp_004
+2025-08-26 13:30:25,463 - INFO - 🔍 Validating rule: backdoor_evalphp_004
+2025-08-26 13:30:35,223 - INFO - 📊 Progress: 7/237 - backdoor_magento_template_001
+2025-08-26 13:30:35,228 - INFO - 🔍 Validating rule: backdoor_magento_template_001
+2025-08-26 13:30:47,910 - INFO - 📊 Progress: 8/237 - backdoor_magento_template_002
+2025-08-26 13:30:47,911 - INFO - 🔍 Validating rule: backdoor_magento_template_002
+2025-08-26 13:31:00,417 - INFO - 📊 Progress: 9/237 - backdoor_obfuscated_003
+2025-08-26 13:31:00,419 - INFO - 🔍 Validating rule: backdoor_obfuscated_003

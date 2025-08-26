@@ -14,6 +14,8 @@ from typing import Dict, List, Optional
 from dotenv import load_dotenv
 import requests
 from datetime import datetime
+import base64
+import re
 
 # Configure logging
 logging.basicConfig(
@@ -76,16 +78,147 @@ class DataClassifier:
                 # Non-text file - read as binary and convert to base64 for LLM processing
                 with open(self.input_file, 'rb') as f:
                     binary_data = f.read()
-                import base64
-                base64_data = base64.b64encode(binary_data).decode('utf-8')
-                logger.info(f"📋 Loaded binary data from {self.input_file} (size: {len(binary_data)} bytes)")
-                return f"BINARY_FILE:{file_extension}:{base64_data}"
+                
+                # For PHP files, filter out documentation and focus on code
+                if file_extension == '.php':
+                    filtered_data = self._filter_php_content(binary_data)
+                    base64_data = base64.b64encode(filtered_data).decode('utf-8')
+                    logger.info(f"📋 Loaded and filtered PHP data from {self.input_file} (size: {len(filtered_data)} bytes)")
+                    return f"BINARY_FILE:{file_extension}:{base64_data}"
+                else:
+                    base64_data = base64.b64encode(binary_data).decode('utf-8')
+                    logger.info(f"📋 Loaded binary data from {self.input_file} (size: {len(binary_data)} bytes)")
+                    return f"BINARY_FILE:{file_extension}:{base64_data}"
                 
         except Exception as e:
             raise ValueError(f"Error loading input file: {e}")
     
-    def get_classification_prompt(self, data: str) -> List[Dict]:
+    def _filter_php_content(self, binary_data: bytes) -> bytes:
+        """Filter PHP content to focus on actual code, removing documentation and comments"""
+        try:
+            # Decode binary data to text
+            content = binary_data.decode('utf-8', errors='ignore')
+            
+            # Remove PHP opening tags and any initial whitespace/comments
+            lines = content.split('\n')
+            filtered_lines = []
+            code_started = False
+            
+            for line in lines:
+                stripped = line.strip()
+                
+                # Skip empty lines at the beginning
+                if not stripped and not code_started:
+                    continue
+                
+                # Skip comment lines (// or #)
+                if stripped.startswith('//') or stripped.startswith('#'):
+                    continue
+                
+                # Skip multi-line comment blocks
+                if stripped.startswith('/*') or stripped.startswith('*'):
+                    continue
+                
+                # Skip HTML comment lines
+                if stripped.startswith('<!--'):
+                    continue
+                
+                # Look for actual PHP code (<?php, <?, or function/class definitions)
+                # Skip echo/print statements as they're often just documentation
+                if ('<?php' in stripped or '<?' in stripped or 
+                    stripped.startswith('function ') or 
+                    stripped.startswith('class ') or
+                    stripped.startswith('$') or
+                    stripped.startswith('if ') or
+                    stripped.startswith('for ') or
+                    stripped.startswith('while ') or
+                    stripped.startswith('foreach ') or
+                    stripped.startswith('return ') or
+                    stripped.startswith('include ') or
+                    stripped.startswith('require ') or
+                    stripped.startswith('eval(') or
+                    stripped.startswith('system(') or
+                    stripped.startswith('exec(') or
+                    stripped.startswith('shell_exec(') or
+                    stripped.startswith('passthru(') or
+                    stripped.startswith('$_') or
+                    stripped.startswith('$GLOBALS') or
+                    stripped.startswith('$SERVER') or
+                    stripped.startswith('$REQUEST') or
+                    stripped.startswith('$POST') or
+                    stripped.startswith('$GET') or
+                    stripped.startswith('$FILES') or
+                    stripped.startswith('$COOKIE') or
+                    stripped.startswith('$SESSION')):
+                    code_started = True
+                
+                # Once code has started, include all lines
+                if code_started:
+                    filtered_lines.append(line)
+            
+            # If no code was found, return original content
+            if not filtered_lines:
+                logger.warning("⚠️  No PHP code patterns found, returning original content")
+                return binary_data
+            
+            # Reconstruct filtered content
+            filtered_content = '\n'.join(filtered_lines)
+            
+            # Additional filtering: Remove echo and print statements that are often just documentation
+            filtered_content = self._remove_echo_statements(filtered_content)
+            
+            logger.info(f"🔍 Filtered PHP content: removed {len(lines) - len(filtered_lines)} documentation lines")
+            
+            return filtered_content.encode('utf-8')
+            
+        except Exception as e:
+            logger.warning(f"⚠️  PHP filtering failed: {e}, returning original content")
+            return binary_data
+    
+    def _remove_echo_statements(self, content: str) -> str:
+        """Remove echo and print statements that are often just malware author documentation"""
+        try:
+            lines = content.split('\n')
+            filtered_lines = []
+            
+            for line in lines:
+                stripped = line.strip()
+                
+                # Skip echo and print statements that are likely just documentation
+                if (stripped.startswith('echo ') or 
+                    stripped.startswith('print ') or
+                    stripped.startswith('echo(') or
+                    stripped.startswith('print(')):
+                    
+                    # Skip echo/print statements as they're almost always just documentation
+                    # Only keep them if they contain actual code patterns
+                    if not any(pattern in stripped for pattern in ['$_', '$GLOBALS', 'function', 'eval(', 'system(', 'exec(']):
+                        continue  # Skip this line as it's just documentation
+                
+                # Keep the line if it's not just documentation
+                filtered_lines.append(line)
+            
+            filtered_content = '\n'.join(filtered_lines)
+            logger.info(f"🔍 Removed echo/print documentation statements from PHP content")
+            
+            return filtered_content
+            
+        except Exception as e:
+            logger.warning(f"⚠️  Echo statement removal failed: {e}, returning original content")
+            return content
+    
+    def get_classification_prompt(self, data: str, custom_prompt: str = None) -> List[Dict]:
         """Generate classification prompt for the input data"""
+        
+        # If a custom prompt is provided, combine it with the file data
+        if custom_prompt:
+            logger.info("📝 Using custom optimized prompt for classification")
+            if data.startswith("BINARY_FILE:"):
+                # For binary files, combine custom prompt with file data
+                return self._get_custom_binary_file_prompt(data, custom_prompt)
+            else:
+                # For text files, combine custom prompt with text data
+                return self._get_custom_text_file_prompt(data, custom_prompt)
         
         # Check if this is a binary file
         if data.startswith("BINARY_FILE:"):
@@ -96,29 +229,13 @@ class DataClassifier:
     def _get_text_file_prompt(self, data: str) -> List[Dict]:
         """Generate classification prompt for text files"""
         
-        system_prompt = """You are a data structure expert specializing in security signatures and YARA rule generation. Your task is to analyze input text data and determine if it's in the EXACT format expected by the YARA pipeline.
+        system_prompt = """Task: Determine if this text file is suitable for YARA rule generation.
 
-The expected format (signature_patterns.txt) must have:
-1. A "DB Cleanup Constant Variables" section with define statements
-2. A "Signature List" section with signature entries in the format:
-   - Signature Name: [name]
-   - Cleanup Pattern: [pattern]
-   - Triggers: [array of triggers]
-   - Full Chain: [array of chain elements]
+Context: Analyze if the file follows a format suitable for YARA conversion (similar to signature_patterns.txt).
 
-Please analyze the provided input data and provide a structured classification report with the following sections:
+Constraints: Check format compatibility, data structure, and YARA suitability.
 
-1. **DATA STRUCTURE ANALYSIS**: What is the overall structure of this data?
-2. **FORMAT COMPATIBILITY**: Does this data match the EXACT expected signature_patterns.txt format? (YES/NO)
-3. **RECOGNITION STATUS**: Is this data in a recognized format for YARA conversion? (YES/NO)
-4. **DATA TYPE**: What type of security data is this? (e.g., signatures, patterns, indicators, etc.)
-5. **STRUCTURE VALIDITY**: Does the data have the expected sections and format?
-6. **YARA COMPATIBILITY**: Can this data be converted to YARA rules? (YES/NO)
-7. **CONVERSION READINESS**: Rate from 1-10 (10 being fully ready for conversion)
-8. **ISSUES IDENTIFIED**: Any problems or missing elements?
-9. **RECOMMENDATIONS**: What should be done with this data?
-
-IMPORTANT: Only mark as compatible if the data EXACTLY matches the expected signature_patterns.txt structure. If the format is different, classify it and mark as NOT compatible."""
+Output format: Return analysis of format compatibility and YARA suitability."""
         
         # Create a sample of the data for analysis (limit size for API)
         data_sample = self._create_text_sample(data)
@@ -126,7 +243,7 @@ IMPORTANT: Only mark as compatible if the data EXACTLY matches the expected sign
         user_prompt = f"""INPUT DATA TO CLASSIFY:
 {data_sample}
 
-Please provide a comprehensive classification of this input data structure and determine if it's suitable for YARA rule conversion."""
+Analyze format compatibility and YARA suitability."""
         
         return [
             {"from": "system", "content": system_prompt},
@@ -136,20 +253,38 @@ Please provide a comprehensive classification of this input data structure and d
     def _get_binary_file_prompt(self, data: str) -> List[Dict]:
         """Generate classification prompt for binary files"""
         
-        system_prompt = """You are a security expert specializing in YARA rule generation. Your task is to analyze a binary file and create a YARA rule for it.
+        system_prompt = """Task: Convert this signature/indicator into a syntactically correct YARA rule.
 
-The input is a base64-encoded binary file. Please analyze the file content and create a comprehensive YARA rule that can detect this type of file.
+Context: The source is a base64-encoded file. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.
 
-Please provide your response in the following format:
+Example of a good PHP YARA rule:
+rule PHP_Webshell_Example {{
+    meta:
+        description = "Detects PHP webshell with code execution capabilities"
+        author = "Security Analyst"
+        severity = "HIGH"
+        category = "MALWARE"
+    
+    strings:
+        $eval_func = "eval(" ascii
+        $system_func = "system(" ascii
+        $exec_func = "exec(" ascii
+        $shell_exec = "shell_exec(" ascii
+        $passthru_func = "passthru(" ascii
+        $file_get_contents = "file_get_contents(" ascii
+        $file_put_contents = "file_put_contents(" ascii
+        $unlink_func = "unlink(" ascii
+        $chmod_func = "chmod(" ascii
+    
+    condition:
+        filetype == "php" and
+        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and
+        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)
+}}
 
-1. **FILE ANALYSIS**: What type of file is this? What is its purpose?
-2. **SECURITY THREAT**: Is this file potentially malicious? What threats does it pose?
-3. **YARA RULE**: Provide a complete YARA rule that can detect this file type
-4. **RULE EXPLANATION**: Explain the key detection patterns used in the rule
-5. **THREAT LEVEL**: Rate the threat level from 1-10 (10 being highly dangerous)
-6. **RECOMMENDATIONS**: What actions should be taken if this rule triggers?
+Constraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.
 
-IMPORTANT: Focus on creating a practical YARA rule that can effectively detect this file type."""
+Output format: Return only a valid YARA rule."""
         
         # Extract file info from the data
         parts = data.split(":", 2)
@@ -164,11 +299,61 @@ IMPORTANT: Focus on creating a practical YARA rule that can effectively detect t
 File Extension: {file_extension}
 Base64 Data: {base64_data}
 
-Please analyze this binary file and create a YARA rule for detection."""
+Create a YARA rule for detection."""
         
         return [
             {"from": "system", "content": system_prompt},
             {"from": "user", "content": user_prompt}
+        ]
+
+    def _get_custom_binary_file_prompt(self, data: str, custom_prompt: str) -> List[Dict]:
+        """Generate custom prompt for binary files with file data included"""
+        
+        # Extract file info from the data
+        parts = data.split(":", 2)
+        file_extension = parts[1] if len(parts) > 1 else "unknown"
+        base64_data = parts[2] if len(parts) > 2 else ""
+        
+        # Limit base64 data size for API
+        if len(base64_data) > 1000:
+            base64_data = base64_data[:1000] + "... [truncated]"
+        
+        # Combine custom prompt with file data
+        combined_prompt = f"""{custom_prompt}
+
+BINARY FILE TO ANALYZE:
+File Extension: {file_extension}
+Base64 Data: {base64_data}
+
+For PHP files: Focus on the actual code behavior, function calls, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.
+
+Example of good PHP YARA rule structure:
+- Use function names like eval(, system(, exec(, file_get_contents(
+- Use variable patterns like $_GET, $_POST, $_FILES, $_SERVER
+- Use file operations like chmod(, unlink(, include, require
+- Avoid descriptive text strings from echo/print statements
+Please analyze this file content and create a YARA rule."""
+        
+        return [
+            {"from": "user", "content": combined_prompt}
+        ]
+
+    def _get_custom_text_file_prompt(self, data: str, custom_prompt: str) -> List[Dict]:
+        """Generate custom prompt for text files with file data included"""
+        
+        # Create a sample of the data for analysis
+        data_sample = self._create_text_sample(data)
+        
+        # Combine custom prompt with file data
+        combined_prompt = f"""{custom_prompt}
+
+INPUT DATA TO ANALYZE:
+{data_sample}
+
+Please analyze this file content and create a YARA rule."""
+        
+        return [
+            {"from": "user", "content": combined_prompt}
         ]
 
 
@@ -183,10 +368,10 @@ Please analyze this binary file and create a YARA rule for detection."""
         
         return sample
     
-    def classify_data(self, data: str) -> Dict:
+    def classify_data(self, data: str, custom_prompt: str = None) -> Dict:
         """Classify the input data using Gocaas API"""
         try:
-            prompts = self.get_classification_prompt(data)
+            prompts = self.get_classification_prompt(data, custom_prompt)
             
             payload = {
                 "prompts": prompts,
@@ -383,7 +568,9 @@ Please analyze this binary file and create a YARA rule for detection."""
         """Save classification results to file"""
         if not output_file:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_file = f"classification_results_{timestamp}.json"
+            # Include input filename in the classification results filename for easier matching
+            input_stem = self.input_file.stem
+            output_file = f"classification_{input_stem}_{timestamp}.json"
         
         output_path = Path(output_file)
         
@@ -443,7 +630,7 @@ Please analyze this binary file and create a YARA rule for detection."""
             else:
                 print("   Check the classification details for other issues.")
         
-        print(f"\n📁 Classification results saved to: classification_results_*.json")
+        print(f"\n📁 Classification results saved to: classification_{self.input_file.stem}_*.json")
         print(f"📋 Log file: classification.log")
     
     def extract_yara_rule_from_binary_analysis(self, classification: Dict) -> str:
@@ -468,11 +655,14 @@ Please analyze this binary file and create a YARA rule for detection."""
         condition_match = re.search(condition_pattern, content, re.DOTALL | re.IGNORECASE)
         
         if strings_match and condition_match:
-            rule_name = f"rule binary_file_{self.input_file.stem}"
+            # Replace dashes and spaces with underscores in rule name
+            clean_stem = self.input_file.stem.replace('-', '_').replace(' ', '_')
+            rule_name = f"rule binary_file_{clean_stem}"
             return f"{rule_name} {{\n    strings:\n{strings_match.group(1)}\n    condition:\n{condition_match.group(1)}\n}}"
         
         # Fallback: return a basic rule
-        return f"rule binary_file_{self.input_file.stem} {{\n    strings:\n        $s1 = \"binary_file_detected\"\n    condition:\n        $s1\n}}"
+        clean_stem = self.input_file.stem.replace('-', '_').replace(' ', '_')
+        return f"rule binary_file_{clean_stem} {{\n    strings:\n        $s1 = \"binary_file_detected\"\n    condition:\n        $s1\n}}"
 
 def main():
     parser = argparse.ArgumentParser(
@@ -485,6 +675,10 @@ def main():
     parser.add_argument(
         "--output", "-o",
         help="Output file for classification results"
+    )
+    parser.add_argument(
+        "--custom-prompt", "-p",
+        help="Custom optimized prompt to use instead of default prompts"
     )
     parser.add_argument(
         "--verbose", "-v",
@@ -504,8 +698,8 @@ def main():
         # Load data
         data = classifier.load_input_data()
         
-        # Classify data
-        classification = classifier.classify_data(data)
+        # Classify data with optional custom prompt
+        classification = classifier.classify_data(data, args.custom_prompt)
         
         # Save results
         output_file = classifier.save_classification(classification, args.output)

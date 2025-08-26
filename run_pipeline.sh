@@ -43,6 +43,7 @@ show_usage() {
     echo "  --max-rules N     Validate maximum N rules (requires --validate)"
     echo "  --sample N        Randomly sample N rules for validation (requires --validate)"
     echo "  --skip-classification  Skip data classification step"
+    echo "  --skip-validation     Skip LLM validation step"
     echo "  --output FILE     Output file for validation results"
     echo ""
     echo "Utility Options:"
@@ -58,6 +59,7 @@ show_usage() {
     echo "  $0 --validate --sample 5              # Validate random 5 rules"
     echo "  $0 --validate --output results.json   # Validate with custom output file"
     echo "  $0 --skip-classification              # Skip data classification step"
+echo "  $0 --skip-validation                  # Skip LLM validation step"
     echo "  $0 --status                           # Check pipeline status"
     echo ""
     echo "Note: LLM validation requires JWT and API_URL environment variables"
@@ -70,6 +72,7 @@ MAX_RULES=""
 SAMPLE=""
 OUTPUT=""
 SKIP_CLASSIFICATION=false
+SKIP_VALIDATION=false
 STATUS=false
 
 # Array to store input files
@@ -99,6 +102,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --skip-classification)
             SKIP_CLASSIFICATION=true
+            shift
+            ;;
+        --skip-validation)
+            SKIP_VALIDATION=true
             shift
             ;;
         --status)
@@ -133,6 +140,7 @@ CMD="python3 scripts/run_pipeline.py"
 
 # Add input files if provided
 if [ ${#INPUT_FILES[@]} -gt 0 ]; then
+    CMD="$CMD --input"
     for file in "${INPUT_FILES[@]}"; do
         CMD="$CMD $file"
     done
@@ -160,6 +168,10 @@ fi
 
 if [ "$SKIP_CLASSIFICATION" = true ]; then
     CMD="$CMD --skip-classification"
+fi
+
+if [ "$SKIP_VALIDATION" = true ]; then
+    CMD="$CMD --skip-validation"
 fi
 
 if [ "$STATUS" = true ]; then
