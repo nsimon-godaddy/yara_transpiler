@@ -111,7 +111,7 @@ class PipelineRunner:
             successful_binary = [r for r in binary_results if r['success']]
             if successful_binary:
                 logger.info(f"🔄 Processing {len(successful_binary)} binary file(s) with LLM...")
-                self.binary_yara_rules = self._extract_binary_yara_rules(successful_binary)
+                self.binary_yara_rules = self._process_binary_files_with_llm(successful_binary)
                 logger.info(f"✅ Extracted {len(self.binary_yara_rules)} YARA rules from binary files")
             else:
                 logger.warning("⚠️  No binary files were successfully processed")
@@ -385,17 +385,16 @@ class PipelineRunner:
                 except Exception as e:
                     logger.warning(f"⚠️  Could not remove {result['output_file']}: {e}")
     
-    def _extract_binary_yara_rules(self, binary_results: List[Dict]) -> List[str]:
-        """Extract YARA rules from binary file classification results"""
+    def _process_binary_files_with_llm(self, binary_files: List[Dict]) -> List[str]:
+        """Process binary files with LLM to extract YARA rules"""
+        logger.info(f"🔄 Processing {len(binary_files)} binary file(s) with LLM...")
+        
         yara_rules = []
         processed_rules = set()
         
-        for result in binary_results:
-            if not result['success'] or 'classification_file' not in result:
-                continue
-            
-            input_file = result['input_file']
-            classification_file = result['classification_file']
+        for binary_file in binary_files:
+            input_file = Path(binary_file['input_file'])
+            classification_file = binary_file['classification_file']
             
             try:
                 # Read classification results
@@ -450,7 +449,11 @@ class PipelineRunner:
                         
                         if rule_id not in processed_rules:
                             processed_rules.add(rule_id)
-                            yara_rules.append(cleaned_rule)
+                            
+                            # Validate rule through syntax layer before adding
+                            validated_rule = self._validate_rule_through_syntax_layer(cleaned_rule, input_file.stem)
+                            yara_rules.append(validated_rule)
+                            
                             logger.info(f"📋 Extracted YARA rule from {input_file.name}")
                         else:
                             logger.info(f"🔄 Skipping duplicate rule from {input_file.name}")
@@ -462,6 +465,90 @@ class PipelineRunner:
                 continue
         
         return yara_rules
+    
+    def _validate_rule_through_syntax_layer(self, rule_content: str, rule_name: str) -> str:
+        """Validate YARA rule through the syntax layer before adding to file"""
+        try:
+            # Check if syntax layer exists
+            syntax_layer_script = self.scripts_dir / "yara_syntax_layer.py"
+            if not syntax_layer_script.exists():
+                logger.warning("⚠️  YARA syntax layer not found, using original rule")
+                return rule_content
+            
+            # Create temporary file with single rule for validation
+            temp_rules_file = self.workspace_root / f"temp_rules_{rule_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            
+            # Format rules for syntax layer
+            rules_data = [{
+                'name': rule_name,
+                'content': rule_content,
+                'source': 'llm_generation'
+            }]
+            
+            with open(temp_rules_file, 'w', encoding='utf-8') as f:
+                json.dump(rules_data, f, indent=2, ensure_ascii=False)
+            
+            try:
+                # Run syntax layer validation
+                syntax_cmd = [
+                    sys.executable,
+                    str(syntax_layer_script),
+                    str(temp_rules_file),
+                    "--output", str(temp_rules_file.parent / f"syntax_validation_{rule_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+                ]
+                
+                logger.debug(f"🔍 Running YARA syntax layer validation for rule: {rule_name}")
+                
+                result = subprocess.run(
+                    syntax_cmd,
+                    capture_output=True,
+                    text=True,
+                    cwd=self.workspace_root,
+                    timeout=60
+                )
+                
+                if result.returncode == 0:
+                    logger.info(f"✅ Rule {rule_name} validated through syntax layer")
+                    
+                    # Try to read the corrected rule from validation results
+                    try:
+                        # Look for validation results in the output
+                        for line in result.stdout.split('\n'):
+                            if 'syntax_validation_' in line and '.json' in line:
+                                validation_file = line.split()[-1]
+                                with open(validation_file, 'r') as f:
+                                    validation_data = json.load(f)
+                                
+                                if validation_data and len(validation_data) > 0:
+                                    corrected_rule = validation_data[0].get('content', rule_content)
+                                    if corrected_rule != rule_content:
+                                        logger.info(f"🔧 Rule {rule_name} syntax corrected by syntax layer")
+                                        return corrected_rule
+                                    else:
+                                        logger.info(f"✅ Rule {rule_name} syntax already valid")
+                                        return rule_content
+                    except Exception as e:
+                        logger.warning(f"⚠️  Could not read syntax validation results: {e}")
+                        return rule_content
+                else:
+                    logger.warning(f"⚠️  Syntax layer validation failed for rule {rule_name}: {result.stderr}")
+                    return rule_content
+                    
+            finally:
+                # Clean up temporary files
+                if temp_rules_file.exists():
+                    temp_rules_file.unlink()
+                
+                # Clean up validation result files
+                for file in self.workspace_root.glob(f"syntax_validation_{rule_name}_*.json"):
+                    try:
+                        file.unlink()
+                    except:
+                        pass
+                        
+        except Exception as e:
+            logger.warning(f"⚠️  Syntax layer validation failed for rule {rule_name}: {e}")
+            return rule_content
     
     def _clean_yara_rule_syntax(self, rule: str, input_stem: str) -> str:
         """Clean up YARA rule syntax to ensure proper formatting"""
@@ -629,6 +716,180 @@ class PipelineRunner:
         except Exception as e:
             logger.error(f"❌ Unexpected error in LLM validation: {e}")
     
+    def get_latest_validation_results(self) -> Dict:
+        """Get the latest YARA validation results for later use"""
+        validation_dir = self.workspace_root / "validation_results"
+        
+        if not validation_dir.exists():
+            return {}
+        
+        # Find the most recent validation file
+        validation_files = list(validation_dir.glob("yara_validation_*.json"))
+        if not validation_files:
+            return {}
+        
+        # Sort by modification time and get the latest
+        latest_file = max(validation_files, key=lambda f: f.stat().st_mtime)
+        
+        try:
+            with open(latest_file, 'r', encoding='utf-8') as f:
+                results = json.load(f)
+            
+            # Add the file path to the results for reference
+            results['validation_file'] = str(latest_file)
+            return results
+            
+        except Exception as e:
+            logger.warning(f"⚠️  Could not load validation results from {latest_file}: {e}")
+            return {}
+    
+    def run_yara_syntax_validation(self):
+        """Run YARA syntax validation on generated rules"""
+        try:
+            logger.info("🔍 Running YARA syntax validation...")
+            
+            if not self.yara_file.exists():
+                logger.warning("⚠️  No YARA file to validate")
+                return
+            
+            # Create validation results directory
+            validation_dir = self.workspace_root / "validation_results"
+            validation_dir.mkdir(exist_ok=True)
+            
+            # Run YARA syntax validator with output to validation directory
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            output_file = validation_dir / f"yara_validation_{timestamp}.json"
+            
+            validator_cmd = [
+                sys.executable,
+                str(self.scripts_dir / "yara_syntax_validator.py"),
+                str(self.yara_file),
+                "--output", str(output_file)
+            ]
+            
+            logger.debug(f"🔧 Running YARA syntax validator: {' '.join(validator_cmd)}")
+            
+            result = subprocess.run(
+                validator_cmd,
+                capture_output=True,
+                text=True,
+                cwd=self.workspace_root,
+                timeout=60
+            )
+            
+            if result.returncode == 0:
+                logger.info("✅ YARA syntax validation completed successfully")
+                logger.info("✅ All generated rules are syntactically valid")
+                logger.info(f"💾 Validation results stored in: {output_file}")
+            else:
+                logger.warning(f"⚠️  YARA syntax validation found issues: {result.stderr}")
+                logger.info(f"📋 Validation feedback stored in: {output_file}")
+                logger.info("📋 Check the validation results for syntax errors and feedback")
+                
+                # Automatically attempt to revise invalid rules
+                self.attempt_rule_revision(output_file)
+                
+        except subprocess.TimeoutExpired:
+            logger.warning("⚠️  YARA syntax validation timed out")
+        except subprocess.CalledProcessError as e:
+            logger.warning(f"⚠️  YARA syntax validation failed: {e}")
+        except Exception as e:
+            logger.warning(f"⚠️  Unexpected error in YARA syntax validation: {e}")
+    
+    def attempt_rule_revision(self, validation_file: Path):
+        """Attempt to automatically revise invalid YARA rules using specialized YARA revision service"""
+        try:
+            logger.info("🔧 Attempting automatic YARA rule revision using specialized service...")
+            
+            # Check if specialized revision service exists
+            revision_service = self.scripts_dir / "yara_revision_service.py"
+            if not revision_service.exists():
+                logger.warning("⚠️  Specialized YARA revision service not found, skipping automatic revision")
+                return
+            
+            # Get current environment variables
+            current_env = os.environ.copy()
+            
+            # Ensure JWT and API_URL are available to subprocess
+            if 'JWT' not in current_env:
+                logger.warning("⚠️  JWT not found in environment, attempting to load from .env")
+                from dotenv import load_dotenv
+                load_dotenv()
+                current_env['JWT'] = os.getenv('JWT', '')
+                current_env['API_URL'] = os.getenv('API_URL', '')
+            
+            # Run specialized YARA rule revision
+            revision_cmd = [
+                sys.executable,
+                str(revision_service),
+                str(validation_file),
+                str(self.yara_file),
+                "--output", str(validation_file.parent / f"yara_revision_service_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+            ]
+            
+            logger.debug(f"🔧 Running specialized YARA revision service: {' '.join(revision_cmd)}")
+            logger.debug(f"🔧 Environment check - JWT: {'SET' if current_env.get('JWT') else 'NOT SET'}, API_URL: {'SET' if current_env.get('API_URL') else 'NOT SET'}")
+            
+            result = subprocess.run(
+                revision_cmd,
+                capture_output=True,
+                text=True,
+                cwd=self.workspace_root,
+                timeout=120,
+                env=current_env  # Explicitly pass environment variables
+            )
+            
+            if result.returncode == 0:
+                logger.info("✅ Specialized YARA rule revision completed successfully")
+                logger.info("📋 Check revision service results for updated rules")
+                
+                # Re-validate the revised rules
+                self.revalidate_after_revision()
+            else:
+                logger.warning(f"⚠️  Specialized YARA rule revision failed: {result.stderr}")
+                
+        except subprocess.TimeoutExpired:
+            logger.warning("⚠️  Specialized YARA rule revision timed out")
+        except subprocess.CalledProcessError as e:
+            logger.warning(f"⚠️  Specialized YARA rule revision failed: {e}")
+        except Exception as e:
+            logger.warning(f"⚠️  Unexpected error in specialized YARA rule revision: {e}")
+    
+    def revalidate_after_revision(self):
+        """Re-validate YARA rules after revision to check if issues were resolved"""
+        try:
+            logger.info("🔍 Re-validating YARA rules after revision...")
+            
+            # Run YARA syntax validation again
+            validation_dir = self.workspace_root / "validation_results"
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            output_file = validation_dir / f"yara_validation_post_revision_{timestamp}.json"
+            
+            validator_cmd = [
+                sys.executable,
+                str(self.scripts_dir / "yara_syntax_validator.py"),
+                str(self.yara_file),
+                "--output", str(output_file)
+            ]
+            
+            result = subprocess.run(
+                validator_cmd,
+                capture_output=True,
+                text=True,
+                cwd=self.workspace_root,
+                timeout=60
+            )
+            
+            if result.returncode == 0:
+                logger.info("✅ Post-revision validation successful - all rules are now valid!")
+                logger.info(f"💾 Post-revision validation results stored in: {output_file}")
+            else:
+                logger.warning(f"⚠️  Post-revision validation still found issues: {result.stderr}")
+                logger.info(f"📋 Post-revision validation results stored in: {output_file}")
+                
+        except Exception as e:
+            logger.warning(f"⚠️  Post-revision validation failed: {e}")
+    
     def validate_outputs(self):
         """Validate that the pipeline produced the expected outputs"""
         logger.info("🔍 Validating pipeline outputs...")
@@ -672,6 +933,9 @@ class PipelineRunner:
             
             # Step 2: Convert JSON to YARA
             self.run_transpile_to_yara()
+            
+            # Step 2.5: YARA Syntax Validation (always run)
+            self.run_yara_syntax_validation()
             
             # Step 3: LLM validation (optional)
             if not skip_validation:

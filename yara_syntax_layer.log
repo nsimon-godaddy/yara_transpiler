@@ -1,0 +1,10 @@
+2025-08-27 14:19:03,039 - INFO - 🔧 Initialized YARA Syntax Layer with API: https://caas.api.godaddy.com/v1/prompts
+2025-08-27 14:19:03,039 - INFO - 🔍 Validating 1 LLM-generated rules through syntax layer...
+2025-08-27 14:19:03,039 - INFO - 🔍 Validating YARA rule: memWebshell
+2025-08-27 14:19:03,039 - INFO - 🤖 Calling Gocaas API for YARA syntax validation...
+2025-08-27 14:19:03,166 - ERROR - ❌ Gocaas API call failed: 401 - {"status":401,"error":"Authentication Failure"}
+2025-08-27 14:19:03,166 - ERROR - ❌ Error calling Gocaas: Gocaas API call failed with status 401
+2025-08-27 14:19:03,166 - ERROR - ❌ Failed to validate rule memWebshell: Gocaas API call failed with status 401
+2025-08-27 14:19:03,166 - WARNING - ⚠️  Rule memWebshell validation failed: Gocaas API call failed with status 401
+2025-08-27 14:19:03,166 - INFO - ✅ Syntax validation complete: 0 rules corrected
+2025-08-27 14:19:03,167 - INFO - 💾 Syntax validation results saved to: /Users/nsimon/code/yara/syntax_validation_memWebshell_20250827_141902.json

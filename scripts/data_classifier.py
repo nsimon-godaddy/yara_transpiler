@@ -253,7 +253,16 @@ Analyze format compatibility and YARA suitability."""
     def _get_binary_file_prompt(self, data: str) -> List[Dict]:
         """Generate classification prompt for binary files"""
         
-        system_prompt = """Task: Convert this signature/indicator into a syntactically correct YARA rule.
+        system_prompt = """⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️
+
+🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:
+- 'filetype == "php"' - This identifier does NOT exist in YARA
+- 'file_type == "exe"' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS use proper file type detection with defined strings and magic bytes.
+
+Task: Convert this signature/indicator into a syntactically correct YARA rule.
 
 Context: The source is a base64-encoded file. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.
 
@@ -267,6 +276,8 @@ rule PHP_Webshell_Example {{
     
     strings:
         $eval_func = "eval(" ascii
+        $php_header = "<?php" ascii
+        $php_short = "<?=" ascii
         $system_func = "system(" ascii
         $exec_func = "exec(" ascii
         $shell_exec = "shell_exec(" ascii
@@ -277,10 +288,41 @@ rule PHP_Webshell_Example {{
         $chmod_func = "chmod(" ascii
     
     condition:
-        filetype == "php" and
+        ($php_header or $php_short) and
         3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and
         2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)
 }}
+
+IMPORTANT YARA SYNTAX RULES - READ CAREFULLY:
+
+🚫 NEVER USE THESE INVALID IDENTIFIERS:
+- 'filetype' - This identifier does NOT exist in YARA
+- 'file_type' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:
+
+1. PHP FILES:
+   - Use: '$php_header = "<?php" ascii' and '$php_short = "<?=" ascii'
+   - Condition: '($php_header or $php_short) and ...'
+   - NEVER use: 'filetype == "php"'
+
+2. EXECUTABLE FILES:
+   - Use: '$pe_header = {{ 4D 5A }}' (MZ magic bytes)
+   - Use: '$elf_header = {{ 7F 45 4C 46 }}' (ELF magic bytes)
+   - Condition: '$pe_header at 0' or '$elf_header at 0'
+
+3. ZIP FILES:
+   - Use: '$zip_header = {{ 50 4B 03 04 }}' (PK magic bytes)
+   - Condition: '$zip_header at 0'
+
+4. PDF FILES:
+   - Use: '$pdf_header = "%PDF" ascii'
+   - Condition: '$pdf_header at 0'
+
+5. DOC FILES:
+   - Use: '$doc_header = {{ D0 CF 11 E0 A1 B1 1A E1 }}'
+   - Condition: '$doc_header at 0'
 
 Constraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.
 
@@ -325,6 +367,32 @@ BINARY FILE TO ANALYZE:
 File Extension: {file_extension}
 Base64 Data: {base64_data}
 
+CRITICAL YARA SYNTAX REQUIREMENTS - MUST FOLLOW:
+
+🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors:
+- 'filetype == "php"' - This identifier does NOT exist in YARA
+- 'file_type == "exe"' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ REQUIRED FILE TYPE DETECTION METHODS:
+
+1. PHP FILES (.php):
+   - Define: '$php_header = "<?php" ascii' and '$php_short = "<?=" ascii'
+   - Use in condition: '($php_header or $php_short) and ...'
+   - Example: '($php_header or $php_short) and $malicious_func'
+
+2. EXECUTABLE FILES (.exe, .dll):
+   - Define: '$pe_header = {{ 4D 5A }}' (MZ magic bytes)
+   - Use in condition: '$pe_header at 0 and ...'
+
+3. ZIP FILES (.zip):
+   - Define: '$zip_header = {{ 50 4B 03 04 }}' (PK magic bytes)
+   - Use in condition: '$zip_header at 0 and ...'
+
+4. PDF FILES (.pdf):
+   - Define: '$pdf_header = "%PDF" ascii'
+   - Use in condition: '$pdf_header at 0 and ...'
+
 For PHP files: Focus on the actual code behavior, function calls, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.
 
 Example of good PHP YARA rule structure:
@@ -332,7 +400,8 @@ Example of good PHP YARA rule structure:
 - Use variable patterns like $_GET, $_POST, $_FILES, $_SERVER
 - Use file operations like chmod(, unlink(, include, require
 - Avoid descriptive text strings from echo/print statements
-Please analyze this file content and create a YARA rule."""
+
+Please analyze this file content and create a YARA rule that follows these syntax requirements exactly."""
         
         return [
             {"from": "user", "content": combined_prompt}

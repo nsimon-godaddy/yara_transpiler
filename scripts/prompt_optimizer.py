@@ -43,7 +43,16 @@ Constraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) group
 
 Output format: Return only a valid YARA rule.""",
             
-            'script': """Task: Convert this signature/indicator into a syntactically correct YARA rule.
+            'script': """⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️
+
+🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:
+- 'filetype == "php"' - This identifier does NOT exist in YARA
+- 'file_type == "exe"' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS use proper file type detection with defined strings and magic bytes.
+
+Task: Convert this signature/indicator into a syntactically correct YARA rule.
 
 Context: The source is {file_type}. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.
 
@@ -57,6 +66,8 @@ rule PHP_Webshell_Example {{
     
     strings:
         $eval_func = "eval(" ascii
+        $php_header = "<?php" ascii
+        $php_short = "<?=" ascii
         $system_func = "system(" ascii
         $exec_func = "exec(" ascii
         $shell_exec = "shell_exec(" ascii
@@ -67,16 +78,56 @@ rule PHP_Webshell_Example {{
         $chmod_func = "chmod(" ascii
     
     condition:
-        filetype == "php" and
+        ($php_header or $php_short) and
         3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and
         2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)
 }}
+
+IMPORTANT YARA SYNTAX RULES - READ CAREFULLY:
+
+🚫 NEVER USE THESE INVALID IDENTIFIERS:
+- 'filetype' - This identifier does NOT exist in YARA
+- 'file_type' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:
+
+1. PHP FILES:
+   - Use: '$php_header = "<?php" ascii' and '$php_short = "<?=" ascii'
+   - Condition: '($php_header or $php_short) and ...'
+   - NEVER use: 'filetype == "php"'
+
+2. EXECUTABLE FILES:
+   - Use: '$pe_header = {{ 4D 5A }}' (MZ magic bytes)
+   - Use: '$elf_header = {{ 7F 45 4C 46 }}' (ELF magic bytes)
+   - Condition: '$pe_header at 0' or '$elf_header at 0'
+
+3. ZIP FILES:
+   - Use: '$zip_header = {{ 50 4B 03 04 }}' (PK magic bytes)
+   - Condition: '$zip_header at 0'
+
+4. PDF FILES:
+   - Use: '$pdf_header = "%PDF" ascii'
+   - Condition: '$pdf_header at 0'
+
+5. DOC FILES:
+   - Use: '$doc_header = {{ D0 CF 11 E0 A1 B1 1A E1 }}'
+   - Condition: '$doc_header at 0'
 
 Constraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.
 
 Output format: Return only a valid YARA rule.""",
             
-            'document': """Task: Convert this signature/indicator into a syntactically correct YARA rule.
+            'document': """⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️
+
+🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:
+- 'filetype == "php"' - This identifier does NOT exist in YARA
+- 'file_type == "exe"' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS use proper file type detection with defined strings and magic bytes.
+
+Task: Convert this signature/indicator into a syntactically correct YARA rule.
 
 Context: The source is {file_type}. Analyze the file content to identify key characteristics, patterns, and behaviors.
 
@@ -84,7 +135,16 @@ Constraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) group
 
 Output format: Return only a valid YARA rule.""",
             
-            'archive': """Task: Convert this signature/indicator into a syntactically correct YARA rule.
+            'archive': """⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️
+
+🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:
+- 'filetype == "php"' - This identifier does NOT exist in YARA
+- 'file_type == "exe"' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS use proper file type detection with defined strings and magic bytes.
+
+Task: Convert this signature/indicator into a syntactically correct YARA rule.
 
 Context: The source is {file_type}. Analyze the file content to identify key characteristics, patterns, and behaviors.
 
@@ -92,7 +152,16 @@ Constraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) group
 
 Output format: Return only a valid YARA rule.""",
             
-            'text': """Task: Convert this signature/indicator into a syntactically correct YARA rule.
+            'text': """⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️
+
+🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:
+- 'filetype == "php"' - This identifier does NOT exist in YARA
+- 'file_type == "exe"' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS use proper file type detection with defined strings and magic bytes.
+
+Task: Convert this signature/indicator into a syntactically correct YARA rule.
 
 Context: The source is {file_type}. Analyze the file content to identify key characteristics, patterns, and behaviors.
 
@@ -100,7 +169,16 @@ Constraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) group
 
 Output format: Return only a valid YARA rule.""",
             
-            'default': """Task: Convert this signature/indicator into a syntactically correct YARA rule.
+            'default': """⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️
+
+🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:
+- 'filetype == "php"' - This identifier does NOT exist in YARA
+- 'file_type == "exe"' - This identifier does NOT exist in YARA
+- Any other file type identifiers that aren't defined as strings
+
+✅ ALWAYS use proper file type detection with defined strings and magic bytes.
+
+Task: Convert this signature/indicator into a syntactically correct YARA rule.
 
 Context: The source is {file_type}. Analyze the file content to identify key characteristics, patterns, and behaviors.
 

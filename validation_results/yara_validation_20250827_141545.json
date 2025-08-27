@@ -1,0 +1,2140 @@
+{
+  "file": "data/yara_rules.yar",
+  "valid": true,
+  "rules": [
+    {
+      "name": "backdoor_curl_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1,
+      "line_end": 12,
+      "content_preview": "rule backdoor_curl_002\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.curl.002\"\n\nstrings:\n$fullchain0 = \"AfterFilterCallbac\" ascii\n$fullchain1 = \"curl${IFS%??}-\" ascii\n\ncondition:\nall o..."
+    },
+    {
+      "name": "backdoor_eval_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 14,
+      "line_end": 25,
+      "content_preview": "rule backdoor_eval_001\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.eval.001\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"onmouseover=\\\"eval(atob(\" ascii\n\ncondition:\nall of (..."
+    },
+    {
+      "name": "backdoor_eval_009",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 27,
+      "line_end": 40,
+      "content_preview": "rule backdoor_eval_009\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.eval.009\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"base64_decode\" ascii\n$fullchain2 = \"eval(base64_deco..."
+    },
+    {
+      "name": "backdoor_eval_base64_022",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 42,
+      "line_end": 53,
+      "content_preview": "rule backdoor_eval_base64_022\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.eval_base64.022\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"eval(atob(\" ascii\n\ncondition:\nall of (..."
+    },
+    {
+      "name": "backdoor_eval_base64_024",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 55,
+      "line_end": 66,
+      "content_preview": "rule backdoor_eval_base64_024\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.eval_base64.024\"\n\nstrings:\n$fullchain0 = \"ZX\" ascii\n$fullchain1 = \"CgppZighZGVmaW5lZCgnRE9MTFlfV0FZ\" ascii\n\n..."
+    },
+    {
+      "name": "backdoor_evalphp_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 68,
+      "line_end": 80,
+      "content_preview": "rule backdoor_evalphp_004\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.evalphp.004\"\n\nstrings:\n$fullchain0 = \"base64\" ascii\n$fullchain1 = \"[evalphp]\" ascii\n$fullchain2 = \"[evalphp]syst..."
+    },
+    {
+      "name": "backdoor_magento_template_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 82,
+      "line_end": 94,
+      "content_preview": "rule backdoor_magento_template_001\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.magento_template.001\"\n\nstrings:\n$fullchain0 = \"AfterFilterCallbac\" ascii\n$fullchain1 = \"k(base64_decode..."
+    },
+    {
+      "name": "backdoor_magento_template_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 96,
+      "line_end": 108,
+      "content_preview": "rule backdoor_magento_template_002\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.magento_template.002\"\n\nstrings:\n$fullchain0 = \"AfterFilterCallbac\" ascii\n$fullchain1 = \"k(base64_decode..."
+    },
+    {
+      "name": "backdoor_obfuscated_003",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 110,
+      "line_end": 121,
+      "content_preview": "rule backdoor_obfuscated_003\n{\nmeta:\ndescription = \"Converted from JSON signature backdoor.obfuscated.003\"\n\nstrings:\n$fullchain0 = \"tmp\" ascii\n$fullchain1 = \"3c3f706870202470706f7374653d247468656d6573..."
+    },
+    {
+      "name": "hacktool_cc_stealer_080",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 123,
+      "line_end": 136,
+      "content_preview": "rule hacktool_cc_stealer_080\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.080\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"atob\" ascii\n$fullchain2 = \"(function(..."
+    },
+    {
+      "name": "hacktool_cc_stealer_165",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 138,
+      "line_end": 149,
+      "content_preview": "rule hacktool_cc_stealer_165\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.165\"\n\nstrings:\n$fullchain0 = \"fromCharCode\" ascii\n$fullchain1 = \"+=String.fromCharCode(((parseInt(..."
+    },
+    {
+      "name": "hacktool_cc_stealer_178_07",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 151,
+      "line_end": 166,
+      "content_preview": "rule hacktool_cc_stealer_178_07\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.178.07\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \".appendChild(\" ascii\n$fullchain..."
+    },
+    {
+      "name": "hacktool_cc_stealer_200",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 168,
+      "line_end": 183,
+      "content_preview": "rule hacktool_cc_stealer_200\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.200\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"createElement\" ascii\n$fullchain2 = \".c..."
+    },
+    {
+      "name": "hacktool_cc_stealer_216_04",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 185,
+      "line_end": 199,
+      "content_preview": "rule hacktool_cc_stealer_216_04\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.216.04\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 ..."
+    },
+    {
+      "name": "hacktool_cc_stealer_222",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 201,
+      "line_end": 216,
+      "content_preview": "rule hacktool_cc_stealer_222\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.222\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"function\" ascii\n$fullchain2 = \"functio..."
+    },
+    {
+      "name": "hacktool_cc_stealer_237",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 218,
+      "line_end": 232,
+      "content_preview": "rule hacktool_cc_stealer_237\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.237\"\n\nstrings:\n$fullchain0 = \"fromCharCode\" ascii\n$fullchain1 = \"Function\" ascii\n$fullchain2 = \"]...."
+    },
+    {
+      "name": "hacktool_cc_stealer_241",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 234,
+      "line_end": 248,
+      "content_preview": "rule hacktool_cc_stealer_241\n{\nmeta:\ndescription = \"Converted from JSON signature hacktool.cc-stealer.241\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \"window\" ascii\n$fullchain2 = \"window.l..."
+    },
+    {
+      "name": "injected_balada_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 250,
+      "line_end": 264,
+      "content_preview": "rule injected_balada_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.001\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 = \"46,115,114,99..."
+    },
+    {
+      "name": "injected_balada_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 266,
+      "line_end": 279,
+      "content_preview": "rule injected_balada_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.002\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 = \"\\\"eval(String..."
+    },
+    {
+      "name": "injected_balada_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 281,
+      "line_end": 294,
+      "content_preview": "rule injected_balada_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.008\"\n\nstrings:\n$fullchain0 = \"atob\" ascii\n$fullchain1 = \"eval\" ascii\n$fullchain2 = \"*/eval;/*\" ascii\n$full..."
+    },
+    {
+      "name": "injected_balada_009",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 296,
+      "line_end": 309,
+      "content_preview": "rule injected_balada_009\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.009\"\n\nstrings:\n$fullchain0 = \"atob\" ascii\n$fullchain1 = \"eval\" ascii\n$fullchain2 = \"eval(atob(\" ascii\n$ful..."
+    },
+    {
+      "name": "injected_balada_010",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 311,
+      "line_end": 325,
+      "content_preview": "rule injected_balada_010\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.010\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"eval(\" ascii\n$fullchain2 = \"eval(atob(\" ascii\n..."
+    },
+    {
+      "name": "injected_balada_011",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 327,
+      "line_end": 342,
+      "content_preview": "rule injected_balada_011\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.011\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"function\" ascii\n$fullchain2 = \"function(_0x\" a..."
+    },
+    {
+      "name": "injected_balada_011_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 344,
+      "line_end": 359,
+      "content_preview": "rule injected_balada_011_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.011.02\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"function\" ascii\n$fullchain2 = \"function(..."
+    },
+    {
+      "name": "injected_balada_011_03",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 361,
+      "line_end": 374,
+      "content_preview": "rule injected_balada_011_03\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.011.03\"\n\nstrings:\n$fullchain0 = \"YX\" ascii\n$fullchain1 = \"PHNjcmlwd\" ascii\n$fullchain2 = \"$_POST\" ascii..."
+    },
+    {
+      "name": "injected_balada_012",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 376,
+      "line_end": 388,
+      "content_preview": "rule injected_balada_012\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.012\"\n\nstrings:\n$fullchain0 = \"PC9z\" ascii\n$fullchain1 = \"add_action(\" ascii\n$fullchain2 = \", \" ascii\n\ncond..."
+    },
+    {
+      "name": "injected_balada_013",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 390,
+      "line_end": 407,
+      "content_preview": "rule injected_balada_013\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada.013\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"=String;\" ascii\n$fullchain2 = \"var e=eval;var ..."
+    },
+    {
+      "name": "injected_balada_URL_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 409,
+      "line_end": 421,
+      "content_preview": "rule injected_balada_URL_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.balada_URL.001\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"startperfect..."
+    },
+    {
+      "name": "injected_base64_option_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 423,
+      "line_end": 435,
+      "content_preview": "rule injected_base64_option_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.base64_option.001\"\n\nstrings:\n$fullchain0 = \"YX\" ascii\n$fullchain1 = \"PHNjcmlwd\" ascii\n$fullchain2 = \"iPHNj..."
+    },
+    {
+      "name": "injected_counts_tds_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 437,
+      "line_end": 452,
+      "content_preview": "rule injected_counts_tds_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.counts_tds.001\"\n\nstrings:\n$fullchain0 = \"base64\" ascii\n$fullchain1 = \"base64_decode\" ascii\n$fullchain2 = \"add..."
+    },
+    {
+      "name": "injected_cryptodrainer_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 454,
+      "line_end": 467,
+      "content_preview": "rule injected_cryptodrainer_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.cryptodrainer.001\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"function\" ascii\n$fullchain2 = \"(..."
+    },
+    {
+      "name": "injected_cryptodrainer_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 469,
+      "line_end": 481,
+      "content_preview": "rule injected_cryptodrainer_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.cryptodrainer.002\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"eval(\" ascii\n$fullchain2 = \"\\\\u0..."
+    },
+    {
+      "name": "injected_csrf_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 483,
+      "line_end": 495,
+      "content_preview": "rule injected_csrf_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.csrf.001\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW..."
+    },
+    {
+      "name": "injected_csrf_URL_001_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 497,
+      "line_end": 509,
+      "content_preview": "rule injected_csrf_URL_001_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.csrf_URL.001.02\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"//wp-cdn.t..."
+    },
+    {
+      "name": "injected_dns_redirect_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 511,
+      "line_end": 525,
+      "content_preview": "rule injected_dns_redirect_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.dns_redirect.005\"\n\nstrings:\n$fullchain0 = \"base64\" ascii\n$fullchain1 = \"base64_decode\" ascii\n$fullchain2 = ..."
+    },
+    {
+      "name": "injected_dns_redirect_005_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 527,
+      "line_end": 541,
+      "content_preview": "rule injected_dns_redirect_005_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.dns_redirect.005.02\"\n\nstrings:\n$fullchain0 = \"base64\" ascii\n$fullchain1 = \"base64_decode\" ascii\n$fullcha..."
+    },
+    {
+      "name": "injected_dns_redirect_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 543,
+      "line_end": 556,
+      "content_preview": "rule injected_dns_redirect_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.dns_redirect.006\"\n\nstrings:\n$fullchain0 = \"base64\" ascii\n$fullchain1 = \"base64_decode\" ascii\n$fullchain2 = ..."
+    },
+    {
+      "name": "injected_hacklinks_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 558,
+      "line_end": 570,
+      "content_preview": "rule injected_hacklinks_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hacklinks.001\"\n\nstrings:\n$fullchain0 = \"[vc_raw_js]\" ascii\n$fullchain1 = \"[vc_raw_js]JTNDc2NyaXB0\" ascii\n$full..."
+    },
+    {
+      "name": "injected_hidden_a_href_001_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 572,
+      "line_end": 583,
+      "content_preview": "rule injected_hidden_a_href_001_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden_a-href.001.02\"\n\nstrings:\n$fullchain0 = \"none\" ascii\n$fullchain1 = \"<a style=\\\"text-decoration: n..."
+    },
+    {
+      "name": "injected_hidden_a_href_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 585,
+      "line_end": 596,
+      "content_preview": "rule injected_hidden_a_href_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden_a-href.002\"\n\nstrings:\n$fullchain0 = \"none\" ascii\n$fullchain1 = \">.</a>\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_hidden_a_href_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 598,
+      "line_end": 609,
+      "content_preview": "rule injected_hidden_a_href_004\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden_a-href.004\"\n\nstrings:\n$fullchain0 = \"none\" ascii\n$fullchain1 = \"> dofollow { display: none; }\" asci..."
+    },
+    {
+      "name": "injected_hidden_div_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 611,
+      "line_end": 623,
+      "content_preview": "rule injected_hidden_div_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.002\"\n\nstrings:\n$fullchain0 = \"<div style=\\\"display:\" ascii\n$fullchain1 = \"~div style=\\\"display:\\\\s..."
+    },
+    {
+      "name": "injected_hidden_div_035",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 625,
+      "line_end": 638,
+      "content_preview": "rule injected_hidden_div_035\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.035\"\n\nstrings:\n$fullchain0 = \"none\" ascii\n$fullchain1 = \"return \\\"none\\\";\" ascii\n$fullchain2 = \"{ ..."
+    },
+    {
+      "name": "injected_hidden_div_035_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 640,
+      "line_end": 654,
+      "content_preview": "rule injected_hidden_div_035_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.035.02\"\n\nstrings:\n$fullchain0 = \"none\" ascii\n$fullchain1 = \"return \\\"none\\\";\" ascii\n$fullchain2..."
+    },
+    {
+      "name": "injected_hidden_div_036_03",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 656,
+      "line_end": 670,
+      "content_preview": "rule injected_hidden_div_036_03\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.036.03\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"hidden\" ascii\n$fullchain2 = \"<div ..."
+    },
+    {
+      "name": "injected_hidden_div_037",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 672,
+      "line_end": 685,
+      "content_preview": "rule injected_hidden_div_037\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.037\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"eval(\" ascii\n$fullchain2 = \"))</script..."
+    },
+    {
+      "name": "injected_hidden_div_040",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 687,
+      "line_end": 701,
+      "content_preview": "rule injected_hidden_div_040\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.040\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"left:-\" ascii\n$fullchain2 = \">\" ascii..."
+    },
+    {
+      "name": "injected_hidden_div_040_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 703,
+      "line_end": 718,
+      "content_preview": "rule injected_hidden_div_040_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.040.02\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \"getElementsByTagName\" ascii\n$fu..."
+    },
+    {
+      "name": "injected_hidden_div_047",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 720,
+      "line_end": 733,
+      "content_preview": "rule injected_hidden_div_047\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.047\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"position\" ascii\n$fullchain2 = \" style=\\\"..."
+    },
+    {
+      "name": "injected_hidden_div_047_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 735,
+      "line_end": 748,
+      "content_preview": "rule injected_hidden_div_047_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.047.02\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"position\" ascii\n$fullchain2 = \" st..."
+    },
+    {
+      "name": "injected_hidden_div_047_04",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 750,
+      "line_end": 763,
+      "content_preview": "rule injected_hidden_div_047_04\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.047.04\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"position\" ascii\n$fullchain2 = \" st..."
+    },
+    {
+      "name": "injected_hidden_div_049",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 765,
+      "line_end": 777,
+      "content_preview": "rule injected_hidden_div_049\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.049\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"position\" ascii\n$fullchain2 = \"<div styl..."
+    },
+    {
+      "name": "injected_hidden_div_050",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 779,
+      "line_end": 791,
+      "content_preview": "rule injected_hidden_div_050\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.050\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"{text-align: center; display: table-colu..."
+    },
+    {
+      "name": "injected_hidden_div_051",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 793,
+      "line_end": 805,
+      "content_preview": "rule injected_hidden_div_051\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.051\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"position\" ascii\n$fullchain2 = \"width: 0p..."
+    },
+    {
+      "name": "injected_hidden_div_052",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 807,
+      "line_end": 819,
+      "content_preview": "rule injected_hidden_div_052\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.052\"\n\nstrings:\n$fullchain0 = \"position\" ascii\n$fullchain1 = \"<div style=\\\"position:\" ascii\n$fullch..."
+    },
+    {
+      "name": "injected_hidden_div_053",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 821,
+      "line_end": 833,
+      "content_preview": "rule injected_hidden_div_053\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.053\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"position\" ascii\n$fullchain2 = \"font-size..."
+    },
+    {
+      "name": "injected_hidden_div_054",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 835,
+      "line_end": 848,
+      "content_preview": "rule injected_hidden_div_054\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-div.054\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"position\" ascii\n$fullchain2 = \"px; posit..."
+    },
+    {
+      "name": "injected_hidden_span_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 850,
+      "line_end": 862,
+      "content_preview": "rule injected_hidden_span_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-span.005\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"<span \" ascii\n$fullchain2 = \"<span sty..."
+    },
+    {
+      "name": "injected_hidden_span_005_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 864,
+      "line_end": 876,
+      "content_preview": "rule injected_hidden_span_005_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.hidden-span.005.02\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"<span \" ascii\n$fullchain2 = \"<sp..."
+    },
+    {
+      "name": "injected_js_appendChild_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 878,
+      "line_end": 890,
+      "content_preview": "rule injected_js_appendChild_004\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_appendChild.004\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 ..."
+    },
+    {
+      "name": "injected_js_appendChild_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 892,
+      "line_end": 906,
+      "content_preview": "rule injected_js_appendChild_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_appendChild.006\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"appendChild\" ascii\n$fullchain..."
+    },
+    {
+      "name": "injected_js_create_document_026",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 908,
+      "line_end": 919,
+      "content_preview": "rule injected_js_create_document_026\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_create_document.026\"\n\nstrings:\n$fullchain0 = \"tpircs<\" ascii\n$fullchain1 = \")z(etirw.tnemucod\" asc..."
+    },
+    {
+      "name": "injected_js_create_element_010",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 921,
+      "line_end": 934,
+      "content_preview": "rule injected_js_create_element_010\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_create_element.010\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \".appendChild(\" ascii\n$f..."
+    },
+    {
+      "name": "injected_js_css_xss_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 936,
+      "line_end": 949,
+      "content_preview": "rule injected_js_css_xss_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_css_xss.002\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"</style><script\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_js_malware_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 951,
+      "line_end": 963,
+      "content_preview": "rule injected_js_malware_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_malware.008\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \"document.write\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_js_malware_010",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 965,
+      "line_end": 978,
+      "content_preview": "rule injected_js_malware_010\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_malware.010\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 = \"Str..."
+    },
+    {
+      "name": "injected_js_redirect_015",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 980,
+      "line_end": 992,
+      "content_preview": "rule injected_js_redirect_015\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_redirect.015\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"function\" ascii\n$fullchain2 = \"=ferh..."
+    },
+    {
+      "name": "injected_js_redirect_017",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 994,
+      "line_end": 1009,
+      "content_preview": "rule injected_js_redirect_017\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_redirect.017\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"document.\" ascii\n$fullchain2 = \"docu..."
+    },
+    {
+      "name": "injected_js_redirect_035",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1011,
+      "line_end": 1023,
+      "content_preview": "rule injected_js_redirect_035\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_redirect.035\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"ferh.noitacol.tnemucod\" ascii\n$full..."
+    },
+    {
+      "name": "injected_js_redirect_051",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1025,
+      "line_end": 1038,
+      "content_preview": "rule injected_js_redirect_051\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_redirect.051\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"addEventListener\" ascii\n$fullchain2..."
+    },
+    {
+      "name": "injected_js_redirect_054",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1040,
+      "line_end": 1054,
+      "content_preview": "rule injected_js_redirect_054\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_redirect.054\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \"document.getElementsByTagName(\" asc..."
+    },
+    {
+      "name": "injected_js_sign1_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1056,
+      "line_end": 1070,
+      "content_preview": "rule injected_js_sign1_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_sign1.001\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"createElement\" ascii\n$fullchain2 = \".creat..."
+    },
+    {
+      "name": "injected_js_sign1_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1072,
+      "line_end": 1086,
+      "content_preview": "rule injected_js_sign1_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_sign1.002\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"atob\" ascii\n$fullchain2 = \"](Date[\" ascii..."
+    },
+    {
+      "name": "injected_js_sign1_002_03",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1088,
+      "line_end": 1101,
+      "content_preview": "rule injected_js_sign1_002_03\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_sign1.002.03\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 = \"eva..."
+    },
+    {
+      "name": "injected_js_sign1_002_04",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1103,
+      "line_end": 1119,
+      "content_preview": "rule injected_js_sign1_002_04\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_sign1.002.04\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"atob\" ascii\n$fullchain2 = \"](Date[\"..."
+    },
+    {
+      "name": "injected_js_sign1_003",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1121,
+      "line_end": 1135,
+      "content_preview": "rule injected_js_sign1_003\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_sign1.003\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"atob\" ascii\n$fullchain2 = \"](Date[\" ascii..."
+    },
+    {
+      "name": "injected_js_sign1_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1137,
+      "line_end": 1152,
+      "content_preview": "rule injected_js_sign1_004\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_sign1.004\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 = \"String...."
+    },
+    {
+      "name": "injected_js_sign1_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1154,
+      "line_end": 1166,
+      "content_preview": "rule injected_js_sign1_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_sign1.005\"\n\nstrings:\n$fullchain0 = \"fromCharCode\" ascii\n$fullchain1 = \"String.fromCharCode(...\" ascii\n$fullc..."
+    },
+    {
+      "name": "injected_js_unwanted_ads_020",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1168,
+      "line_end": 1180,
+      "content_preview": "rule injected_js_unwanted_ads_020\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_unwanted_ads.020\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \".o..."
+    },
+    {
+      "name": "injected_js_unwanted_ads_024",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1182,
+      "line_end": 1195,
+      "content_preview": "rule injected_js_unwanted_ads_024\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_unwanted_ads.024\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"/j..."
+    },
+    {
+      "name": "injected_js_unwanted_ads_029",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1197,
+      "line_end": 1209,
+      "content_preview": "rule injected_js_unwanted_ads_029\n{\nmeta:\ndescription = \"Converted from JSON signature injected.js_unwanted_ads.029\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"po..."
+    },
+    {
+      "name": "injected_lnkr_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1211,
+      "line_end": 1223,
+      "content_preview": "rule injected_lnkr_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.lnkr.002\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"addons/lnkr5.min.js\" asc..."
+    },
+    {
+      "name": "injected_malicious_URL_145",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1225,
+      "line_end": 1237,
+      "content_preview": "rule injected_malicious_URL_145\n{\nmeta:\ndescription = \"Converted from JSON signature injected.malicious_URL.145\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"locals..."
+    },
+    {
+      "name": "injected_malicious_URL_165",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1239,
+      "line_end": 1251,
+      "content_preview": "rule injected_malicious_URL_165\n{\nmeta:\ndescription = \"Converted from JSON signature injected.malicious_URL.165\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"privac..."
+    },
+    {
+      "name": "injected_malicious_URL_182",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1253,
+      "line_end": 1265,
+      "content_preview": "rule injected_malicious_URL_182\n{\nmeta:\ndescription = \"Converted from JSON signature injected.malicious_URL.182\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"dontst..."
+    },
+    {
+      "name": "injected_malicious_URL_227",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1267,
+      "line_end": 1279,
+      "content_preview": "rule injected_malicious_URL_227\n{\nmeta:\ndescription = \"Converted from JSON signature injected.malicious_URL.227\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"wpthem..."
+    },
+    {
+      "name": "injected_malicious_URL_230",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1281,
+      "line_end": 1293,
+      "content_preview": "rule injected_malicious_URL_230\n{\nmeta:\ndescription = \"Converted from JSON signature injected.malicious_URL.230\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"zeroda..."
+    },
+    {
+      "name": "injected_mass_injection_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1295,
+      "line_end": 1310,
+      "content_preview": "rule injected_mass_injection_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.mass_injection.001\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \"getElementsByTagName\" ascii\n$..."
+    },
+    {
+      "name": "injected_pbuilder_event_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1312,
+      "line_end": 1324,
+      "content_preview": "rule injected_pbuilder_event_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.pbuilder_event.001\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \":\\\"sgpb-\" ascii\n$fullchain2 =..."
+    },
+    {
+      "name": "injected_pbuilder_event_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1326,
+      "line_end": 1339,
+      "content_preview": "rule injected_pbuilder_event_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.pbuilder_event.002\"\n\nstrings:\n$fullchain0 = \"http\" ascii\n$fullchain1 = \":\\\"sgpb-\" ascii\n$fullchain2 = \"s:..."
+    },
+    {
+      "name": "injected_php_base64_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1341,
+      "line_end": 1352,
+      "content_preview": "rule injected_php_base64_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.php_base64.001\"\n\nstrings:\n$fullchain0 = \"ZX\" ascii\n$fullchain1 = \"aWYoc3RybGVuKCRyKSA8IDEwKSB7CgkJcmV0dXJuIGZ..."
+    },
+    {
+      "name": "injected_socgholish_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1354,
+      "line_end": 1367,
+      "content_preview": "rule injected_socgholish_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.socgholish.002\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \"getElementsByTagName\" ascii\n$fullchai..."
+    },
+    {
+      "name": "injected_socgholish_002_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1369,
+      "line_end": 1384,
+      "content_preview": "rule injected_socgholish_002_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.socgholish.002.02\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"createElement\" ascii\n$fullchain2..."
+    },
+    {
+      "name": "injected_spam_links_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1386,
+      "line_end": 1398,
+      "content_preview": "rule injected_spam_links_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam_links.002\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"<div style=\\\"overflow:\" ascii\n$fullchain..."
+    },
+    {
+      "name": "injected_spam_seo_014",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1400,
+      "line_end": 1415,
+      "content_preview": "rule injected_spam_seo_014\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.014\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain2 = \"eval(fu..."
+    },
+    {
+      "name": "injected_spam_seo_019",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1417,
+      "line_end": 1429,
+      "content_preview": "rule injected_spam_seo_019\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.019\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"<a style=\\\"color: #ffffff;\\\" href=\\\"http\" as..."
+    },
+    {
+      "name": "injected_spam_seo_024",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1431,
+      "line_end": 1446,
+      "content_preview": "rule injected_spam_seo_024\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.024\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"document.\" ascii\n$fullchain2 = \"document.g..."
+    },
+    {
+      "name": "injected_spam_seo_adidas_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1448,
+      "line_end": 1460,
+      "content_preview": "rule injected_spam_seo_adidas_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.adidas.001\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"didas\" ascii\n$fullchain2 = \"-a..."
+    },
+    {
+      "name": "injected_spam_seo_adidas_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1462,
+      "line_end": 1474,
+      "content_preview": "rule injected_spam_seo_adidas_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.adidas.002\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"didas\" ascii\n$fullchain2 = \"-a..."
+    },
+    {
+      "name": "injected_spam_seo_adidas_003",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1476,
+      "line_end": 1488,
+      "content_preview": "rule injected_spam_seo_adidas_003\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.adidas.003\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"didas\" ascii\n$fullchain2 = \"-y..."
+    },
+    {
+      "name": "injected_spam_seo_amoxil_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1490,
+      "line_end": 1501,
+      "content_preview": "rule injected_spam_seo_amoxil_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_amoxil.001\"\n\nstrings:\n$fullchain0 = \"amoxil\" ascii\n$fullchain1 = \"amoxil\" ascii\n\ncondition:\nall..."
+    },
+    {
+      "name": "injected_spam_seo_antibiotics_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1503,
+      "line_end": 1515,
+      "content_preview": "rule injected_spam_seo_antibiotics_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_antibiotics.006\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofollow\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_antibiotics_007",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1517,
+      "line_end": 1529,
+      "content_preview": "rule injected_spam_seo_antibiotics_007\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_antibiotics.007\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofollow\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_antibiotics_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1531,
+      "line_end": 1543,
+      "content_preview": "rule injected_spam_seo_antibiotics_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_antibiotics.008\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofollow\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_antibiotics_009",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1545,
+      "line_end": 1557,
+      "content_preview": "rule injected_spam_seo_antibiotics_009\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_antibiotics.009\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofollow\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_antibiotics_010",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1559,
+      "line_end": 1571,
+      "content_preview": "rule injected_spam_seo_antibiotics_010\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_antibiotics.010\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofollow\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_antibiotics_011",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1573,
+      "line_end": 1585,
+      "content_preview": "rule injected_spam_seo_antibiotics_011\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_antibiotics.011\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofollow\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_casino_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1587,
+      "line_end": 1598,
+      "content_preview": "rule injected_spam_seo_casino_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_casino.001\"\n\nstrings:\n$fullchain0 = \"casino\" ascii\n$fullchain1 = \"online casino\" ascii\n\nconditi..."
+    },
+    {
+      "name": "injected_spam_seo_casino_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1600,
+      "line_end": 1611,
+      "content_preview": "rule injected_spam_seo_casino_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_casino.005\"\n\nstrings:\n$fullchain0 = \"casino\" ascii\n$fullchain1 = \"online-casino-\" ascii\n\ncondit..."
+    },
+    {
+      "name": "injected_spam_seo_casino_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1613,
+      "line_end": 1624,
+      "content_preview": "rule injected_spam_seo_casino_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_casino.006\"\n\nstrings:\n$fullchain0 = \"casino\" ascii\n$fullchain1 = \"top-casino-real\" ascii\n\ncondi..."
+    },
+    {
+      "name": "duplicate_injected_spam_seo_casino_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1626,
+      "line_end": 1636,
+      "content_preview": "rule duplicate_injected_spam_seo_casino_006\n{\nmeta:\ndescription = \"Converted from JSON signature duplicate_injected.spam-seo.casino.006\"\n\nstrings:\n$fullchain0 = \"[url=http://casinogames\" ascii\n\ncondit..."
+    },
+    {
+      "name": "injected_spam_seo_casino_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1638,
+      "line_end": 1651,
+      "content_preview": "rule injected_spam_seo_casino_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_casino.008\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"hidden\" ascii\n$fullchain2 = \"<..."
+    },
+    {
+      "name": "injected_spam_seo_casino_009_08",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1653,
+      "line_end": 1666,
+      "content_preview": "rule injected_spam_seo_casino_009_08\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_casino.009.08\"\n\nstrings:\n$fullchain0 = \"none\" ascii\n$fullchain1 = \"<a style=\\\"display:none\" ..."
+    },
+    {
+      "name": "injected_spam_seo_casino_011",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1668,
+      "line_end": 1680,
+      "content_preview": "rule injected_spam_seo_casino_011\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_casino.011\"\n\nstrings:\n$fullchain0 = \"position\" ascii\n$fullchain1 = \"<div style=\\\\\\\"position: ab..."
+    },
+    {
+      "name": "injected_spam_seo_casino_014",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1682,
+      "line_end": 1695,
+      "content_preview": "rule injected_spam_seo_casino_014\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_casino.014\"\n\nstrings:\n$fullchain0 = \"function\" ascii\n$fullchain1 = \"addEventListener\" ascii\n$fu..."
+    },
+    {
+      "name": "injected_spam_seo_cheap_buys_056",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1697,
+      "line_end": 1707,
+      "content_preview": "rule injected_spam_seo_cheap_buys_056\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cheap-buys.056\"\n\nstrings:\n$fullchain0 = \"ceftin\" ascii\n\ncondition:\nall of ($fullchain*)\n}"
+    },
+    {
+      "name": "injected_spam_seo_cheap_buys_066",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1709,
+      "line_end": 1719,
+      "content_preview": "rule injected_spam_seo_cheap_buys_066\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cheap-buys.066\"\n\nstrings:\n$fullchain0 = \"deltasoneonline\" ascii\n\ncondition:\nall of ($fullch..."
+    },
+    {
+      "name": "injected_spam_seo_cheap_buys_068",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1721,
+      "line_end": 1731,
+      "content_preview": "rule injected_spam_seo_cheap_buys_068\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cheap-buys.068\"\n\nstrings:\n$fullchain0 = \"eduaidguru.com\" ascii\n\ncondition:\nall of ($fullcha..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1733,
+      "line_end": 1744,
+      "content_preview": "rule injected_spam_seo_cialis_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.001\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"-cialis\" ascii\n\ncondition:\nall..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_003",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1746,
+      "line_end": 1757,
+      "content_preview": "rule injected_spam_seo_cialis_003\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.003\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"acialisforsale\" ascii\n\nconditi..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_007",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1759,
+      "line_end": 1770,
+      "content_preview": "rule injected_spam_seo_cialis_007\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.007\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"buy cialis\" ascii\n\ncondition:\n..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_013",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1772,
+      "line_end": 1783,
+      "content_preview": "rule injected_spam_seo_cialis_013\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.013\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"buycialis\" ascii\n\ncondition:\na..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_016",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1785,
+      "line_end": 1796,
+      "content_preview": "rule injected_spam_seo_cialis_016\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.016\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"ccialis20mg\" ascii\n\ncondition:..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_017",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1798,
+      "line_end": 1809,
+      "content_preview": "rule injected_spam_seo_cialis_017\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.017\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"ccialisonline\" ascii\n\nconditio..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_022",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1811,
+      "line_end": 1822,
+      "content_preview": "rule injected_spam_seo_cialis_022\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.022\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"cialis-20\" ascii\n\ncondition:\na..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_023",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1824,
+      "line_end": 1835,
+      "content_preview": "rule injected_spam_seo_cialis_023\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.023\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"cialis-best\" ascii\n\ncondition:..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_031",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1837,
+      "line_end": 1848,
+      "content_preview": "rule injected_spam_seo_cialis_031\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.031\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"cialis-pas-cher\" ascii\n\ncondit..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_039",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1850,
+      "line_end": 1861,
+      "content_preview": "rule injected_spam_seo_cialis_039\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.039\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"cialis1\" ascii\n\ncondition:\nall..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_067",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1863,
+      "line_end": 1874,
+      "content_preview": "rule injected_spam_seo_cialis_067\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.067\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"ordercheapcialis\" ascii\n\ncondi..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_079",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1876,
+      "line_end": 1887,
+      "content_preview": "rule injected_spam_seo_cialis_079\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.079\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"cialismed\" ascii\n\ncondition:\na..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_080",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1889,
+      "line_end": 1900,
+      "content_preview": "rule injected_spam_seo_cialis_080\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.080\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"Cialis \" ascii\n\ncondition:\nall..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_082",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1902,
+      "line_end": 1914,
+      "content_preview": "rule injected_spam_seo_cialis_082\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.082\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"No Prescription Needed\" ascii\n..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_083",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1916,
+      "line_end": 1927,
+      "content_preview": "rule injected_spam_seo_cialis_083\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.083\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"online cialis 20mg\" ascii\n\ncon..."
+    },
+    {
+      "name": "injected_spam_seo_cialis_086",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1929,
+      "line_end": 1940,
+      "content_preview": "rule injected_spam_seo_cialis_086\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_cialis.086\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"cialisgeneric\" ascii\n\nconditio..."
+    },
+    {
+      "name": "injected_spam_seo_clomid_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1942,
+      "line_end": 1953,
+      "content_preview": "rule injected_spam_seo_clomid_004\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_clomid.004\"\n\nstrings:\n$fullchain0 = \"clomid\" ascii\n$fullchain1 = \"cheap-clomid\" ascii\n\nconditio..."
+    },
+    {
+      "name": "injected_spam_seo_dating_007",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1955,
+      "line_end": 1966,
+      "content_preview": "rule injected_spam_seo_dating_007\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_dating.007\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"latin-brides\" ascii\n\ncondition..."
+    },
+    {
+      "name": "injected_spam_seo_diflucan_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1968,
+      "line_end": 1979,
+      "content_preview": "rule injected_spam_seo_diflucan_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_diflucan.001\"\n\nstrings:\n$fullchain0 = \"diflucan\" ascii\n$fullchain1 = \"diflucan\" ascii\n\ncondit..."
+    },
+    {
+      "name": "injected_spam_seo_essay_012",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1981,
+      "line_end": 1992,
+      "content_preview": "rule injected_spam_seo_essay_012\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_essay.012\"\n\nstrings:\n$fullchain0 = \"essay\" ascii\n$fullchain1 = \"essaycastle.co.uk\" ascii\n\ncondit..."
+    },
+    {
+      "name": "injected_spam_seo_essay_025",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 1994,
+      "line_end": 2004,
+      "content_preview": "rule injected_spam_seo_essay_025\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_essay.025\"\n\nstrings:\n$fullchain0 = \"paper4college.com\" ascii\n\ncondition:\nall of ($fullchain*)\n}"
+    },
+    {
+      "name": "injected_spam_seo_essay_030",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2006,
+      "line_end": 2016,
+      "content_preview": "rule injected_spam_seo_essay_030\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_essay.030\"\n\nstrings:\n$fullchain0 = \"wedohomework.net\" ascii\n\ncondition:\nall of ($fullchain*)\n}"
+    },
+    {
+      "name": "injected_spam_seo_essay_048",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2018,
+      "line_end": 2029,
+      "content_preview": "rule injected_spam_seo_essay_048\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_essay.048\"\n\nstrings:\n$fullchain0 = \"essay\" ascii\n$fullchain1 = \"custom university essay\" ascii\n\n..."
+    },
+    {
+      "name": "duplicate_injected_spam_seo_essay_048",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2031,
+      "line_end": 2042,
+      "content_preview": "rule duplicate_injected_spam_seo_essay_048\n{\nmeta:\ndescription = \"Converted from JSON signature duplicate_injected.spam-seo.essay.048\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"college pape..."
+    },
+    {
+      "name": "injected_spam_seo_exam_003",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2044,
+      "line_end": 2055,
+      "content_preview": "rule injected_spam_seo_exam_003\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_exam.003\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"with my homework\" ascii\n\ncondition..."
+    },
+    {
+      "name": "injected_spam_seo_jerseys_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2057,
+      "line_end": 2069,
+      "content_preview": "rule injected_spam_seo_jerseys_004\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_jerseys.004\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"ersey\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_spam_seo_jerseys_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2071,
+      "line_end": 2083,
+      "content_preview": "rule injected_spam_seo_jerseys_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_jerseys.005\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"ersey\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_spam_seo_jerseys_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2085,
+      "line_end": 2097,
+      "content_preview": "rule injected_spam_seo_jerseys_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_jerseys.006\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"ersey\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_spam_seo_jerseys_007",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2099,
+      "line_end": 2111,
+      "content_preview": "rule injected_spam_seo_jerseys_007\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_jerseys.007\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"ersey\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_spam_seo_jerseys_007_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2113,
+      "line_end": 2125,
+      "content_preview": "rule injected_spam_seo_jerseys_007_02\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_jerseys.007.02\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"ersey\" ascii\n$fullchai..."
+    },
+    {
+      "name": "injected_spam_seo_jerseys_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2127,
+      "line_end": 2139,
+      "content_preview": "rule injected_spam_seo_jerseys_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_jerseys.008\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"ersey\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_spam_seo_jerseys_009",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2141,
+      "line_end": 2155,
+      "content_preview": "rule injected_spam_seo_jerseys_009\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_jerseys.009\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"ersey\" ascii\n$fullchain2 = \"..."
+    },
+    {
+      "name": "injected_spam_seo_lasix_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2157,
+      "line_end": 2168,
+      "content_preview": "rule injected_spam_seo_lasix_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_lasix.001\"\n\nstrings:\n$fullchain0 = \"asix\" ascii\n$fullchain1 = \"lasix\" ascii\n\ncondition:\nall of (..."
+    },
+    {
+      "name": "injected_spam_seo_levitra_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2170,
+      "line_end": 2181,
+      "content_preview": "rule injected_spam_seo_levitra_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_levitra.001\"\n\nstrings:\n$fullchain0 = \"levitra\" ascii\n$fullchain1 = \"levitra\" ascii\n\ncondition:..."
+    },
+    {
+      "name": "injected_spam_seo_link_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2183,
+      "line_end": 2194,
+      "content_preview": "rule injected_spam_seo_link_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_link.001\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"cialis generic\" ascii\n\ncondition:\n..."
+    },
+    {
+      "name": "injected_spam_seo_link_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2196,
+      "line_end": 2206,
+      "content_preview": "rule injected_spam_seo_link_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_link.002\"\n\nstrings:\n$fullchain0 = \"cyalis\" ascii\n\ncondition:\nall of ($fullchain*)\n}"
+    },
+    {
+      "name": "injected_spam_seo_link_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2208,
+      "line_end": 2219,
+      "content_preview": "rule injected_spam_seo_link_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_link.006\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"pills\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_link_007",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2221,
+      "line_end": 2232,
+      "content_preview": "rule injected_spam_seo_link_007\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_link.007\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \" cialis \" ascii\n\ncondition:\nall of..."
+    },
+    {
+      "name": "injected_spam_seo_link_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2234,
+      "line_end": 2245,
+      "content_preview": "rule injected_spam_seo_link_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_link.008\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \">cialis\" ascii\n\ncondition:\nall of ..."
+    },
+    {
+      "name": "injected_spam_seo_link_109",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2247,
+      "line_end": 2258,
+      "content_preview": "rule injected_spam_seo_link_109\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_link.109\"\n\nstrings:\n$fullchain0 = \"ialis\" ascii\n$fullchain1 = \"buy Cialis\" ascii\n\ncondition:\nall ..."
+    },
+    {
+      "name": "injected_spam_seo_payday_loans_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2260,
+      "line_end": 2271,
+      "content_preview": "rule injected_spam_seo_payday_loans_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_payday-loans.005\"\n\nstrings:\n$fullchain0 = \"loans\" ascii\n$fullchain1 = \"payday loans\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_payday_loans_022",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2273,
+      "line_end": 2283,
+      "content_preview": "rule injected_spam_seo_payday_loans_022\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_payday-loans.022\"\n\nstrings:\n$fullchain0 = \"online-cash-advance\" ascii\n\ncondition:\nall of ..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_010",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2285,
+      "line_end": 2296,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_010\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.010\"\n\nstrings:\n$fullchain0 = \"pharmac\" ascii\n$fullchain1 = \"onlinephar..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_032",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2298,
+      "line_end": 2308,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_032\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.032\"\n\nstrings:\n$fullchain0 = \"suprax\" ascii\n\ncondition:\nall of ($fullc..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_034",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2310,
+      "line_end": 2320,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_034\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.034\"\n\nstrings:\n$fullchain0 = \"albendazole\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_036",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2322,
+      "line_end": 2332,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_036\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.036\"\n\nstrings:\n$fullchain0 = \"buy-doxycycline-\" ascii\n\ncondition:\nall ..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_041",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2334,
+      "line_end": 2344,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_041\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.041\"\n\nstrings:\n$fullchain0 = \"colchicine\" ascii\n\ncondition:\nall of ($f..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_042",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2346,
+      "line_end": 2356,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_042\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.042\"\n\nstrings:\n$fullchain0 = \"dapoxetine\" ascii\n\ncondition:\nall of ($f..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_043",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2358,
+      "line_end": 2368,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_043\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.043\"\n\nstrings:\n$fullchain0 = \"Disulfiram\" ascii\n\ncondition:\nall of ($f..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_044",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2370,
+      "line_end": 2380,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_044\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.044\"\n\nstrings:\n$fullchain0 = \"drugstore\" ascii\n\ncondition:\nall of ($fu..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_046",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2382,
+      "line_end": 2392,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_046\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.046\"\n\nstrings:\n$fullchain0 = \"Fluconazole\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_049",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2394,
+      "line_end": 2404,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_049\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.049\"\n\nstrings:\n$fullchain0 = \"methotrexate\" ascii\n\ncondition:\nall of (..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_050",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2406,
+      "line_end": 2416,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_050\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.050\"\n\nstrings:\n$fullchain0 = \"misoprostol\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_054",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2418,
+      "line_end": 2428,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_054\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.054\"\n\nstrings:\n$fullchain0 = \"nizoral\" ascii\n\ncondition:\nall of ($full..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_058",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2430,
+      "line_end": 2440,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_058\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.058\"\n\nstrings:\n$fullchain0 = \"propranolol\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_062",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2442,
+      "line_end": 2452,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_062\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.062\"\n\nstrings:\n$fullchain0 = \"sildenafil\" ascii\n\ncondition:\nall of ($f..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_064",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2454,
+      "line_end": 2464,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_064\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.064\"\n\nstrings:\n$fullchain0 = \"spiriva\" ascii\n\ncondition:\nall of ($full..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_065",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2466,
+      "line_end": 2476,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_065\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.065\"\n\nstrings:\n$fullchain0 = \"tamoxifen\" ascii\n\ncondition:\nall of ($fu..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_066",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2478,
+      "line_end": 2488,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_066\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.066\"\n\nstrings:\n$fullchain0 = \"valium\" ascii\n\ncondition:\nall of ($fullc..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_068",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2490,
+      "line_end": 2500,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_068\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.068\"\n\nstrings:\n$fullchain0 = \"vermox\" ascii\n\ncondition:\nall of ($fullc..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_073",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2502,
+      "line_end": 2512,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_073\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.073\"\n\nstrings:\n$fullchain0 = \"zoloft\" ascii\n\ncondition:\nall of ($fullc..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_083",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2514,
+      "line_end": 2524,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_083\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.083\"\n\nstrings:\n$fullchain0 = \"amoxicillin\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_086",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2526,
+      "line_end": 2536,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_086\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.086\"\n\nstrings:\n$fullchain0 = \"baclofen\" ascii\n\ncondition:\nall of ($ful..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_087",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2538,
+      "line_end": 2548,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_087\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.087\"\n\nstrings:\n$fullchain0 = \"estradiol\" ascii\n\ncondition:\nall of ($fu..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_088",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2550,
+      "line_end": 2560,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_088\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.088\"\n\nstrings:\n$fullchain0 = \"prednisone\" ascii\n\ncondition:\nall of ($f..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_090",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2562,
+      "line_end": 2574,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_090\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.pharmacy-online.090\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofoll..."
+    },
+    {
+      "name": "duplicate_injected_spam_seo_pharmacy_online_090",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2576,
+      "line_end": 2586,
+      "content_preview": "rule duplicate_injected_spam_seo_pharmacy_online_090\n{\nmeta:\ndescription = \"Converted from JSON signature duplicate_injected.spam-seo_pharmacy-online.090\"\n\nstrings:\n$fullchain0 = \">order zolpidem onli..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_091",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2588,
+      "line_end": 2600,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_091\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.pharmacy-online.091\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofoll..."
+    },
+    {
+      "name": "duplicate_injected_spam_seo_pharmacy_online_091",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2602,
+      "line_end": 2612,
+      "content_preview": "rule duplicate_injected_spam_seo_pharmacy_online_091\n{\nmeta:\ndescription = \"Converted from JSON signature duplicate_injected.spam-seo_pharmacy-online.091\"\n\nstrings:\n$fullchain0 = \"buy-ativan\" ascii\n\nc..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_092",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2614,
+      "line_end": 2626,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_092\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.pharmacy-online.092\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"rel=\\\"nofoll..."
+    },
+    {
+      "name": "duplicate_injected_spam_seo_pharmacy_online_092",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2628,
+      "line_end": 2638,
+      "content_preview": "rule duplicate_injected_spam_seo_pharmacy_online_092\n{\nmeta:\ndescription = \"Converted from JSON signature duplicate_injected.spam-seo_pharmacy-online.092\"\n\nstrings:\n$fullchain0 = \"buy clonazepam\" asci..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_096",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2640,
+      "line_end": 2650,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_096\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.096\"\n\nstrings:\n$fullchain0 = \"buy accutane\" ascii\n\ncondition:\nall of (..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_097",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2652,
+      "line_end": 2662,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_097\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.097\"\n\nstrings:\n$fullchain0 = \"accutane\" ascii\n\ncondition:\nall of ($ful..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_098",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2664,
+      "line_end": 2674,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_098\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.098\"\n\nstrings:\n$fullchain0 = \"nolvadex\" ascii\n\ncondition:\nall of ($ful..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_099",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2676,
+      "line_end": 2686,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_099\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.099\"\n\nstrings:\n$fullchain0 = \"doxycycline\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_100",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2688,
+      "line_end": 2698,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_100\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.100\"\n\nstrings:\n$fullchain0 = \"bentyl\" ascii\n\ncondition:\nall of ($fullc..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_102",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2700,
+      "line_end": 2710,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_102\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.102\"\n\nstrings:\n$fullchain0 = \"mebendazole\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_103",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2712,
+      "line_end": 2722,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_103\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.103\"\n\nstrings:\n$fullchain0 = \"tretinoin\" ascii\n\ncondition:\nall of ($fu..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_104",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2724,
+      "line_end": 2734,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_104\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.104\"\n\nstrings:\n$fullchain0 = \"online-pharmacy\" ascii\n\ncondition:\nall o..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_105",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2736,
+      "line_end": 2746,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_105\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.105\"\n\nstrings:\n$fullchain0 = \"canadian-pharmacy\" ascii\n\ncondition:\nall..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_106",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2748,
+      "line_end": 2758,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_106\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.106\"\n\nstrings:\n$fullchain0 = \"stendra\" ascii\n\ncondition:\nall of ($full..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_107",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2760,
+      "line_end": 2770,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_107\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.107\"\n\nstrings:\n$fullchain0 = \"malegra\" ascii\n\ncondition:\nall of ($full..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_108",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2772,
+      "line_end": 2782,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_108\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.108\"\n\nstrings:\n$fullchain0 = \"motilium\" ascii\n\ncondition:\nall of ($ful..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_109",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2784,
+      "line_end": 2794,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_109\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.109\"\n\nstrings:\n$fullchain0 = \"xanax\" ascii\n\ncondition:\nall of ($fullch..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_111",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2796,
+      "line_end": 2806,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_111\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.111\"\n\nstrings:\n$fullchain0 = \"tramadol\" ascii\n\ncondition:\nall of ($ful..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_112",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2808,
+      "line_end": 2818,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_112\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.112\"\n\nstrings:\n$fullchain0 = \"modafinil\" ascii\n\ncondition:\nall of ($fu..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_113",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2820,
+      "line_end": 2831,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_113\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.113\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"generika kau..."
+    },
+    {
+      "name": "injected_spam_seo_pharmacy_online_115",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2833,
+      "line_end": 2844,
+      "content_preview": "rule injected_spam_seo_pharmacy_online_115\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pharmacy-online.115\"\n\nstrings:\n$fullchain0 = \"pharmac\" ascii\n$fullchain1 = \"canadaphar..."
+    },
+    {
+      "name": "injected_spam_seo_pills_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2846,
+      "line_end": 2857,
+      "content_preview": "rule injected_spam_seo_pills_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pills.001\"\n\nstrings:\n$fullchain0 = \"pills\" ascii\n$fullchain1 = \"cheap-pills\" ascii\n\ncondition:\na..."
+    },
+    {
+      "name": "injected_spam_seo_pills_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2859,
+      "line_end": 2870,
+      "content_preview": "rule injected_spam_seo_pills_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pills.006\"\n\nstrings:\n$fullchain0 = \"pills\" ascii\n$fullchain1 = \"online-pills\" ascii\n\ncondition:\n..."
+    },
+    {
+      "name": "injected_spam_seo_pills_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2872,
+      "line_end": 2883,
+      "content_preview": "rule injected_spam_seo_pills_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_pills.008\"\n\nstrings:\n$fullchain0 = \"pills\" ascii\n$fullchain1 = \"-pills.html\" ascii\n\ncondition:\na..."
+    },
+    {
+      "name": "injected_spam_seo_porn_003",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2885,
+      "line_end": 2896,
+      "content_preview": "rule injected_spam_seo_porn_003\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_porn.003\"\n\nstrings:\n$fullchain0 = \"sex\" ascii\n$fullchain1 = \"anal sex\" ascii\n\ncondition:\nall of (..."
+    },
+    {
+      "name": "injected_spam_seo_porn_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2898,
+      "line_end": 2909,
+      "content_preview": "rule injected_spam_seo_porn_004\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_porn.004\"\n\nstrings:\n$fullchain0 = \"sex\" ascii\n$fullchain1 = \"sex video\" ascii\n\ncondition:\nall of ..."
+    },
+    {
+      "name": "injected_spam_seo_porn_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2911,
+      "line_end": 2922,
+      "content_preview": "rule injected_spam_seo_porn_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_porn.005\"\n\nstrings:\n$fullchain0 = \"porn\" ascii\n$fullchain1 = \"incest porn\" ascii\n\ncondition:\nall ..."
+    },
+    {
+      "name": "injected_spam_seo_porn_006",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2924,
+      "line_end": 2935,
+      "content_preview": "rule injected_spam_seo_porn_006\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_porn.006\"\n\nstrings:\n$fullchain0 = \"porn\" ascii\n$fullchain1 = \"hd porn\" ascii\n\ncondition:\nall of (..."
+    },
+    {
+      "name": "injected_spam_seo_porn_007",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2937,
+      "line_end": 2948,
+      "content_preview": "rule injected_spam_seo_porn_007\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_porn.007\"\n\nstrings:\n$fullchain0 = \"escort\" ascii\n$fullchain1 = \"beylikdüzü escort\" ascii\n\nconditi..."
+    },
+    {
+      "name": "injected_spam_seo_porn_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2950,
+      "line_end": 2961,
+      "content_preview": "rule injected_spam_seo_porn_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_porn.008\"\n\nstrings:\n$fullchain0 = \"sex\" ascii\n$fullchain1 = \"sextube\" ascii\n\ncondition:\nall of ($..."
+    },
+    {
+      "name": "injected_spam_seo_porn_012",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2963,
+      "line_end": 2974,
+      "content_preview": "rule injected_spam_seo_porn_012\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_porn.012\"\n\nstrings:\n$fullchain0 = \"porn\" ascii\n$fullchain1 = \"japan porn\" ascii\n\ncondition:\nall o..."
+    },
+    {
+      "name": "injected_spam_seo_prescription_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2976,
+      "line_end": 2987,
+      "content_preview": "rule injected_spam_seo_prescription_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_prescription.001\"\n\nstrings:\n$fullchain0 = \"rescription\" ascii\n$fullchain1 = \"enoprescript..."
+    },
+    {
+      "name": "injected_spam_seo_prescription_003",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 2989,
+      "line_end": 3000,
+      "content_preview": "rule injected_spam_seo_prescription_003\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_prescription.003\"\n\nstrings:\n$fullchain0 = \"rescription\" ascii\n$fullchain1 = \"noprescripti..."
+    },
+    {
+      "name": "injected_spam_seo_prescription_008",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3002,
+      "line_end": 3013,
+      "content_preview": "rule injected_spam_seo_prescription_008\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_prescription.008\"\n\nstrings:\n$fullchain0 = \"rescription\" ascii\n$fullchain1 = \"withoutpresc..."
+    },
+    {
+      "name": "injected_spam_seo_tadafil_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3015,
+      "line_end": 3026,
+      "content_preview": "rule injected_spam_seo_tadafil_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_tadafil.001\"\n\nstrings:\n$fullchain0 = \"tada\" ascii\n$fullchain1 = \"tadacip\" ascii\n\ncondition:\nal..."
+    },
+    {
+      "name": "injected_spam_seo_tadafil_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3028,
+      "line_end": 3039,
+      "content_preview": "rule injected_spam_seo_tadafil_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_tadafil.002\"\n\nstrings:\n$fullchain0 = \"tada\" ascii\n$fullchain1 = \"tadafil\" ascii\n\ncondition:\nal..."
+    },
+    {
+      "name": "injected_spam_seo_tadafil_004",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3041,
+      "line_end": 3052,
+      "content_preview": "rule injected_spam_seo_tadafil_004\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_tadafil.004\"\n\nstrings:\n$fullchain0 = \"tada\" ascii\n$fullchain1 = \"tadalafil-20mg\" ascii\n\ncondit..."
+    },
+    {
+      "name": "injected_spam_seo_tadafil_005",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3054,
+      "line_end": 3065,
+      "content_preview": "rule injected_spam_seo_tadafil_005\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_tadafil.005\"\n\nstrings:\n$fullchain0 = \"tada\" ascii\n$fullchain1 = \"tadalafil\" ascii\n\ncondition:\n..."
+    },
+    {
+      "name": "injected_spam_seo_viagra_002",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3067,
+      "line_end": 3078,
+      "content_preview": "rule injected_spam_seo_viagra_002\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_viagra.002\"\n\nstrings:\n$fullchain0 = \"iagra\" ascii\n$fullchain1 = \"viagra\" ascii\n\ncondition:\nall ..."
+    },
+    {
+      "name": "injected_spam_seo_viagra_024",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3080,
+      "line_end": 3091,
+      "content_preview": "rule injected_spam_seo_viagra_024\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_viagra.024\"\n\nstrings:\n$fullchain0 = \"iagra\" ascii\n$fullchain1 = \"buy viagra\" ascii\n\ncondition:\n..."
+    },
+    {
+      "name": "injected_spam_seo_viagra_025",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3093,
+      "line_end": 3105,
+      "content_preview": "rule injected_spam_seo_viagra_025\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_viagra.025\"\n\nstrings:\n$fullchain0 = \"iagra\" ascii\n$fullchain1 = \"http:\" ascii\n$fullchain2 = \"vi..."
+    },
+    {
+      "name": "injected_spam_seo_viagra_026",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3107,
+      "line_end": 3119,
+      "content_preview": "rule injected_spam_seo_viagra_026\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_viagra.026\"\n\nstrings:\n$fullchain0 = \"iagra\" ascii\n$fullchain1 = \"viagra without\" ascii\n$fullcha..."
+    },
+    {
+      "name": "injected_spam_seo_viagra_027",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3121,
+      "line_end": 3132,
+      "content_preview": "rule injected_spam_seo_viagra_027\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_viagra.027\"\n\nstrings:\n$fullchain0 = \"iagra\" ascii\n$fullchain1 = \"viagra pills http\" ascii\n\ncond..."
+    },
+    {
+      "name": "injected_spam_seo_viagra_028",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3134,
+      "line_end": 3146,
+      "content_preview": "rule injected_spam_seo_viagra_028\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_viagra.028\"\n\nstrings:\n$fullchain0 = \"iagra\" ascii\n$fullchain1 = \"http:\" ascii\n$fullchain2 = \"Vi..."
+    },
+    {
+      "name": "injected_spam_seo_viagra_033",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3148,
+      "line_end": 3160,
+      "content_preview": "rule injected_spam_seo_viagra_033\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_viagra.033\"\n\nstrings:\n$fullchain0 = \"iagra\" ascii\n$fullchain1 = \"http:\" ascii\n$fullchain2 = \"ge..."
+    },
+    {
+      "name": "injected_spam_seo_vuitton_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3162,
+      "line_end": 3175,
+      "content_preview": "rule injected_spam_seo_vuitton_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo.vuitton.001\"\n\nstrings:\n$fullchain0 = \" href\" ascii\n$fullchain1 = \"uitton\" ascii\n$fullchain2 = ..."
+    },
+    {
+      "name": "injected_spam_seo_watches_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3177,
+      "line_end": 3187,
+      "content_preview": "rule injected_spam_seo_watches_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.spam-seo_watches.001\"\n\nstrings:\n$fullchain0 = \"replica watches\" ascii\n\ncondition:\nall of ($fullchain*)\n..."
+    },
+    {
+      "name": "injected_t_el_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3189,
+      "line_end": 3203,
+      "content_preview": "rule injected_t_el_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.t_el.001\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \".split(\\\"|\\\");\" ascii\n$f..."
+    },
+    {
+      "name": "injected_wpgomaps_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3205,
+      "line_end": 3219,
+      "content_preview": "rule injected_wpgomaps_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.wpgomaps.001\"\n\nstrings:\n$fullchain0 = \"document\" ascii\n$fullchain1 = \".appendChild(\" ascii\n$fullchain2 = \".jpg\\..."
+    },
+    {
+      "name": "injected_wp_user_creator_001",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3221,
+      "line_end": 3234,
+      "content_preview": "rule injected_wp_user_creator_001\n{\nmeta:\ndescription = \"Converted from JSON signature injected.wp_user_creator.001\"\n\nstrings:\n$fullchain0 = \"eval(\" ascii\n$fullchain1 = \"fromCharCode\" ascii\n$fullchain..."
+    },
+    {
+      "name": "malware_cryptominer_013_02",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3236,
+      "line_end": 3248,
+      "content_preview": "rule malware_cryptominer_013_02\n{\nmeta:\ndescription = \"Converted from JSON signature malware.cryptominer.013.02\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"src\" ascii\n$fullchain2 = \"trusti..."
+    },
+    {
+      "name": "malware_cryptominer_013_03",
+      "valid": true,
+      "errors": [],
+      "warnings": [],
+      "line_start": 3250,
+      "line_end": 3262,
+      "content_preview": "rule malware_cryptominer_013_03\n{\nmeta:\ndescription = \"Converted from JSON signature malware.cryptominer.013.03\"\n\nstrings:\n$fullchain0 = \"<script\" ascii\n$fullchain1 = \"EverythingIsLife(\" ascii\n$fullch..."
+    }
+  ],
+  "timestamp": "2025-08-27T14:15:47.508282"
+}
