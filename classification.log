@@ -4,3 +4,115 @@
 2025-08-27 14:18:55,383 - INFO - 📝 Using custom optimized prompt for classification
 2025-08-27 14:18:55,383 - INFO - 🔍 Classifying input data structure using Gocaas API...
 2025-08-27 14:19:02,897 - INFO - 💾 Classification results saved to: classification_memWebshell_20250827_141902.json
+2025-08-28 14:00:17,715 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 14:00:17,715 - INFO - 🔍 Filtered PHP content: removed 2 documentation lines
+2025-08-28 14:00:17,715 - INFO - 📋 Loaded and filtered PHP data from test_files/AK-74.php (size: 19306 bytes)
+2025-08-28 14:00:17,715 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 14:00:17,715 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 14:01:39,116 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 14:01:39,117 - INFO - 🔍 Filtered PHP content: removed 2 documentation lines
+2025-08-28 14:01:39,117 - INFO - 📋 Loaded and filtered PHP data from test_files/AK-74.php (size: 19306 bytes)
+2025-08-28 14:01:39,117 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 14:01:39,117 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 14:08:09,240 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 14:08:09,240 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 14:08:09,240 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 14:08:09,240 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 14:08:09,240 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 14:08:09,326 - ERROR - API request failed: 401
+2025-08-28 14:08:09,327 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_140809.json
+2025-08-28 14:11:29,197 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 14:11:29,198 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 14:11:29,198 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 14:11:29,198 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 14:11:29,198 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 14:11:29,386 - ERROR - API request failed: 401
+2025-08-28 14:11:29,387 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_141129.json
+2025-08-28 14:12:16,121 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 14:12:16,121 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 14:12:16,121 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 14:12:16,121 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 14:12:16,121 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 14:12:16,311 - ERROR - API request failed: 401
+2025-08-28 14:12:16,312 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_141216.json
+2025-08-28 14:12:20,984 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 14:12:20,984 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 14:12:20,984 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 14:12:20,984 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 14:12:20,984 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 14:12:21,105 - ERROR - API request failed: 401
+2025-08-28 14:12:21,106 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_141221.json
+2025-08-28 14:12:30,394 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 14:12:30,394 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 14:12:30,395 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 14:12:30,395 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 14:12:30,395 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 14:12:30,569 - ERROR - API request failed: 401
+2025-08-28 14:12:30,571 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_141230.json
+2025-08-28 20:29:57,070 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 20:29:57,070 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 20:29:57,070 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 20:29:57,070 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 20:29:57,070 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 20:29:57,332 - ERROR - API request failed: 401
+2025-08-28 20:29:57,333 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_202957.json
+2025-08-28 20:30:04,810 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 20:30:04,810 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 20:30:04,810 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 20:30:04,810 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 20:30:04,810 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 20:30:04,998 - ERROR - API request failed: 401
+2025-08-28 20:30:04,999 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_203004.json
+2025-08-28 23:27:47,426 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:27:47,427 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 23:27:47,427 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 23:27:47,427 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:27:47,427 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:27:47,603 - ERROR - API request failed: 401
+2025-08-28 23:27:47,604 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_232747.json
+2025-08-28 23:28:28,139 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:28:28,139 - INFO - 🔍 Filtered PHP content: removed 2 documentation lines
+2025-08-28 23:28:28,139 - INFO - 📋 Loaded and filtered PHP data from test_files/529.php (size: 1385 bytes)
+2025-08-28 23:28:28,139 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:28:28,139 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:28:28,364 - ERROR - API request failed: 401
+2025-08-28 23:28:28,365 - INFO - 💾 Classification results saved to: classification_529_20250828_232828.json
+2025-08-28 23:30:57,043 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:30:57,043 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 23:30:57,043 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 23:30:57,043 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:30:57,043 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:30:57,277 - ERROR - API request failed: 401
+2025-08-28 23:30:57,278 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_233057.json
+2025-08-28 23:31:31,027 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:31:31,027 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 23:31:31,027 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 23:31:31,027 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:31:31,027 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:31:31,222 - ERROR - API request failed: 401
+2025-08-28 23:31:31,222 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_233131.json
+2025-08-28 23:50:21,844 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:50:21,844 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 23:50:21,844 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 23:50:21,844 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:50:21,844 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:50:22,005 - ERROR - API request failed: 401
+2025-08-28 23:50:22,006 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_235022.json
+2025-08-28 23:54:37,541 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:54:37,541 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 23:54:37,541 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 23:54:37,541 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:54:37,541 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:54:42,513 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_235442.json
+2025-08-28 23:55:38,562 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:55:38,562 - INFO - 🔍 Filtered PHP content: removed 0 documentation lines
+2025-08-28 23:55:38,562 - INFO - 📋 Loaded and filtered PHP data from test_files/memWebshell.php (size: 337 bytes)
+2025-08-28 23:55:38,562 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:55:38,562 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:55:45,244 - INFO - 💾 Classification results saved to: classification_memWebshell_20250828_235545.json
+2025-08-28 23:55:45,412 - INFO - 🔍 Removed echo/print documentation statements from PHP content
+2025-08-28 23:55:45,413 - INFO - 🔍 Filtered PHP content: removed 2 documentation lines
+2025-08-28 23:55:45,413 - INFO - 📋 Loaded and filtered PHP data from test_files/529.php (size: 1385 bytes)
+2025-08-28 23:55:45,413 - INFO - 📝 Using custom optimized prompt for classification
+2025-08-28 23:55:45,413 - INFO - 🔍 Classifying input data structure using Gocaas API...
+2025-08-28 23:55:54,125 - INFO - 💾 Classification results saved to: classification_529_20250828_235554.json

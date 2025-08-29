@@ -1,0 +1,26 @@
+2025-08-28 23:27:25,894 - INFO - 📋 Parsed 237 YARA rules from data/yara_rules.yar
+2025-08-28 23:27:25,894 - INFO - 🚀 Starting validation of 237 rules...
+2025-08-28 23:27:25,894 - INFO - 📊 Progress: 1/237 - backdoor_curl_002
+2025-08-28 23:27:25,895 - INFO - 🔍 Validating rule: backdoor_curl_002
+2025-08-28 23:27:26,056 - ERROR - API request failed for backdoor_curl_002: 401
+2025-08-28 23:27:26,562 - INFO - 📊 Progress: 2/237 - backdoor_eval_001
+2025-08-28 23:27:26,564 - INFO - 🔍 Validating rule: backdoor_eval_001
+2025-08-28 23:27:26,724 - ERROR - API request failed for backdoor_eval_001: 401
+2025-08-28 23:27:27,228 - INFO - 📊 Progress: 3/237 - backdoor_eval_009
+2025-08-28 23:27:27,229 - INFO - 🔍 Validating rule: backdoor_eval_009
+2025-08-28 23:27:27,391 - ERROR - API request failed for backdoor_eval_009: 401
+2025-08-28 23:27:27,897 - INFO - 📊 Progress: 4/237 - backdoor_eval_base64_022
+2025-08-28 23:27:27,901 - INFO - 🔍 Validating rule: backdoor_eval_base64_022
+2025-08-28 23:27:28,062 - ERROR - API request failed for backdoor_eval_base64_022: 401
+2025-08-28 23:27:28,569 - INFO - 📊 Progress: 5/237 - backdoor_eval_base64_024
+2025-08-28 23:27:28,573 - INFO - 🔍 Validating rule: backdoor_eval_base64_024
+2025-08-28 23:27:28,755 - ERROR - API request failed for backdoor_eval_base64_024: 401
+2025-08-28 23:27:29,258 - INFO - 📊 Progress: 6/237 - backdoor_evalphp_004
+2025-08-28 23:27:29,263 - INFO - 🔍 Validating rule: backdoor_evalphp_004
+2025-08-28 23:27:29,447 - ERROR - API request failed for backdoor_evalphp_004: 401
+2025-08-28 23:27:29,952 - INFO - 📊 Progress: 7/237 - backdoor_magento_template_001
+2025-08-28 23:27:29,956 - INFO - 🔍 Validating rule: backdoor_magento_template_001
+2025-08-28 23:27:30,100 - ERROR - API request failed for backdoor_magento_template_001: 401
+2025-08-28 23:27:30,607 - INFO - 📊 Progress: 8/237 - backdoor_magento_template_002
+2025-08-28 23:27:30,610 - INFO - 🔍 Validating rule: backdoor_magento_template_002
+2025-08-28 23:27:30,766 - ERROR - API request failed for backdoor_magento_template_002: 401

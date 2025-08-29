@@ -31,3 +31,335 @@
 2025-08-27 14:19:05,220 - INFO - ✅ JSON file created: data/signatures.json (237 signatures)
 2025-08-27 14:19:05,221 - INFO - ✅ YARA file created: data/yara_rules.yar (238 rules)
 2025-08-27 14:19:05,221 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 14:00:17,093 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 14:00:17,093 - INFO - 🔍 Checking prerequisites...
+2025-08-28 14:00:17,093 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 14:00:17,093 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 14:00:17,093 - INFO - 📁 Processing input file 1/1: AK-74.php
+2025-08-28 14:00:17,093 - INFO - 🔍 Analyzing binary file: AK-74.php
+2025-08-28 14:00:17,199 - INFO - ✅ Prompt optimization completed for AK-74.php
+2025-08-28 14:00:17,199 - INFO - 📝 Using optimized prompt for AK-74.php
+2025-08-28 14:01:38,970 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 14:01:38,970 - INFO - 🔍 Checking prerequisites...
+2025-08-28 14:01:38,970 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 14:01:38,970 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 14:01:38,970 - INFO - 📁 Processing input file 1/1: AK-74.php
+2025-08-28 14:01:38,970 - INFO - 🔍 Analyzing binary file: AK-74.php
+2025-08-28 14:01:39,012 - INFO - ✅ Prompt optimization completed for AK-74.php
+2025-08-28 14:01:39,012 - INFO - 📝 Using optimized prompt for AK-74.php
+2025-08-28 14:03:39,024 - ERROR - ❌ Unexpected error processing binary file AK-74.php: Command '['/Users/nsimon/code/yara/.venv/bin/python3', 'scripts/data_classifier.py', 'test_files/AK-74.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' timed out after 120 seconds
+2025-08-28 14:03:39,026 - INFO - 📁 No text files to process
+2025-08-28 14:03:39,027 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 14:03:39,027 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 14:03:39,027 - INFO - ✅ Step 1 completed
+2025-08-28 14:03:39,027 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 14:03:39,094 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 14:03:39,094 - INFO - ✅ Step 2 completed
+2025-08-28 14:03:39,094 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 14:03:39,148 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 14:03:39,148 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 14:03:39,148 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_140339.json
+2025-08-28 14:03:39,148 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 14:03:39,148 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 14:03:39,149 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 14:03:39,149 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 14:07:45,163 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 14:07:45,163 - INFO - 🔍 Checking prerequisites...
+2025-08-28 14:07:45,163 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 14:07:45,163 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 14:07:45,163 - INFO - 📁 Processing input file 1/1: signature_patterns.txt
+2025-08-28 14:07:45,206 - INFO - ✅ Successfully converted signature_patterns.txt to JSON
+2025-08-28 14:07:45,206 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-28 14:07:45,207 - INFO - 📁 Single JSON file created: data/signatures.json
+2025-08-28 14:07:45,207 - INFO - ✅ Step 1 completed
+2025-08-28 14:07:45,207 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 14:07:45,237 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 14:07:45,238 - INFO - ✅ Step 2 completed
+2025-08-28 14:07:45,238 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 14:07:47,327 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 14:07:47,327 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 14:07:47,327 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_140745.json
+2025-08-28 14:07:47,327 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 14:07:47,328 - INFO - ✅ JSON file created: data/signatures.json (237 signatures)
+2025-08-28 14:07:47,329 - INFO - ✅ YARA file created: data/yara_rules.yar (237 rules)
+2025-08-28 14:07:47,329 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 14:08:09,075 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 14:08:09,075 - INFO - 🔍 Checking prerequisites...
+2025-08-28 14:08:09,075 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 14:08:09,075 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 14:08:09,075 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 14:08:09,075 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 14:08:09,121 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 14:08:09,122 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 14:08:09,340 - ERROR - ❌ Binary file processing failed for memWebshell.php: Command '['/Users/nsimon/code/yara/.venv/bin/python3', 'scripts/data_classifier.py', 'test_files/memWebshell.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 14:08:09,341 - INFO - 📁 No text files to process
+2025-08-28 14:08:09,341 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 14:08:09,341 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 14:08:09,341 - INFO - ✅ Step 1 completed
+2025-08-28 14:08:09,341 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 14:08:09,376 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 14:08:09,376 - INFO - ✅ Step 2 completed
+2025-08-28 14:08:09,376 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 14:08:09,421 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 14:08:09,421 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 14:08:09,421 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_140809.json
+2025-08-28 14:08:09,421 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 14:08:09,421 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 14:08:09,421 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 14:08:09,421 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 14:11:29,037 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 14:11:29,037 - INFO - 🔍 Checking prerequisites...
+2025-08-28 14:11:29,037 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 14:11:29,037 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 14:11:29,037 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 14:11:29,037 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 14:11:29,084 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 14:11:29,085 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 14:11:29,405 - ERROR - ❌ Binary file processing failed for memWebshell.php: Command '['/Users/nsimon/code/yara/.venv/bin/python3', 'scripts/data_classifier.py', 'test_files/memWebshell.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 14:11:29,406 - INFO - 📁 No text files to process
+2025-08-28 14:11:29,406 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 14:11:29,406 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 14:11:29,406 - INFO - ✅ Step 1 completed
+2025-08-28 14:11:29,406 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 14:11:29,449 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 14:11:29,449 - INFO - ✅ Step 2 completed
+2025-08-28 14:11:29,449 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 14:11:29,499 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 14:11:29,499 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 14:11:29,500 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_141129.json
+2025-08-28 14:11:29,500 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 14:11:29,500 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 14:11:29,500 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 14:11:29,500 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 14:12:15,937 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 14:12:15,937 - INFO - 🔍 Checking prerequisites...
+2025-08-28 14:12:15,937 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 14:12:15,937 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 14:12:15,937 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 14:12:15,937 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 14:12:15,980 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 14:12:15,981 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 14:12:16,333 - ERROR - ❌ Binary file processing failed for memWebshell.php: Command '['/Library/Frameworks/Python.framework/Versions/3.13/bin/python3', 'scripts/data_classifier.py', 'test_files/memWebshell.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 14:12:16,333 - INFO - 📁 No text files to process
+2025-08-28 14:12:16,334 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 14:12:16,334 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 14:12:16,334 - INFO - ✅ Step 1 completed
+2025-08-28 14:12:16,334 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 14:12:16,374 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 14:12:16,374 - INFO - ✅ Step 2 completed
+2025-08-28 14:12:16,374 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 14:12:16,421 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 14:12:16,421 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 14:12:16,421 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_141216.json
+2025-08-28 14:12:16,421 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 14:12:16,421 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 14:12:16,422 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 14:12:16,422 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 20:29:56,874 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 20:29:56,874 - INFO - 🔍 Checking prerequisites...
+2025-08-28 20:29:56,874 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 20:29:56,874 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 20:29:56,874 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 20:29:56,874 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 20:29:56,926 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 20:29:56,927 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 20:29:57,354 - ERROR - ❌ Binary file processing failed for memWebshell.php: Command '['/Library/Frameworks/Python.framework/Versions/3.13/bin/python3', 'scripts/data_classifier.py', 'test_files/memWebshell.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 20:29:57,354 - INFO - 📁 No text files to process
+2025-08-28 20:29:57,354 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 20:29:57,355 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 20:29:57,355 - INFO - ✅ Step 1 completed
+2025-08-28 20:29:57,355 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 20:29:57,399 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 20:29:57,399 - INFO - ✅ Step 2 completed
+2025-08-28 20:29:57,400 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 20:29:57,452 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 20:29:57,452 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 20:29:57,452 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_202957.json
+2025-08-28 20:29:57,452 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 20:29:57,453 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 20:29:57,453 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 20:29:57,453 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 23:27:23,748 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 23:27:23,749 - INFO - 🔍 Checking prerequisites...
+2025-08-28 23:27:23,749 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 23:27:23,749 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 23:27:23,749 - INFO - 📁 Processing input file 1/1: signature_patterns.txt
+2025-08-28 23:27:23,790 - INFO - ✅ Successfully converted signature_patterns.txt to JSON
+2025-08-28 23:27:23,790 - INFO - 🔄 Converting 1 text file(s) to JSON...
+2025-08-28 23:27:23,790 - INFO - 📁 Single JSON file created: data/signatures.json
+2025-08-28 23:27:23,790 - INFO - ✅ Step 1 completed
+2025-08-28 23:27:23,791 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 23:27:23,822 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 23:27:23,822 - INFO - ✅ Step 2 completed
+2025-08-28 23:27:23,822 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 23:27:25,777 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 23:27:25,777 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 23:27:25,777 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_232723.json
+2025-08-28 23:27:25,777 - INFO - 🔄 Step 3: Running LLM validation...
+2025-08-28 23:27:47,268 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 23:27:47,268 - INFO - 🔍 Checking prerequisites...
+2025-08-28 23:27:47,268 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 23:27:47,268 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 23:27:47,268 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 23:27:47,268 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 23:27:47,315 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 23:27:47,315 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 23:27:47,618 - ERROR - ❌ Binary file processing failed for memWebshell.php: Command '['/Users/nsimon/code/yara/.venv/bin/python3', 'scripts/data_classifier.py', 'test_files/memWebshell.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 23:27:47,619 - INFO - 📁 No text files to process
+2025-08-28 23:27:47,620 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 23:27:47,620 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 23:27:47,620 - INFO - ✅ Step 1 completed
+2025-08-28 23:27:47,620 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 23:27:47,667 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 23:27:47,667 - INFO - ✅ Step 2 completed
+2025-08-28 23:27:47,667 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 23:27:47,710 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 23:27:47,710 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 23:27:47,710 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_232747.json
+2025-08-28 23:27:47,710 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 23:27:47,711 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 23:27:47,711 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 23:27:47,711 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 23:28:27,991 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 23:28:27,991 - INFO - 🔍 Checking prerequisites...
+2025-08-28 23:28:27,991 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 23:28:27,992 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 23:28:27,992 - INFO - 📁 Processing input file 1/1: 529.php
+2025-08-28 23:28:27,992 - INFO - 🔍 Analyzing binary file: 529.php
+2025-08-28 23:28:28,032 - INFO - ✅ Prompt optimization completed for 529.php
+2025-08-28 23:28:28,033 - INFO - 📝 Using optimized prompt for 529.php
+2025-08-28 23:28:28,386 - ERROR - ❌ Binary file processing failed for 529.php: Command '['/Users/nsimon/code/yara/.venv/bin/python3', 'scripts/data_classifier.py', 'test_files/529.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 23:28:28,387 - INFO - 📁 No text files to process
+2025-08-28 23:28:28,387 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 23:28:28,387 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 23:28:28,387 - INFO - ✅ Step 1 completed
+2025-08-28 23:28:28,387 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 23:28:28,424 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 23:28:28,424 - INFO - ✅ Step 2 completed
+2025-08-28 23:28:28,424 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 23:28:28,469 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 23:28:28,469 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 23:28:28,469 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_232828.json
+2025-08-28 23:28:28,469 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 23:28:28,469 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 23:28:28,469 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 23:28:28,469 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 23:30:56,832 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 23:30:56,832 - INFO - 🔍 Checking prerequisites...
+2025-08-28 23:30:56,832 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 23:30:56,832 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 23:30:56,832 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 23:30:56,832 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 23:30:56,883 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 23:30:56,884 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 23:30:57,298 - ERROR - ❌ Binary file processing failed for memWebshell.php: Command '['/Library/Frameworks/Python.framework/Versions/3.13/bin/python3', 'scripts/data_classifier.py', 'test_files/memWebshell.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 23:30:57,299 - INFO - 📁 No text files to process
+2025-08-28 23:30:57,299 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 23:30:57,300 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 23:30:57,300 - INFO - ✅ Step 1 completed
+2025-08-28 23:30:57,300 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 23:30:57,342 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 23:30:57,342 - INFO - ✅ Step 2 completed
+2025-08-28 23:30:57,342 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 23:30:57,392 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 23:30:57,392 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 23:30:57,392 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_233057.json
+2025-08-28 23:30:57,392 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 23:30:57,392 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 23:30:57,392 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 23:30:57,392 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 23:50:21,672 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 23:50:21,672 - INFO - 🔍 Checking prerequisites...
+2025-08-28 23:50:21,672 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 23:50:21,672 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 23:50:21,672 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 23:50:21,672 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 23:50:21,722 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 23:50:21,723 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 23:50:22,028 - ERROR - ❌ Binary file processing failed for memWebshell.php: Command '['/Library/Frameworks/Python.framework/Versions/3.13/bin/python3', 'scripts/data_classifier.py', 'test_files/memWebshell.php', '--custom-prompt', '⚠️  CRITICAL YARA SYNTAX WARNING - READ FIRST ⚠️\n\n🚫 ABSOLUTELY FORBIDDEN - These will cause syntax errors and break your rules:\n- \'filetype == "php"\' - This identifier does NOT exist in YARA\n- \'file_type == "exe"\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS use proper file type detection with defined strings and magic bytes.\n\nTask: Convert this signature/indicator into a syntactically correct YARA rule.\n\nContext: The source is .php. For PHP files, focus on analyzing the actual code behavior, function calls, variable usage, and execution patterns. Ignore documentation, comments, HTML content, and echo/print statements as they are often just malware author descriptions.\n\nExample of a good PHP YARA rule:\nrule PHP_Webshell_Example {\n    meta:\n        description = "Detects PHP webshell with code execution capabilities"\n        author = "Security Analyst"\n        severity = "HIGH"\n        category = "MALWARE"\n    \n    strings:\n        $eval_func = "eval(" ascii\n        $php_header = "<?php" ascii\n        $php_short = "<?=" ascii\n        $system_func = "system(" ascii\n        $exec_func = "exec(" ascii\n        $shell_exec = "shell_exec(" ascii\n        $passthru_func = "passthru(" ascii\n        $file_get_contents = "file_get_contents(" ascii\n        $file_put_contents = "file_put_contents(" ascii\n        $unlink_func = "unlink(" ascii\n        $chmod_func = "chmod(" ascii\n    \n    condition:\n        ($php_header or $php_short) and\n        3 of ($eval_func, $system_func, $exec_func, $shell_exec, $passthru_func) and\n        2 of ($file_get_contents, $file_put_contents, $unlink_func, $chmod_func)\n}\n\nIMPORTANT YARA SYNTAX RULES - READ CAREFULLY:\n\n🚫 NEVER USE THESE INVALID IDENTIFIERS:\n- \'filetype\' - This identifier does NOT exist in YARA\n- \'file_type\' - This identifier does NOT exist in YARA\n- Any other file type identifiers that aren\'t defined as strings\n\n✅ ALWAYS USE THESE CORRECT FILE TYPE DETECTION METHODS:\n\n1. PHP FILES:\n   - Use: \'$php_header = "<?php" ascii\' and \'$php_short = "<?=" ascii\'\n   - Condition: \'($php_header or $php_short) and ...\'\n   - NEVER use: \'filetype == "php"\'\n\n2. EXECUTABLE FILES:\n   - Use: \'$pe_header = { 4D 5A }\' (MZ magic bytes)\n   - Use: \'$elf_header = { 7F 45 4C 46 }\' (ELF magic bytes)\n   - Condition: \'$pe_header at 0\' or \'$elf_header at 0\'\n\n3. ZIP FILES:\n   - Use: \'$zip_header = { 50 4B 03 04 }\' (PK magic bytes)\n   - Condition: \'$zip_header at 0\'\n\n4. PDF FILES:\n   - Use: \'$pdf_header = "%PDF" ascii\'\n   - Condition: \'$pdf_header at 0\'\n\n5. DOC FILES:\n   - Use: \'$doc_header = { D0 CF 11 E0 A1 B1 1A E1 }\'\n   - Condition: \'$doc_header at 0\'\n\nConstraints: Follow YARA syntax rules, avoid unsupported regex (no (?:...) groups, no backreferences), focus on detecting malicious code patterns and behaviors. Prioritize function calls, variable manipulation, and execution patterns over text output. AVOID using descriptive text strings from echo/print statements as they are unreliable and change frequently.\n\nOutput format: Return only a valid YARA rule.']' returned non-zero exit status 1.
+2025-08-28 23:50:22,028 - INFO - 📁 No text files to process
+2025-08-28 23:50:22,029 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 23:50:22,029 - WARNING - ⚠️  No binary files were successfully processed
+2025-08-28 23:50:22,029 - INFO - ✅ Step 1 completed
+2025-08-28 23:50:22,029 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 23:50:22,108 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 23:50:22,108 - INFO - ✅ Step 2 completed
+2025-08-28 23:50:22,108 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 23:50:22,158 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 23:50:22,158 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 23:50:22,158 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_235022.json
+2025-08-28 23:50:22,158 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 23:50:22,158 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 23:50:22,159 - INFO - ✅ YARA file created: data/yara_rules.yar (0 rules)
+2025-08-28 23:50:22,159 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 23:54:37,395 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 23:54:37,395 - INFO - 🔍 Checking prerequisites...
+2025-08-28 23:54:37,395 - INFO - ✅ All prerequisites met - 1 input file(s) found
+2025-08-28 23:54:37,395 - INFO - 🔄 Step 1: Processing 1 input file(s)...
+2025-08-28 23:54:37,395 - INFO - 📁 Processing input file 1/1: memWebshell.php
+2025-08-28 23:54:37,395 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 23:54:37,436 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 23:54:37,437 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 23:54:42,541 - INFO - ✅ Data classification completed for memWebshell.php
+2025-08-28 23:54:42,543 - INFO - 💾 Classification results loaded from classification_memWebshell_20250828_235442.json
+2025-08-28 23:54:42,543 - INFO - 📁 No text files to process
+2025-08-28 23:54:42,543 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 23:54:42,543 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-28 23:54:42,543 - INFO - 🔄 Processing 1 binary file(s) with LLM...
+2025-08-28 23:54:42,833 - INFO - ✅ Rule memWebshell validated through syntax layer
+2025-08-28 23:54:42,833 - INFO - ✅ Rule memWebshell syntax already valid
+2025-08-28 23:54:42,834 - INFO - 📋 Extracted YARA rule from memWebshell.php
+2025-08-28 23:54:42,834 - INFO - ✅ Extracted 1 YARA rules from binary files
+2025-08-28 23:54:42,834 - INFO - ✅ Step 1 completed
+2025-08-28 23:54:42,834 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 23:54:42,874 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 23:54:42,875 - INFO - ✅ Appended 1 binary file rules to data/yara_rules.yar
+2025-08-28 23:54:42,875 - INFO - ✅ Step 2 completed
+2025-08-28 23:54:42,875 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 23:54:42,967 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 23:54:42,967 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 23:54:42,967 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_235442.json
+2025-08-28 23:54:42,967 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 23:54:42,967 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 23:54:42,968 - INFO - ✅ YARA file created: data/yara_rules.yar (1 rules)
+2025-08-28 23:54:42,968 - INFO - 🎉 Pipeline completed successfully!
+2025-08-28 23:55:38,417 - INFO - 🚀 Starting YARA Pipeline...
+2025-08-28 23:55:38,418 - INFO - 🔍 Checking prerequisites...
+2025-08-28 23:55:38,418 - INFO - ✅ All prerequisites met - 2 input file(s) found
+2025-08-28 23:55:38,418 - INFO - 🔄 Step 1: Processing 2 input file(s)...
+2025-08-28 23:55:38,418 - INFO - 📁 Processing input file 1/2: memWebshell.php
+2025-08-28 23:55:38,418 - INFO - 🔍 Analyzing binary file: memWebshell.php
+2025-08-28 23:55:38,459 - INFO - ✅ Prompt optimization completed for memWebshell.php
+2025-08-28 23:55:38,460 - INFO - 📝 Using optimized prompt for memWebshell.php
+2025-08-28 23:55:45,260 - INFO - ✅ Data classification completed for memWebshell.php
+2025-08-28 23:55:45,261 - INFO - 💾 Classification results loaded from classification_memWebshell_20250828_235545.json
+2025-08-28 23:55:45,261 - INFO - 📁 Processing input file 2/2: 529.php
+2025-08-28 23:55:45,261 - INFO - 🔍 Analyzing binary file: 529.php
+2025-08-28 23:55:45,307 - INFO - ✅ Prompt optimization completed for 529.php
+2025-08-28 23:55:45,307 - INFO - 📝 Using optimized prompt for 529.php
+2025-08-28 23:55:54,153 - INFO - ✅ Data classification completed for 529.php
+2025-08-28 23:55:54,154 - INFO - 💾 Classification results loaded from classification_529_20250828_235554.json
+2025-08-28 23:55:54,154 - INFO - 📁 No text files to process
+2025-08-28 23:55:54,155 - INFO - 📁 Created empty JSON structure: data/signatures_empty.json
+2025-08-28 23:55:54,155 - INFO - 🔄 Processing 2 binary file(s) with LLM...
+2025-08-28 23:55:54,155 - INFO - 🔄 Processing 2 binary file(s) with LLM...
+2025-08-28 23:55:54,459 - INFO - ✅ Rule memWebshell validated through syntax layer
+2025-08-28 23:55:54,460 - INFO - ✅ Rule memWebshell syntax already valid
+2025-08-28 23:55:54,460 - INFO - 📋 Extracted YARA rule from memWebshell.php
+2025-08-28 23:55:54,755 - INFO - ✅ Rule 529 validated through syntax layer
+2025-08-28 23:55:54,755 - INFO - ✅ Rule 529 syntax already valid
+2025-08-28 23:55:54,756 - INFO - 📋 Extracted YARA rule from 529.php
+2025-08-28 23:55:54,756 - INFO - ✅ Extracted 2 YARA rules from binary files
+2025-08-28 23:55:54,756 - INFO - ✅ Step 1 completed
+2025-08-28 23:55:54,756 - INFO - 🔄 Step 2: Converting JSON to YARA rules...
+2025-08-28 23:55:54,795 - INFO - ✅ Successfully converted JSON to YARA rules: data/yara_rules.yar
+2025-08-28 23:55:54,796 - INFO - ✅ Appended 2 binary file rules to data/yara_rules.yar
+2025-08-28 23:55:54,796 - INFO - ✅ Step 2 completed
+2025-08-28 23:55:54,796 - INFO - 🔍 Running YARA syntax validation...
+2025-08-28 23:55:54,867 - INFO - ✅ YARA syntax validation completed successfully
+2025-08-28 23:55:54,867 - INFO - ✅ All generated rules are syntactically valid
+2025-08-28 23:55:54,867 - INFO - 💾 Validation results stored in: /Users/nsimon/code/yara/validation_results/yara_validation_20250828_235554.json
+2025-08-28 23:55:54,867 - INFO - 🔍 Validating pipeline outputs...
+2025-08-28 23:55:54,867 - INFO - ✅ JSON file created: data/signatures_empty.json (0 signatures)
+2025-08-28 23:55:54,867 - INFO - ✅ YARA file created: data/yara_rules.yar (2 rules)
+2025-08-28 23:55:54,867 - INFO - 🎉 Pipeline completed successfully!
